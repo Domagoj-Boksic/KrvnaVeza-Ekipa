@@ -1,8 +1,8 @@
-# [Naziv aplikacije] — Projektna dokumentacija
+# KrvnaVeza — Projektna dokumentacija
 
 **Kolegij:** [Programsko inženjerstvo](https://www.fer.unizg.hr/predmet/proinz), Fakultet elektrotehnike i računarstva Sveučilišta u Zagrebu  
-**Akademska godina:** [20XX./20XX.]  
-**Tim:** [Oznaka i naziv tima]  
+**Akademska godina:** [2026./2027.]  
+**Tim:** Ekipa 
 **Nastavnik:** Vlado Sruk  
 **Asistent / demonstrator:** [Ime i uloga u ovom izvođenju kolegija]
 
