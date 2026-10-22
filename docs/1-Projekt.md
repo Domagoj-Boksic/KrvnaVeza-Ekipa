@@ -4,6 +4,13 @@
 
 ## 1.1 Problem i cilj projekta
 
+Bolnice svakodnevno trebaju krv za operacije, liječenje onkoloških bolesnika i zbrinjavanje hitnih stanja. Krv se ne može proizvesti, a njezini sastojci imaju ograničen rok trajanja, pa zalihe moraju stalno obnavljati dobrovoljni darivatelji.
+Zalihe pritom nisu stabilne: ljeti i u vrijeme blagdana darivatelja je manje, a zaliha pojedinih krvnih grupa, osobito negativnih, zna pasti ispod kritične razine.
+Mnogi bi darivatelji češće darivali krv kad bi znali kada ponovno smiju darivati, gdje se i kada održava najbliža akcija darivanja i da je upravo njihova krvna grupa trenutno potrebna. 
+Postojeći sustavi oslanjaju se na zastarjele metode obavještavanja darivatelja (telefonski pozivi, plakati i poruke) koje ne dopiru do svih, dok se evidencija darivanja vodi odvojeno od informacija koje su darivateljima dostupne.
+Cilj je stvoriti funkcionalnu platformu koja povezuje darivatelje krvi, transfuzijske centre i organizatore terenskih akcija darivanja. 
+Darivatelj na njoj vidi kada i gdje može darivati i rezervira termin, centar prati zalihe i u slučaju potrebe ciljano poziva odgovarajuće darivatelje, a organizator akcija lakše planira akcije i prati odaziv.
+
 **Cilj:** Jasno razgraničiti problem koji se rješava od predloženog rješenja i stvarne koristi za korisnika.
 
 [Problem, cilj i očekivana korist vlastitim riječima tima.]
@@ -19,11 +26,14 @@
 
 ## 1.2 Ciljani korisnici i dionici
 
+
 **Cilj:** Utvrditi osobe, uloge i organizacije čije potrebe i interesi određuju projektni zadatak.
 
 | Skupina korisnika ili dionika | Potreba ili interes relevantan za ovaj projekt |
 | --- | --- |
-|  |  |
+| Građanin  | Pregled lokacija i slobodnih termina, rezervacija termina, primanje obavijesti i podsjetnika te pregled povijesti darivanja|
+| Djelatnik | Kapacitet termina, radno vrijeme, potvrđivanje krvne grupe, unos i promjena zaliha, odobravanje hitnog poziva i određuje područje na koje se šalje, prihvaća ili odbija sudjelovanje na nekoj od akcija.  |
+| Organizator akcija | Preflaganje terenskih akcija, za svaku akciju određuje vrijeme, lokaciju, datum i očekivani broj darivatelja, dodjela priznanja, |
 
 <details>
 <summary><strong>Korisnici, dionici i neobavezna persona</strong></summary>
@@ -35,6 +45,7 @@
 | Građanin | Pronaći informacije o obližnjim kriznim događajima i podnijeti prijavu kriznog događaja s lokacijom. |
 | Koordinator pomoći | Pregledati prijave relevantne za područje i dostupne resurse, ako je koordinacija unutar odobrenog opsega. |
 | Regulatorno tijelo / Agencija za zaštitu podataka (Dionik) | Zahtijeva osiguravanje anonimnosti prijavitelja i zaštitu osobnih podataka (npr. usklađenost s GDPR-om). Ovaj dionik ne koristi aplikaciju, ali definira ograničenja sustava. |
+| Admnistrator | Uređuje prijave, registracije, dodjeljuje korisničke profile|
 
 Riječ je o dvjema različitim potrebama, a ne o dvjema izmišljenim biografijama. Akter komunicira s aplikacijom; demonstrator na kolegiju kojem je rezultat zanimljiv ne mora biti akter aplikacije. Koristite uloge i ovlasti iz svojeg odobrenog zadatka. Persona je neobavezna i korisna je kada pomaže riješiti konkretno projektno pitanje.
 
@@ -46,9 +57,11 @@ Riječ je o dvjema različitim potrebama, a ne o dvjema izmišljenim biografijam
 
 **Cilj:** Jasno definirati granice sustava — što je obuhvaćeno odobrenim zadatkom, što je svjesno izostavljeno ili odgođeno te o kojim vanjskim uslugama sustav izravno ovisi.
 
-**Uključeno:** [Glavne mogućnosti.]  
+**Uključeno:** Web aplikacija prilagođena mobilnim uređajima (responsive); registracija i prijava korisnika putem OAuth 2.0 protokola s tokenima; javni prikaz karte transfuzijskih centara, akcija i stanja zaliha; upravljanje profilom darivatelja i automatski izračun datuma podobnosti; rezervacija termina i prijava na terenske akcije uz ispunjavanje upitnika za samoprocjenu (još treba nadodat)
+[Glavne mogućnosti.]  
 **Izvan opsega ili odgođeno:** [Navedite funkcionalnosti koje su namjerno izostavljene ili prebačene u buduće verzije, uz kratko inženjersko ili vremensko obrazloženje.] 
-**Vanjske ovisnosti:** [Navedite nužne vanjske usluge, API-je, baze podataka ili izvore informacija bez kojih sustav ne može funkcionirati (npr. Google Maps, platni pristupnici, vanjski pružatelj identiteta (OAuth)).]
+**Vanjske ovisnosti:** Pružatelj kartografskih usluga za prikaz karte (npr. Google Maps); vanjski servis za slanje SMS poruka (npr. Infobip ili Twilio); autorizacija unutar aplikacije provodi se preko OAuth 2.0 protokola koristeći tokene.
+[Navedite nužne vanjske usluge, API-je, baze podataka ili izvore informacija bez kojih sustav ne može funkcionirati (npr. Google Maps, platni pristupnici, vanjski pružatelj identiteta (OAuth)).]
 
 <details>
 <summary><strong>Primjer početne granice projekta</strong></summary>
