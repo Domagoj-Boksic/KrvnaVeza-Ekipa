@@ -62,7 +62,11 @@ Za složenu interakciju kratak scenarij *Given / When / Then* može pojasniti kr
 | ID | Opis | Prioritet | Izvor | Način provjere |
 | --- | --- | --- | --- | --- |
 | NF-01 | [Konkretan zahtjev (npr. odziv, sigurnost, pristupačnost)] | Visok / Srednji / Nizak | [Sigurnost / Uputa / SLA] | [Mjerenje / Testni scenarij / Pregled] |
-|  |  |  |  |  |
+| NF-01 | Aplikacija treba biti izvedena kao web aplikacija prilagođena (engl. responsive) mobilnom uređaju.| Visok | Projektni zadatak | Testirati aplikaciju i responzivni dizajn na različitim veličinama zaslona. |
+| NF-02 | Podaci o zdravstvenom stanju darivatelja (odgovori iz upitnika, razlozi odbijanja i odgode) osjetljivi su osobni podaci: dostupni su samo djelatnicima transfuzijskog centra, a svaki pristup tim podacima bilježi se u zapisnik. | Visok | Projektni zadatak | Provjeriti pristup s drugih računa tj. neovlaštenim korisnicima te pregledati zapisnik pristupa. |
+| NF-03 | Darivatelj može preuzeti sve svoje podatke i zatražiti brisanje korisničkog računa, pri čemu se evidencija njegovih darivanja anonimizira, ali ne briše, jer je potrebna za sljedivost doza krvi| Visok | Projeknti zadatak | Pokrenuti zahtjev brisanja računa uz provjeru jesu li podaci anonimizirani te ostali u sustavu zaliha krvi. |
+| NF-04 | Stanje zaliha na pegledima mora se ažurirati automatski, bez ručnog osvježanja. | Visoka | Projektni zadatak | Izvršiti provjeru zaliha u pozadini i provjeriti pojavljuje li se promjena na korisničkom sučelju. |
+| NF-05|||||
 
 <details>
 <summary><strong>Nefunkcijski zahtjevi za analizu</strong></summary>
