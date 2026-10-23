@@ -15,8 +15,15 @@ Primjeri koriste temu projekta CrisisMap. Neki namjerno sadrže korisne nedostat
 
 | ID | Opis | Prioritet | Izvor | Kriteriji prihvaćanja |
 | --- | --- | --- | --- | --- |
-| F-001 | [Funkcijski zahtjev/ponašanje sustava] | [Visok/Srednji/Nizak] | [Odobreni zadatak / zahtjev dionika / povratna informacija] | [Opažljivi rezultat] |
-|  |  |  |  |  |
+| F-XXX | [Funkcijski zahtjev/ponašanje sustava] | [Visok/Srednji/Nizak] | [Odobreni zadatak / zahtjev dionika / povratna informacija] | [Opažljivi rezultat] |
+| F-001 | Sustav omogućuje korisnicima registraciju s važećom adresom e-pošte i prijavu putem OAuth 2.0 protokola koristeći tokene. | Visok | Projektni zadatak | Korisnik se može registrirati putem e-pošte i odvest će ga na odgovarajući profil. |
+| F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, nenajavljenih akcija darivanja. Prikaz zaliha. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik im pregled karti i lokacijama neovisno o registraciji. |
+| F-003 | Sustav omogućuje korisniku darivatelju unos svojih osobnih podataka (ime i prezime, datum rođenja, spol, mjesto stanovanja, broj mobilnog telefona i krvnu grupu ako mu je poznata te način obavijesti). Sustav krvnu grupu označuje kao neprovjerenu | Visoka | Projektni zadatak | Korisnik darivatelj može nakon registracije ispuniti svoje podatke i krvna grupa ostaje označena kao neprovjerena sve dok djelatnik ju ne potvrdi. |
+| F-004 | Sustav za svakog darivatelja izračunava datum od kojeg ponovno smije darivati. | Visoka | Projektni zadatak | Darivatelju su ponuđeni datumi darivanja ovisno o izračunu kada može darivati. |
+| F-005 | Sustav omogućujue darivatelju rezervaciju termina u centru ili prijavu na terensku akciju uz ispunjavanje upitnika| Visoka | Projektni zadatak | Darivatelj ovisno o podobnosti može rezervirati termin. Upisuje se u GoogleCalendar darivatelja i generira se QR kod. Otkazivanje je moguće do dva sata prije početka. |
+| F-006 | Sustav omogućuje djelatniku definiranje radnog vremena i kapaciteta termina, skeniranje QR kodova te vođenje evidencije dolazaka.| Visoka | Projektni zadatak | Djelatnik tranfuzijskog centra ima pristup i može unositi i definirati radno vrijeme i kapacitet termina. Može skenirati QR kodove i upisivati razloge odbijanja te voditi evidenciju zaliha krvi. |
+| F-007 |||||
+
 
 <details>
 <summary><strong>Izvori zahtjeva i kriteriji prihvaćanja</strong></summary>
@@ -37,6 +44,7 @@ Kategorije izvora pokazuju različite načine na koje zahtjev može nastati.
 | F-006 | Sustav prikazuje dostupne resurse prema lokaciji. | Visok | Analiza dokumentacije | Prikazuje se ažurirani popis resursa prilagođen vrsti kriznog događaja, lokaciji i raspoloživosti. |
 | F-007 | Sustav prikazuje prijave kriznih događaja s lokacijom kao oznake na karti. | Visok | Odobreni zadatak | Prijava s valjanom lokacijom prikazuje se kao oznaka na karti; odabirom oznake korisnik može otvoriti pripadajuću prijavu. |
 | F-008 | Sustav omogućuje moderatoru odobravanje ili odbijanje podnesenih prijava. | Visok | Zahtjev dionika | Moderator može odobriti ili odbiti prijavu koja čeka pregled; korisnik bez moderatorskih ovlasti ne može izvršiti te radnje. |
+
 
 **Kriteriji prihvaćanja i podrijetlo zahtjeva:** Primjer prikazuje registraciju, oporavak lozinke, resurse, prijavu kriznog događaja i obavijesti te nekoliko vrsta izvora i opažljivih kriterija. Istodobno otvara korisna pitanja: opisuju li F-003 i F-006 istu funkcionalnost resursa? Je li obećanje od jedne minute u F-005 dogovoreno i moguće ispitati? Treba li aplikaciji koja koristi isključivo OAuth uopće F-001 i F-002? Retke koristite kao materijal za analizu; u svojem projektu navedite vlastite zahtjeve. U stvarnom projektu stupac Izvor bilježi odakle su doista potekli njegovi zahtjevi.
 
