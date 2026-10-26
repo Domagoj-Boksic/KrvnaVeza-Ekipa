@@ -1,5 +1,7 @@
 # 2. Analiza zahtjeva
 
+U ovom poglavlju opisani su funkcijski i nefunkcijski zahtjevi sustava KrvnaVeza, njegovi dionici i akteri, ograničenja i pretpostavke te povezanost zahtjeva s obrascima uporabe. Zahtjevi su definirani na temelju projektnog zadatka i predstavljaju osnovu za projektiranje, implementaciju i ispitivanje sustava.
+
 **Cilj:** Iz odobrenog opsega projekta izvesti prepoznatljive, prioritetizirane i provjerljive zahtjeve. Zahtjevi se mogu mijenjati; pri završnoj predaji moraju odražavati dogovorenu aplikaciju. Izvori, odluke i poveznice u primjerima kolegija nastavni su scenariji, a ne projektni zapisi.
 
 <details>
@@ -17,7 +19,7 @@ Primjeri koriste temu projekta CrisisMap. Neki namjerno sadrže korisne nedostat
 | --- | --- | --- | --- | --- |
 | F-XXX | [Funkcijski zahtjev/ponašanje sustava] | [Visok/Srednji/Nizak] | [Odobreni zadatak / zahtjev dionika / povratna informacija] | [Opažljivi rezultat] |
 | F-001 | Sustav omogućuje korisnicima registraciju s važećom adresom e-pošte i prijavu putem OAuth 2.0 protokola koristeći tokene. | Visok | Projektni zadatak | Korisnik se može registrirati putem e-pošte i odvest će ga na odgovarajući profil. |
-| F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, nenajavljenih akcija darivanja. Prikaz zaliha. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik im pregled karti i lokacijama neovisno o registraciji. |
+| F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, najavljenih akcija darivanja. Prikaz zaliha. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik im pregled karti i lokacijama neovisno o registraciji. |
 | F-003 | Sustav omogućuje korisniku darivatelju unos svojih osobnih podataka (ime i prezime, datum rođenja, spol, mjesto stanovanja, broj mobilnog telefona i krvnu grupu ako mu je poznata te način obavijesti). Sustav krvnu grupu označuje kao neprovjerenu | Visoka | Projektni zadatak | Korisnik darivatelj može nakon registracije ispuniti svoje podatke i krvna grupa ostaje označena kao neprovjerena sve dok djelatnik ju ne potvrdi. |
 | F-004 | Sustav za svakog darivatelja izračunava datum od kojeg ponovno smije darivati. | Visoka | Projektni zadatak | Darivatelju su ponuđeni datumi darivanja ovisno o izračunu kada može darivati. |
 | F-005 | Sustav omogućujue darivatelju rezervaciju termina u centru ili prijavu na terensku akciju uz ispunjavanje upitnika| Visoka | Projektni zadatak | Darivatelj ovisno o podobnosti može rezervirati termin. Upisuje se u GoogleCalendar darivatelja i generira se QR kod. Otkazivanje je moguće do dva sata prije početka. |
@@ -65,8 +67,10 @@ Za složenu interakciju kratak scenarij *Given / When / Then* može pojasniti kr
 | NF-01 | Aplikacija treba biti izvedena kao web aplikacija prilagođena (engl. responsive) mobilnom uređaju.| Visok | Projektni zadatak | Testirati aplikaciju i responzivni dizajn na različitim veličinama zaslona. |
 | NF-02 | Podaci o zdravstvenom stanju darivatelja (odgovori iz upitnika, razlozi odbijanja i odgode) osjetljivi su osobni podaci: dostupni su samo djelatnicima transfuzijskog centra, a svaki pristup tim podacima bilježi se u zapisnik. | Visok | Projektni zadatak | Provjeriti pristup s drugih računa tj. neovlaštenim korisnicima te pregledati zapisnik pristupa. |
 | NF-03 | Darivatelj može preuzeti sve svoje podatke i zatražiti brisanje korisničkog računa, pri čemu se evidencija njegovih darivanja anonimizira, ali ne briše, jer je potrebna za sljedivost doza krvi| Visok | Projeknti zadatak | Pokrenuti zahtjev brisanja računa uz provjeru jesu li podaci anonimizirani te ostali u sustavu zaliha krvi. |
-| NF-04 | Stanje zaliha na pegledima mora se ažurirati automatski, bez ručnog osvježanja. | Visoka | Projektni zadatak | Izvršiti provjeru zaliha u pozadini i provjeriti pojavljuje li se promjena na korisničkom sučelju. |
-| NF-05|||||
+| NF-04 | Stanje zaliha na pregledima mora se ažurirati automatski, bez ručnog osvježanja. | Visoka | Projektni zadatak | Izvršiti provjeru zaliha u pozadini i provjeriti pojavljuje li se promjena na korisničkom sučelju. |
+| NF-05| Sustav mora ograničiti pristup funkcionalnostima i podacima prema ulozi korisnika. | Visoka | Projektni zadatak | Testiranje dopuštenih i zabranjenih radnji za svaku ulogu. |
+| NF-06 | Sustav mora jasno obraditi nedostupnosti vanjskih usluga i obavijestiti o tome korisnika. | Srednja | Projektna pretpostavka | Simuliranje takvih nedostupnosti i provjera ponašanja sustava. |
+| NF-07 | Sustav mora omogućiti sljedljivost doza krvi korz statuse i evidentirane promjene. | Visoka | Projektni zadatak| Provjeriti statuse i promjene zaliha. |
 
 <details>
 <summary><strong>Nefunkcijski zahtjevi za analizu</strong></summary>
@@ -99,7 +103,12 @@ Relevantna svojstva mogu se odnositi na uporabljivost, pristupačnost, sigurnost
 
 | ID uloge ili aktera | Odnos prema sustavu | Relevantni zahtjevi |
 | --- | --- | --- |
-|  |  |  |
+| A-01 | Darivatelj krvi | Uređuje profil, provjerava podobnost, rezervirane termine i ispunjava upitnik. |
+| A-02 | Djelatnik centra | Upravlja terminima, evidentira dolaske, doze i zalihe te odbroava hitne obavijesti. | 
+| A-03 | Organizator | Predlaže akcije, prati prijave, prati aktivnosti.  |
+| A-04 | Administrator | Upravlja korisnicima, centrima, korisničkim ulogama, pravilima podobnosti i granicama zaliha. |
+| A-05 | Posjetitelji | Bez prijave pregledava karte, najavljene akcije i zalihe krvi. |
+
 
 <details>
 <summary><strong>Akteri i povezani zahtjevi</strong></summary>
