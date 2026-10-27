@@ -10,7 +10,7 @@
 
 **Cilj:** Omogućiti čitatelju koji prvi put vidi projekt da u dvije ili tri rečenice prepozna aplikaciju, njezine ciljane korisnike i glavnu svrhu.
 
-[Opis projekta.]
+Aplikacija KrvnaVeza povezuje darivatelje krvi s transfuzijskim centrima te obližnjim akcijama darivanja krvi. Njihovim prikazom na karti i mogućnost rezervacija termina putem aplikacije puno olakšava proces darivanja korisniku. Sustav aktivno obavještava darivatelje o aktualnim akcijama darivanja i njihovoj podobnosti darivanja te centre o stanju zaliha i potiče ih na slanje obavijesti da je darivanje potrebno korisnicima.
 
 <details>
 <summary><strong>Sažet pregled projekta</strong></summary>

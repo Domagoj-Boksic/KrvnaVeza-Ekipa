@@ -19,13 +19,15 @@ Primjeri koriste temu projekta CrisisMap. Neki namjerno sadrže korisne nedostat
 | --- | --- | --- | --- | --- |
 | F-XXX | [Funkcijski zahtjev/ponašanje sustava] | [Visok/Srednji/Nizak] | [Odobreni zadatak / zahtjev dionika / povratna informacija] | [Opažljivi rezultat] |
 | F-001 | Sustav omogućuje korisnicima registraciju s važećom adresom e-pošte i prijavu putem OAuth 2.0 protokola koristeći tokene. | Visok | Projektni zadatak | Korisnik se može registrirati putem e-pošte i odvest će ga na odgovarajući profil. |
-| F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, najavljenih akcija darivanja. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik im pregled karti i lokacijama neovisno o registraciji. |
-| F-003 | Sustav omogućuje prikaz zaliha. Neregistriranim i registriranim korisnicima| Visok | Projektni zadatak | Korisnik ima pregled zalihama neovisno o registraciji. |
+| F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, najavljenih akcija darivanja. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik ima pregled karte i lokacija neovisno o registraciji. |
+| F-003 | Sustav omogućuje prikaz zaliha. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik ima pregled zalihama neovisno o registraciji. |
 | F-004 | Sustav omogućuje korisniku darivatelju unos svojih osobnih podataka (ime i prezime, datum rođenja, spol, mjesto stanovanja, broj mobilnog telefona i krvnu grupu ako mu je poznata te način obavijesti). Sustav krvnu grupu označuje kao neprovjerenu | Visoka | Projektni zadatak | Korisnik darivatelj može nakon registracije ispuniti svoje podatke i krvna grupa ostaje označena kao neprovjerena sve dok djelatnik ju ne potvrdi. |
 | F-005 | Sustav za svakog darivatelja izračunava datum od kojeg ponovno smije darivati. | Visok | Projektni zadatak | Darivatelju su ponuđeni datumi darivanja ovisno o izračunu kada može darivati. |
-| F-006 | Sustav omogućujue darivatelju rezervaciju termina u centru ili prijavu na terensku akciju uz ispunjavanje upitnika| Visok | Projektni zadatak | Darivatelj ovisno o podobnosti može rezervirati termin. Upisuje se u GoogleCalendar darivatelja i generira se QR kod. Otkazivanje je moguće do dva sata prije početka. |
+| F-006 | Sustav omogućujue darivatelju rezervaciju termina u centru ili prijavu na terensku akciju uz ispunjavanje upitnika | Visok | Projektni zadatak | Darivatelj ovisno o podobnosti može rezervirati termin. Upisuje se u GoogleCalendar darivatelja i generira se QR kod. Otkazivanje je moguće do dva sata prije početka. |
 | F-007 | Sustav omogućuje djelatniku definiranje radnog vremena i kapaciteta. | Visok | Projektni zadatak | Djelatnik tranfuzijskog centra ima pristup i može unositi i definirati radno vrijeme i kapacitet. |
-| F-008 | Sustav omogućuje djelatniku evidentiranje dolazaka skeniranjem QR koda. | Visoka | Projektni zadatak | Djelatnik transfuzijskog centra unosi evidenciju dolaznosti i razlog zašto je potencijalni darivatelj odbijen. |
+| F-008 | Sustav omogućuje djelatniku evidentiranje dolazaka skeniranjem QR koda. | Visok | Projektni zadatak | Djelatnik transfuzijskog centra unosi evidenciju dolaznosti i razlog zašto je potencijalni darivatelj odbijen. |
+| F-009 | Sustav šalje obavijest s popisom termina i akcija u darivatelju kad postane ponovno podoban | Visok | Projektni zadatak | Nakon prolaska izračunatog vremena nepodobnosti sustav obavještava darivatelja da može ponovno darivati krv. Prosljeđuje mu popis akcija i termina u njegovoj blizini. |
+| F-010 | Sustav darivatelja prebacuje na kratki upitnik prije same rezervacije nakon kojeg ga upozorava ako vjerojatno neće moći darivati | Visok | Projetkni zadatak | Prije same rezervacije termina darivatelju je priložen kratki upitnik. Njegovim odgovorima sustav određuje vjerojatnost odbijanja darivanja na pregledu i upozorava darivatelja. |  
 
 
 <details>
@@ -104,8 +106,8 @@ Relevantna svojstva mogu se odnositi na uporabljivost, pristupačnost, sigurnost
 
 | ID uloge ili aktera | Odnos prema sustavu | Relevantni zahtjevi |
 | --- | --- | --- |
-| A-01 | Darivatelj krvi | Uređuje profil, provjerava podobnost, rezervirane termine i ispunjava upitnik. |
-| A-02 | Djelatnik centra | Upravlja terminima, evidentira dolaske, doze i zalihe te odbroava hitne obavijesti. | 
+| A-01 | Darivatelj krvi | Uređuje profil, provjerava podobnost, rezervira termine i ispunjava upitnik. |
+| A-02 | Djelatnik centra | Upravlja terminima, evidentira dolaske, doze i zalihe te odobrava hitne obavijesti. | 
 | A-03 | Organizator | Predlaže akcije, prati prijave, prati aktivnosti.  |
 | A-04 | Administrator | Upravlja korisnicima, centrima, korisničkim ulogama, pravilima podobnosti i granicama zaliha. |
 | A-05 | Posjetitelji | Bez prijave pregledava karte, najavljene akcije i zalihe krvi. |

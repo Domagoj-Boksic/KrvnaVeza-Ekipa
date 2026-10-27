@@ -6,7 +6,7 @@ komentare s uputama i ogledne <details> blokove te prije predaje izbrišite ovu
 napomenu. Nemojte kopirati nastavni primjer kao rezultat svojeg projekta.
 -->
 
-# [Naziv aplikacije]
+# KrvnaVeza
 
 <details>
 <summary>Zašto je ovaj odjeljak važan</summary>
