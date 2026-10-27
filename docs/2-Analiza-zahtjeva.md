@@ -19,12 +19,13 @@ Primjeri koriste temu projekta CrisisMap. Neki namjerno sadrže korisne nedostat
 | --- | --- | --- | --- | --- |
 | F-XXX | [Funkcijski zahtjev/ponašanje sustava] | [Visok/Srednji/Nizak] | [Odobreni zadatak / zahtjev dionika / povratna informacija] | [Opažljivi rezultat] |
 | F-001 | Sustav omogućuje korisnicima registraciju s važećom adresom e-pošte i prijavu putem OAuth 2.0 protokola koristeći tokene. | Visok | Projektni zadatak | Korisnik se može registrirati putem e-pošte i odvest će ga na odgovarajući profil. |
-| F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, najavljenih akcija darivanja. Prikaz zaliha. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik im pregled karti i lokacijama neovisno o registraciji. |
-| F-003 | Sustav omogućuje korisniku darivatelju unos svojih osobnih podataka (ime i prezime, datum rođenja, spol, mjesto stanovanja, broj mobilnog telefona i krvnu grupu ako mu je poznata te način obavijesti). Sustav krvnu grupu označuje kao neprovjerenu | Visoka | Projektni zadatak | Korisnik darivatelj može nakon registracije ispuniti svoje podatke i krvna grupa ostaje označena kao neprovjerena sve dok djelatnik ju ne potvrdi. |
-| F-004 | Sustav za svakog darivatelja izračunava datum od kojeg ponovno smije darivati. | Visoka | Projektni zadatak | Darivatelju su ponuđeni datumi darivanja ovisno o izračunu kada može darivati. |
-| F-005 | Sustav omogućujue darivatelju rezervaciju termina u centru ili prijavu na terensku akciju uz ispunjavanje upitnika| Visoka | Projektni zadatak | Darivatelj ovisno o podobnosti može rezervirati termin. Upisuje se u GoogleCalendar darivatelja i generira se QR kod. Otkazivanje je moguće do dva sata prije početka. |
-| F-006 | Sustav omogućuje djelatniku definiranje radnog vremena i kapaciteta termina, skeniranje QR kodova te vođenje evidencije dolazaka.| Visoka | Projektni zadatak | Djelatnik tranfuzijskog centra ima pristup i može unositi i definirati radno vrijeme i kapacitet termina. Može skenirati QR kodove i upisivati razloge odbijanja te voditi evidenciju zaliha krvi. |
-| F-007 |||||
+| F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, najavljenih akcija darivanja. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik im pregled karti i lokacijama neovisno o registraciji. |
+| F-003 | Sustav omogućuje prikaz zaliha. Neregistriranim i registriranim korisnicima| Visok | Projektni zadatak | Korisnik ima pregled zalihama neovisno o registraciji. |
+| F-004 | Sustav omogućuje korisniku darivatelju unos svojih osobnih podataka (ime i prezime, datum rođenja, spol, mjesto stanovanja, broj mobilnog telefona i krvnu grupu ako mu je poznata te način obavijesti). Sustav krvnu grupu označuje kao neprovjerenu | Visoka | Projektni zadatak | Korisnik darivatelj može nakon registracije ispuniti svoje podatke i krvna grupa ostaje označena kao neprovjerena sve dok djelatnik ju ne potvrdi. |
+| F-005 | Sustav za svakog darivatelja izračunava datum od kojeg ponovno smije darivati. | Visok | Projektni zadatak | Darivatelju su ponuđeni datumi darivanja ovisno o izračunu kada može darivati. |
+| F-006 | Sustav omogućujue darivatelju rezervaciju termina u centru ili prijavu na terensku akciju uz ispunjavanje upitnika| Visok | Projektni zadatak | Darivatelj ovisno o podobnosti može rezervirati termin. Upisuje se u GoogleCalendar darivatelja i generira se QR kod. Otkazivanje je moguće do dva sata prije početka. |
+| F-007 | Sustav omogućuje djelatniku definiranje radnog vremena i kapaciteta. | Visok | Projektni zadatak | Djelatnik tranfuzijskog centra ima pristup i može unositi i definirati radno vrijeme i kapacitet. |
+| F-008 | Sustav omogućuje djelatniku evidentiranje dolazaka skeniranjem QR koda. | Visoka | Projektni zadatak | Djelatnik transfuzijskog centra unosi evidenciju dolaznosti i razlog zašto je potencijalni darivatelj odbijen. |
 
 
 <details>
@@ -63,7 +64,7 @@ Za složenu interakciju kratak scenarij *Given / When / Then* može pojasniti kr
 
 | ID | Opis | Prioritet | Izvor | Način provjere |
 | --- | --- | --- | --- | --- |
-| NF-01 | [Konkretan zahtjev (npr. odziv, sigurnost, pristupačnost)] | Visok / Srednji / Nizak | [Sigurnost / Uputa / SLA] | [Mjerenje / Testni scenarij / Pregled] |
+| NF-xx | [Konkretan zahtjev (npr. odziv, sigurnost, pristupačnost)] | Visok / Srednji / Nizak | [Sigurnost / Uputa / SLA] | [Mjerenje / Testni scenarij / Pregled] |
 | NF-01 | Aplikacija treba biti izvedena kao web aplikacija prilagođena (engl. responsive) mobilnom uređaju.| Visok | Projektni zadatak | Testirati aplikaciju i responzivni dizajn na različitim veličinama zaslona. |
 | NF-02 | Podaci o zdravstvenom stanju darivatelja (odgovori iz upitnika, razlozi odbijanja i odgode) osjetljivi su osobni podaci: dostupni su samo djelatnicima transfuzijskog centra, a svaki pristup tim podacima bilježi se u zapisnik. | Visok | Projektni zadatak | Provjeriti pristup s drugih računa tj. neovlaštenim korisnicima te pregledati zapisnik pristupa. |
 | NF-03 | Darivatelj može preuzeti sve svoje podatke i zatražiti brisanje korisničkog računa, pri čemu se evidencija njegovih darivanja anonimizira, ali ne briše, jer je potrebna za sljedivost doza krvi| Visok | Projeknti zadatak | Pokrenuti zahtjev brisanja računa uz provjeru jesu li podaci anonimizirani te ostali u sustavu zaliha krvi. |
