@@ -1,0 +1,33 @@
+
+@startuml
+left to right direction
+
+actor "Darivatelj krvi\n(A-01)" as Darivatelj
+actor "Djelatnik centra\n(A-02)" as Djelatnik
+actor "Organizator\n(A-03)" as Organizator
+actor "Administrator\n(A-04)" as Admin
+actor "Posjetitelj\n(A-05)" as Gost
+
+rectangle "KrvnaVeza" {
+  usecase "UC-001\nRegistracija darivatelja" as UC1
+  usecase "UC-002\nPrijava u sustav" as UC2
+  usecase "UC-003\nUpravljanje korisničkim ulogama" as UC3
+  usecase "UC-004\nPristup gostima" as UC4
+  usecase "UC-005\nUređivanje profila" as UC5
+  usecase "UC-006\nRezervacija termina /\nprijava na akciju" as UC6
+}
+
+Darivatelj -- UC1
+Darivatelj -- UC2
+Darivatelj -- UC5
+Darivatelj -- UC6
+
+Djelatnik -- UC2
+Organizator -- UC2
+
+Admin -- UC2
+Admin -- UC3
+
+Gost -- UC4
+
+@enduml
