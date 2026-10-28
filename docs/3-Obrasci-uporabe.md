@@ -55,17 +55,47 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Alternativni tokovi / Iznimke** | **[Korak]a — [Naziv iznimke]:** [Uvjet nastanka, reakcija programa i nastavak toka] |
 | **Posljedice (ishod)** | [Promjena stanja podataka ili potvrda nakon uspješnog završetka] |
 
-**UC-001: Registracija računa.** 
+**UC-001: Registracija darivatelja krvi.** 
 | Element specifikacije | Opis |
 | :--- | :--- |
-| **Primarni akter** | Darivatelj krvi (A-01), Djelatnik centra (A-02), Organizator (A-03), Administrator (A-04) |
+| **Primarni akter** | Darivatelj krvi (A-01) |
 | **Povezani zahtjevi** | F-001 |
 | **Preduvjeti** | Nema. |
 | **Glavni uspješni tok** | 1.Korisnik unosi adresu e-pošte. 2. OAuth 2.0 sustav šalje obavijest s potvrdom 3. korisnik potvrđuje |
 | **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - ne uspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **3a - ne postoji račun** Ako račun već postoji pri registraciji onda sustav šalje obavijest s razlogom zašto registracija nije moguća. |
-| **Posljedice (ishod)** | Uspješna prijava u aplikaciju |
+| **Posljedice (ishod)** | Uspješna prijava u aplikaciju kao darivatelj krvi. |
 
-**UC-002: Pristup gostima.**
+**UC-002: Registracija djelatnika centra.** 
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-001 |
+| **Preduvjeti** | Nema. |
+| **Glavni uspješni tok** | 1.Korisnik unosi adresu e-pošte. 2. OAuth 2.0 sustav šalje obavijest s potvrdom 3. korisnik potvrđuje 4. u sustavu je kao djelatnik centra |
+| **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - ne uspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **3a - ne postoji račun** Ako račun već postoji pri registraciji onda sustav šalje obavijest s razlogom zašto registracija nije moguća. |
+| **Posljedice (ishod)** | Uspješna prijava u aplikaciju kao djelatnik centra i uvidom sa svime što djelatnik treba imati dostupno. |
+
+**UC-003: Registracija organizatora.** 
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Organizator (A-03) |
+| **Povezani zahtjevi** | F-001 |
+| **Preduvjeti** | Nema. |
+| **Glavni uspješni tok** | 1.Korisnik unosi adresu e-pošte. 2. OAuth 2.0 sustav šalje obavijest s potvrdom 3. korisnik potvrđuje 4. u sustavu je kao organizator |
+| **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - ne uspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **3a - ne postoji račun** Ako račun već postoji pri registraciji onda sustav šalje obavijest s razlogom zašto registracija nije moguća. |
+| **Posljedice (ishod)** | Uspješna prijava u aplikaciju kao organizator i s uvidom sa svime što organizator treba imati dostupno. |
+
+**UC-004: Registracija administratora.** 
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Administrator (A-04) |
+| **Povezani zahtjevi** | F-001 |
+| **Preduvjeti** | Nema. |
+| **Glavni uspješni tok** | 1.Korisnik unosi adresu e-pošte. 2. OAuth 2.0 sustav šalje obavijest s potvrdom 3. korisnik potvrđuje 4. u sustavu je kao administrator |
+| **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - ne uspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **3a - ne postoji račun** Ako račun već postoji pri registraciji onda sustav šalje obavijest s razlogom zašto registracija nije moguća. |
+| **Posljedice (ishod)** | Uspješna prijava u aplikaciju kao administrator i uvidom sa svime što administrator treba imati dostupno. |
+
+**UC-005: Pristup gostima.**
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Posjetitelj (A-05) |
@@ -75,7 +105,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Alternativni tokovi / Iznimke** | Nema |
 | **Posljedice (ishod)** | Pristup karti centara i akcija te pregled zaliha |
 
-**UC-003: Uređivanje profila** 
+**UC-006: Uređivanje profila** 
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Darivatelj krvi (A-01) |
@@ -85,15 +115,15 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Alternativni tokovi / Iznimke** | Nema |
 | **Posljedice (ishod)** | Sustav ažurira osobne podatke darivatelja |
 
-**UC-004: Rezervacija termina/Prijava na akciju**
+**UC-007: Rezervacija termina/Prijava na akciju**
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Darivatelj krvi (A-01) |
 | **Povezani zahtjevi** | F-006 |
-| **Preduvjeti** | Darivatelj je prijavljen u sustav. Termin ima slobodnog mjesta/Akcija je aktualna. Darivatelj je podoban za darivanje. |
+| **Preduvjeti** | Darivatelj je prijavljen u sustav. Termin ima slobodnog mjesta/Akcija je aktualna. |
 | **Glavni uspješni tok** | 1.Darivatelj pristupa rezervaciji. 2.Ispunjava kratki upitnik. 3.Termin se dodaje u Google Kalendar te je generiran QR kod |
 | **Alternativni tokovi / Iznimke** | **1a - Darivatelj nije podoban** Ako korisnik nije podoban za darivanje aplikacija ga vraća, daje razlog i govori kad će biti podoban.<br> **2a - Upozorenje na vjerojatnost odbijanja darivanja** Ako sustav prema odgovorima odredi da je vjerojatnost za odbijanje darivanja na pregledu visoka javlja to darivatelju.<br> **3a - Nedostaju dopuštenja** Ako korisnik nije dao sva dopuštenja sustav ne može dodati događaj u kalendar i na to upozorava korisnika |
-| **Posljedice (ishod)** | [Promjena stanja podataka ili potvrda nakon uspješnog završetka] |
+| **Posljedice (ishod)** | Rezerviran termin i dodan u kalendar. |
 
 <details>
 <summary><strong>Primjeri specifikacija: Registracija i prijava kriznog događaja</strong></summary>

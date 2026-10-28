@@ -38,6 +38,7 @@ Primjeri koriste temu projekta CrisisMap. Neki namjerno sadrže korisne nedostat
 | F-018 | Sustav omogućuje darivatelju preuzimanje potvrde darivanja u PDF formatu. | Srednji | Projektni zadatak | Nakon odrađenog uspješnog darivanja darivatelj ima pristup potvrdi darivanja u PDF formatu. |
 | F-019 | Sustav omogućuje djelatniku pregled podataka o zalihama i njihovim kretnjama, odaziv na hitne pozive i akcije te mogućnost izvoza podataka u CSV formatu | Srednji. | Projektni zadatak | Djelatnik ima pristup stranici "Statistika" gdje može vidjeti kretanje zaliha po krvnim grupama u vremenu, prosječnu dnevnu potrošnju, procjenu dana do nestašice te odaziv na hitne pozive i akcije. Također može navedeno izvesti u CSV formatu. |
 | F-020 | Sustav omogućuje adminu održavanje platforme | Visok | Projektni zadatak | Admin može: upravljati korisnicima i transfuzijskim centrima, nakon provjere dodjeluje uloge djelatniku centra i organizatoru akcija, podešava parametre pravila podobnosti i pragove zaliha te pregled statistike korištenja sustava te deaktivirati korisnički račun |
+| F-021 | Sustav mora omogućiti administratoru dodjeljivanje i promjenu korisničkih uloga. Te promjene se moraju evidentirati u sustavu. | Visok | Projektni zadatak | Provjeriti dodjeljuju li se i pamte uloge korisnika prijavljenih u sustav. |
 
 
 <details>
