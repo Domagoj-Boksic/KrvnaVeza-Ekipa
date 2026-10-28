@@ -65,7 +65,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Alternativni tokovi / Iznimke** | ? |
 | **Posljedice (ishod)** | Uspješna prijava u aplikaciju |
 
-**UC-002: Pristup gostima**
+**UC-002: Pristup gostima.**
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Posjetitelj (A-05) |
@@ -74,6 +74,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Glavni uspješni tok** | 1.Posjetitelj odabire opciju "Nastavi kao gost" |
 | **Alternativni tokovi / Iznimke** | Nema |
 | **Posljedice (ishod)** | Pristup karti centara i akcija te pregled zaliha |
+
 **UC-003: Uređivanje profila** 
 | Element specifikacije | Opis |
 | :--- | :--- |
@@ -83,6 +84,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Glavni uspješni tok** | 1.Darivatelj pristupa svom profilu. 2.Unosi svoje podatke. |
 | **Alternativni tokovi / Iznimke** | Nema |
 | **Posljedice (ishod)** | Sustav ažurira osobne podatke darivatelja |
+
 **UC-004: Rezervacija termina/Prijava na akciju**
 | Element specifikacije | Opis |
 | :--- | :--- |
