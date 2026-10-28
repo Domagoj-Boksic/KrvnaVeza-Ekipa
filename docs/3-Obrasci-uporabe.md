@@ -58,11 +58,11 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 **UC-001: Registracija računa.** 
 | Element specifikacije | Opis |
 | :--- | :--- |
-| **Primarni akter** | Darijavtelj krvi (A-01), Djelatnik centra (A-02), Organizator (A-03), Administrator (A-04) |
+| **Primarni akter** | Darivatelj krvi (A-01), Djelatnik centra (A-02), Organizator (A-03), Administrator (A-04) |
 | **Povezani zahtjevi** | F-001 |
 | **Preduvjeti** | Nema. |
-| **Glavni uspješni tok** | 1.Korisnik unosi adresu e-pošte. 2.OAuth 2.0 (raspisat malo kako to funkcionira?) |
-| **Alternativni tokovi / Iznimke** | ? |
+| **Glavni uspješni tok** | 1.Korisnik unosi adresu e-pošte. 2. OAuth 2.0 sustav šalje obavijest s potvrdom 3. korisnik potvrđuje |
+| **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - ne uspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **3a - ne postoji račun** Ako račun već postoji pri registraciji onda sustav šalje obavijest s razlogom zašto registracija nije moguća. |
 | **Posljedice (ishod)** | Uspješna prijava u aplikaciju |
 
 **UC-002: Pristup gostima.**
