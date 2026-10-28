@@ -31,7 +31,7 @@ Primjeri koriste temu projekta CrisisMap. Neki namjerno sadrže korisne nedostat
 | F-011 | Sustav omogućuje djelatniku upravljanje prikupljenim dozama. | Visok | Projektni zadatak | Djelatnik regulira stanje doze kroz proces pregleda i testiranja. |
 | F-012 | Sustav računa zalihe iz prikupljenih i odobrenih doza. | Visok | Projektni zadatak | Sustav ažurira stanje zaliha računanjem aktualnih doza. |
 | F-013 | Sustav omogućuje darivatelju pregled povijesti njegovog darivanja. | Srednji | Projektni zadatak | Svako darivanje je evidentirano i sačuvano kako bi korisnici mogli pregledati svoju povijest darivanja. |
-| F-014 | Nakon pada zaliha ispod kritične razine sustav predlaže djelatniku hitni poziv na darivanje te preglediva statistiku darivanja nakon. | Visok | Projektni zadatak | Kad zalihe padnu u kritično područje sustav predlaže hitni poziv na koji se djelatnici mogu odazvati. Nakon darivanja hitnog poziva sustav pregleda statistiku. |
+| F-014 | Nakon pada zaliha ispod kritične razine sustav predlaže djelatniku hitni poziv na darivanje te pregledava statistiku darivanja nakon. | Visok | Projektni zadatak | Kad zalihe padnu u kritično područje sustav predlaže hitni poziv na koji se djelatnici mogu odazvati. Nakon darivanja hitnog poziva sustav pregleda statistiku. |
 | F-015 | Sustav omogućuje organizatoru akcija predlaganje akcija te unos podataka o akciji (lokacija, vrijeme, datum...) i pregled statistike. | Visok | Projektni zadatak | Organizator ima mogućnost prijedloga akcije darivanja. Unosi podatke o akciji kako bi korisnici znali gdje je i kada. Nakon akcije ima pristup statistici darivanja. |
 | F-016 | Sustav djelatniku omogućuje prihvaćanje predložene akcije i slanje mobilnog tima te odbijanje akcije uz obrazloženje. | Visok | Projektni zadatak | Nakon što organizator predloži akciju djelatnici imaju mogućnost prihvaćanja i odbijanja. Ako prihvate šalju mobilni tim, ako odbiju prilažu objašnjenje zašto odbijaju. |
 | F-017 | Sustav dodjeluje darivatelju značke nakon jubilarnih darivanja. | Niski | Projektni zadatak | Nakon određenih jubilarnih darivanja sustav dodjeluje značke profilu darivatelja. |
@@ -80,10 +80,11 @@ Za složenu interakciju kratak scenarij *Given / When / Then* može pojasniti kr
 | NF-01 | Aplikacija treba biti izvedena kao web aplikacija prilagođena (engl. responsive) mobilnom uređaju.| Visok | Projektni zadatak | Testirati aplikaciju i responzivni dizajn na različitim veličinama zaslona. |
 | NF-02 | Podaci o zdravstvenom stanju darivatelja (odgovori iz upitnika, razlozi odbijanja i odgode) osjetljivi su osobni podaci: dostupni su samo djelatnicima transfuzijskog centra, a svaki pristup tim podacima bilježi se u zapisnik. | Visok | Projektni zadatak | Provjeriti pristup s drugih računa tj. neovlaštenim korisnicima te pregledati zapisnik pristupa. |
 | NF-03 | Darivatelj može preuzeti sve svoje podatke i zatražiti brisanje korisničkog računa, pri čemu se evidencija njegovih darivanja anonimizira, ali ne briše, jer je potrebna za sljedivost doza krvi| Visok | Projeknti zadatak | Pokrenuti zahtjev brisanja računa uz provjeru jesu li podaci anonimizirani te ostali u sustavu zaliha krvi. |
-| NF-04 | Stanje zaliha na pregledima mora se ažurirati automatski, bez ručnog osvježanja. | Visoka | Projektni zadatak | Izvršiti provjeru zaliha u pozadini i provjeriti pojavljuje li se promjena na korisničkom sučelju. |
-| NF-05| Sustav mora ograničiti pristup funkcionalnostima i podacima prema ulozi korisnika. | Visoka | Projektni zadatak | Testiranje dopuštenih i zabranjenih radnji za svaku ulogu. |
+| NF-04 | Stanje zaliha na pregledima mora se ažurirati automatski, bez ručnog osvježanja. | Visok | Projektni zadatak | Izvršiti provjeru zaliha u pozadini i provjeriti pojavljuje li se promjena na korisničkom sučelju. |
+| NF-05| Sustav mora ograničiti pristup funkcionalnostima i podacima prema ulozi korisnika. | Visok | Projektni zadatak | Testiranje dopuštenih i zabranjenih radnji za svaku ulogu. |
 | NF-06 | Sustav mora jasno obraditi nedostupnosti vanjskih usluga i obavijestiti o tome korisnika. | Srednja | Projektna pretpostavka | Simuliranje takvih nedostupnosti i provjera ponašanja sustava. |
-| NF-07 | Sustav mora omogućiti sljedljivost doza krvi korz statuse i evidentirane promjene. | Visoka | Projektni zadatak| Provjeriti statuse i promjene zaliha. |
+| NF-07 | Sustav mora omogućiti sljedljivost doza krvi kroz statuse i evidentirane promjene. | Visok | Projektni zadatak| Provjeriti statuse i promjene zaliha. |
+| NF-08 | Sustav mora imati odgovorajuću dokumentaciju. |Visok | Pravila dokumentiranja | Pregledati strukturu dokumenta. |
 
 <details>
 <summary><strong>Nefunkcijski zahtjevi za analizu</strong></summary>
@@ -116,11 +117,11 @@ Relevantna svojstva mogu se odnositi na uporabljivost, pristupačnost, sigurnost
 
 | ID uloge ili aktera | Odnos prema sustavu | Relevantni zahtjevi |
 | --- | --- | --- |
-| A-01 | Darivatelj krvi | Uređuje profil, provjerava podobnost, rezervira termine i ispunjava upitnik. |
-| A-02 | Djelatnik centra | Upravlja terminima, evidentira dolaske, doze i zalihe te odobrava hitne obavijesti. | 
-| A-03 | Organizator | Predlaže akcije, prati prijave, prati aktivnosti.  |
-| A-04 | Administrator | Upravlja korisnicima, centrima, korisničkim ulogama, pravilima podobnosti i granicama zaliha. |
-| A-05 | Posjetitelji | Bez prijave pregledava karte, najavljene akcije i zalihe krvi. |
+| A-01 | Darivatelj krvi | F-001, F-004, NF-03: Uređuje profil, provjerava podobnost, rezervira termine i ispunjava upitnik. |
+| A-02 | Djelatnik centra | F-007, F-008, F-011, F-016: Upravlja terminima, evidentira dolaske, doze i zalihe te odobrava hitne obavijesti. | 
+| A-03 | Organizator | F-015: Predlaže akcije, prati prijave, prati aktivnosti.  |
+| A-04 | Administrator | F-020: Upravlja korisnicima, centrima, korisničkim ulogama, pravilima podobnosti i granicama zaliha. |
+| A-05 | Posjetitelji | F-002, F-003: Bez prijave pregledava karte, najavljene akcije i zalihe krvi. |
 
 
 <details>
@@ -150,9 +151,9 @@ Relevantna svojstva mogu se odnositi na uporabljivost, pristupačnost, sigurnost
 | --- | --- | --- | --- | --- |
 | C-xx | Ograničenje | [Fiksni tehnički ili procesni uvjet] | [Zadatak / Pravila] | [Utjecaj na arhitekturu i oblikovanje] |
 | C-01 | Ograničenje | Projektni zadatak zahtijeva autorizaciju preko OAuth 2.0 protokola koristeći tokene | Projektni zadatak | Odraditi autorizaciju preko zadanog protokola |
-| C-02 | Ograničenje | ...
-| AS-01 | Pretpostavka | [Očekivani uvjet, npr. o podacima ili okolini] | [Procjena tima] | [Kako i kada će se provjeriti valjanost] |
-|  |  |  |  |  |
+| C-02 | Ograničenje | ... |
+| AS-xx | Pretpostavka | [Očekivani uvjet, npr. o podacima ili okolini] | [Procjena tima] | [Kako i kada će se provjeriti valjanost] |
+| AS-01 | Pretpostavka | Korisnici imaju pristup internetu. | Procjena tima  | Planirati pristup značajkama bez interneta. |
 <details>
 <summary><strong>Ograničenja nasuprot pretpostavkama</strong></summary>
 
