@@ -5,7 +5,7 @@
 ## 3.1 Dijagram obrazaca uporabe
 
 **Cilj:** Prikazati granicu sustava, relevantne aktere i njihove glavne ciljeve u **preglednom UML dijagramu obrazaca uporabe**. Ako je za razumijevanje pojedinog dijela sustava potrebno prikazati više detalja, taj dio izdvojite u dodatni usmjereni dijagram. Dodatni dijagrami trebaju produbiti dio preglednog modela, a ne stvarati nepovezane ili duplicirane prikaze istog sustava.
-![Dijagram obrazaca uporabe sustava KrvnaVeza](./assets/diagrams/UML-KrvnaVeza.png)
+![Dijagram obrazaca uporabe sustava KrvnaVeza](./assets/diagrams/3-1-krvnaveza-sustav-UC.png)
 **Slika 3.1. Dijagram obrazaca uporabe sustava KrvnaVeza**
 
 
@@ -87,7 +87,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Administrator (A-04) |
-| **Povezani zahtjevi** | F-021 |
+| **Povezani zahtjevi** | F-020 ,F-021 |
 | **Preduvjeti** | Administrator je prijavljen i ima ovlasti dodjeljivati uloge. |
 | **Glavni uspješni tok** | 1. Otvara upravljanje korisnicima. 2. Odabire ulogu djelatnik centra ili organizator.  3. Sustav provjerava ovlasti 4. Sustav sprema novu ulogu |
 | **Alternativni tokovi / Iznimke** | **1a - promjena nije odobrena** sustav ne sprema novu ulogu |

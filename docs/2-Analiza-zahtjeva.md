@@ -37,7 +37,7 @@ Primjeri koriste temu projekta CrisisMap. Neki namjerno sadrže korisne nedostat
 | F-017 | Sustav dodjeluje darivatelju značke nakon jubilarnih darivanja. | Niski | Projektni zadatak | Nakon određenih jubilarnih darivanja sustav dodjeluje značke profilu darivatelja. |
 | F-018 | Sustav omogućuje darivatelju preuzimanje potvrde darivanja u PDF formatu. | Srednji | Projektni zadatak | Nakon odrađenog uspješnog darivanja darivatelj ima pristup potvrdi darivanja u PDF formatu. |
 | F-019 | Sustav omogućuje djelatniku pregled podataka o zalihama i njihovim kretnjama, odaziv na hitne pozive i akcije te mogućnost izvoza podataka u CSV formatu | Srednji. | Projektni zadatak | Djelatnik ima pristup stranici "Statistika" gdje može vidjeti kretanje zaliha po krvnim grupama u vremenu, prosječnu dnevnu potrošnju, procjenu dana do nestašice te odaziv na hitne pozive i akcije. Također može navedeno izvesti u CSV formatu. |
-| F-020 | Sustav omogućuje adminu održavanje platforme | Visok | Projektni zadatak | Admin može: upravljati korisnicima i transfuzijskim centrima, nakon provjere dodjeluje uloge djelatniku centra i organizatoru akcija, podešava parametre pravila podobnosti i pragove zaliha te pregled statistike korištenja sustava te deaktivirati korisnički račun |
+| F-020 | Sustav omogućuje adminu održavanje platforme | Visok | Projektni zadatak | Admin može: upravljati korisnicima i transfuzijskim centrima, podešava parametre pravila podobnosti i pragove zaliha te pregled statistike korištenja sustava te deaktivirati korisnički račun |
 | F-021 | Sustav mora omogućiti administratoru dodjeljivanje i promjenu korisničkih uloga. Te promjene se moraju evidentirati u sustavu. | Visok | Projektni zadatak | Provjeriti dodjeljuju li se i pamte uloge korisnika prijavljenih u sustav. |
 
 
@@ -121,7 +121,7 @@ Relevantna svojstva mogu se odnositi na uporabljivost, pristupačnost, sigurnost
 | A-01 | Darivatelj krvi | F-001, F-004, NF-03: Uređuje profil, provjerava podobnost, rezervira termine i ispunjava upitnik. |
 | A-02 | Djelatnik centra | F-007, F-008, F-011, F-016: Upravlja terminima, evidentira dolaske, doze i zalihe te odobrava hitne obavijesti. | 
 | A-03 | Organizator | F-015: Predlaže akcije, prati prijave, prati aktivnosti.  |
-| A-04 | Administrator | F-020: Upravlja korisnicima, centrima, korisničkim ulogama, pravilima podobnosti i granicama zaliha. |
+| A-04 | Administrator | F-020, F-021: Upravlja korisnicima, centrima, korisničkim ulogama, pravilima podobnosti i granicama zaliha. |
 | A-05 | Posjetitelji | F-002, F-003: Bez prijave pregledava karte, najavljene akcije i zalihe krvi. |
 
 
