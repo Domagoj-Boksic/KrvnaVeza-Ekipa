@@ -55,6 +55,44 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Alternativni tokovi / Iznimke** | **[Korak]a — [Naziv iznimke]:** [Uvjet nastanka, reakcija programa i nastavak toka] |
 | **Posljedice (ishod)** | [Promjena stanja podataka ili potvrda nakon uspješnog završetka] |
 
+**UC-001: Registracija računa.** 
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Darijavtelj krvi (A-01), Djelatnik centra (A-02), Organizator (A-03), Administrator (A-04) |
+| **Povezani zahtjevi** | F-001 |
+| **Preduvjeti** | Nema. |
+| **Glavni uspješni tok** | 1.Korisnik unosi adresu e-pošte. 2.OAuth 2.0 (raspisat malo kako to funkcionira?) |
+| **Alternativni tokovi / Iznimke** | ? |
+| **Posljedice (ishod)** | Uspješna prijava u aplikaciju |
+
+**UC-002: Pristup gostima**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Posjetitelj (A-05) |
+| **Povezani zahtjevi** | F-002, F-003 |
+| **Preduvjeti** | Nema |
+| **Glavni uspješni tok** | 1.Posjetitelj odabire opciju "Nastavi kao gost" |
+| **Alternativni tokovi / Iznimke** | Nema |
+| **Posljedice (ishod)** | Pristup karti centara i akcija te pregled zaliha |
+**UC-003: Uređivanje profila** 
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Darivatelj krvi (A-01) |
+| **Povezani zahtjevi** | F-004 |
+| **Preduvjeti** | Darivatelj je prijavljen u sustav |
+| **Glavni uspješni tok** | 1.Darivatelj pristupa svom profilu. 2.Unosi svoje podatke. |
+| **Alternativni tokovi / Iznimke** | Nema |
+| **Posljedice (ishod)** | Sustav ažurira osobne podatke darivatelja |
+**UC-004: Rezervacija termina/Prijava na akciju**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Darivatelj krvi (A-01) |
+| **Povezani zahtjevi** | F-006 |
+| **Preduvjeti** | Darivatelj je prijavljen u sustav. Termin ima slobodnog mjesta/Akcija je aktualna. Darivatelj je podoban za darivanje. |
+| **Glavni uspješni tok** | 1.Darivatelj pristupa rezervaciji. 2.Ispunjava kratki upitnik. 3.Termin se dodaje u Google Kalendar te je generiran QR kod |
+| **Alternativni tokovi / Iznimke** | **1a - Darivatelj nije podoban** Ako korisnik nije podoban za darivanje aplikacija ga vraća, daje razlog i govori kad će biti podoban.<br> **2a - Upozorenje na vjerojatnost odbijanja darivanja** Ako sustav prema odgovorima odredi da je vjerojatnost za odbijanje darivanja na pregledu visoka javlja to darivatelju.<br> **3a - Nedostaju dopuštenja** Ako korisnik nije dao sva dopuštenja sustav ne može dodati događaj u kalendar i na to upozorava korisnika |
+| **Posljedice (ishod)** | [Promjena stanja podataka ili potvrda nakon uspješnog završetka] |
+
 <details>
 <summary><strong>Primjeri specifikacija: Registracija i prijava kriznog događaja</strong></summary>
 
