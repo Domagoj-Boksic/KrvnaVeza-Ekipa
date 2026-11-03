@@ -1,15 +1,42 @@
-const http = require("http");
-const port = process.env.PORT || 10000;
+require('dotenv').config();
+const express = require('express');
+const session = require('express-session');
+const passport = require('passport');
+require('./config/passport');
 
-const server = http.createServer((req, res) => {
-  if (req.url === "/health") {
-    res.writeHead(200, { "Content-Type": "application/json" });
-    return res.end(JSON.stringify({ status: "healthy" }));
-  }
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("API running");
+const authRoutes = require('./routes/authRoutes');
+const requireAuth = require('./middleware/requireAuth');
+
+const app = express();
+app.use(express.json());
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: false,
+    maxAge: 24 * 60 * 60 * 1000
+  },
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'healthy'});
 });
 
-server.listen(port, "0.0.0.0", () => {
-  console.log(`Server listening on 0.0.0.0:${port}`);
+app.use('/auth', authRoutes);
+
+app.get('/api/me', requireAuth, (req, res) => {
+  const { id, ime, email, uloga } = req.user;
+  res.json({ id, ime, email, uloga});
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Backend radi na http://localhost:${port}`);
 });
