@@ -135,6 +135,26 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Alternativni tokovi / Iznimke** | **1a - QR kod je nevažeći** sustav javlja grešku, a djelatnik upisuje razlog odbijanja. <br> **2a - darivatelj odbijen** djelatnik na pregledu utvrdi da darivatelj ne može darivati krv te unosi razlog odbijanja. |
 | **Posljedice (ishod)** | Darivatelj uspješno evidentiran. |
 
+**UC-008: Predlaganje terenske akcije**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Organizator (A-03) |
+| **Povezani zahtjevi** | F-015, F-016 |
+| **Preduvjeti** | Organizacija je prijavljena u sustav kao organizator, što podrazumijeva neke dodatne ovlasti i dozvole za predlaganje akcija. |
+| **Glavni uspješni tok** | 1. organizator predlaže akciju <br> 2. za svaku akciju navodi lokaciju, datum, vrijeme i očekivani broj dolazaka <br> 3. sustav sprema akciju u status predložene <br> 4. Djelatnik transfuzijskog centra prihvaća akciju i dodjeljuje joj tim. |
+| **Alternativni tokovi / Iznimke** | **4a - transfuzijski centar odbije** navodi razlog odbijanja. |
+| **Posljedice (ishod)** | Terenska akcija darivanja je uspješno upisana u sustav (ili je uspješno odbijena uz obrazloženje). |
+
+**UC-009: Slanje hitnog poziva za darivanje**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-014, F-019 |
+| **Preduvjeti** | Zalihe određene krvne grupe pale su ispod kritične razine. Djelatnik je prijavljen sa odgovarajućim dozvolama. |
+| **Glavni uspješni tok** | 1. zalihe određene krvne grupe pale su ispod kritične razine <br> 2. djelatnik centra obaviješten je o kritičnoj zalihi <br> 3. djelatniku je omogućeno da pošalje hitan poziv <br> 4. Djelatnik odobrava slanje hitnog poziva <br> 5. sustav putem SMS-a obaviještava podobne korisnike na tom području |
+| **Alternativni tokovi / Iznimke** | **4a - transfuzijski centar odbije** navodi razlog odbijanja. |
+| **Posljedice (ishod)** | Poslane obavijesti s poveznicom o slobodnim terminima. |
+
 
 
 <details>
