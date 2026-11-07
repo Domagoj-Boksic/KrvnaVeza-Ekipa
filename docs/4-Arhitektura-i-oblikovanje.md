@@ -22,7 +22,10 @@ Za svaki UML dijagram čuvajte čitljivu sliku i PlantUML izvor, kako je opisano
 
 | Odluka | Razmatrana alternativa | Projektno specifično obrazloženje i kompromis |
 | --- | --- | --- |
-|  |  |  |
+| Klijent u pregledniku i jedan poslužiteljski API | Više zasebno postavljenih poslužiteljskih usluga | Klijentski dio aplikacije prikazuje rezervacije termina, kartu, zalihe i razne unose podataka. Poslužiteljski sustav provjerava i pohranjuje promjene u bazu podataka. Jedan poslužiteljski sustav upravljiv je za ovaj opseg; kvar može privremeno zaustaviti rad sustava. |
+| Relacijska pohrana podataka | Dokumentno orijentirana pohrana | Svi podaci imaju jasno definirane veze između sebe i sama relacijska shema čini te veze eksplicitnima, ali zahtjeva migracije kada se shema promjeni.  |
+| Autentifikacija preko OAuth 2.0 | Samostalno implementiran sustav za praćenje korisnika i lozinki | Smanjuje se vjerojatnost greške te samim time i sigurnosni rizik. U bazi se povezuje jedinstveni identifikator korisnika. |
+
 
 Objasnite glavne arhitekturne odluke bez ponavljanja popisa tehnologija. Ako važna odluka ima ADR, dovoljno je u tablici navesti njegov ID.
 
@@ -35,6 +38,7 @@ Objasnite glavne arhitekturne odluke bez ponavljanja popisa tehnologija. Ako va�
 | --- | --- | --- |
 | Klijent u pregledniku i jedan poslužiteljski API | Više zasebno postavljenih poslužiteljskih usluga | Klijent prikazuje kartu, dok poslužiteljski sustav provjerava i pohranjuje prijave. Jedan poslužiteljski sustav upravljiv je za ovaj opseg; njegov kvar može privremeno prekinuti rad s prijavama. Obrazloženje je u ADR-01. |
 | Relacijska pohrana prijava | Dokumentno orijentirana pohrana | Prijave imaju prepoznatljive veze s korisnicima i lokacijama. Relacijska shema te veze čini eksplicitnima, ali zahtijeva migracije kada se shema promijeni. |
+
 
 **Analiza primjera:** Obje odluke navode razlog vezan uz aplikaciju za prijavljivanje kriznih događaja i priznaju kompromis. Odluka o poslužiteljskom sustavu upućuje na ADR-01 umjesto ponavljanja cijele usporedbe. Moduli unutar jedne aplikacije koja se postavlja kao cjelina nisu zasebne mikrousluge. U vlastitoj tablici navedite alternative koje je tim doista razmatrao.
 
@@ -49,7 +53,7 @@ Objasnite glavne arhitekturne odluke bez ponavljanja popisa tehnologija. Ako va�
 
 | Komponenta | Odgovornost | Razlog za ovu granicu |
 | --- | --- | --- |
-|  |  |  |
+| Web-klijent | prikazuje korisničko sučelje prijave i prikuplja unose | Korisnička interkacija odvojena je od pravila prijave i trajne promjene |
 
 Započnite crtanjem granice oko predloženog sustava. Unutar nje prepoznajte dijelove s različitim odgovornostima; planiranu bazu podataka aplikacije smjestite unutar granice, a usluge trećih strana izvan nje. Važne veze označite podatkom ili uslugom koja njima prolazi. Logička komponenta može biti modul unutar jedne poslužiteljske aplikacije: zaseban pravokutnik ne znači zasebno postavljenu uslugu. Tijekom implementacije ažurirajte dijagram kada se promijene odgovornosti ili veze. U završnoj inačici čitatelj treba moći povezati njegove dijelove s kodom. Dijagram razmještaja odgovara na pitanje gdje se ti dijelovi stvarno izvode.
 
@@ -234,6 +238,8 @@ ADR pišite samo za odluku čije će obrazloženje ostati važno i nakon promjen
 | --- | --- | --- | --- |
 | [Npr. Sigurnost] | [Npr. Autorizacija korisnika] | [Npr. Ovlasti se provjeravaju na poslužiteljskoj strani za svaki zaštićeni zahtjev; skrivanje elemenata korisničkog sučelja nije dovoljna zaštita.] | [Npr. Middleware za autorizaciju / zaštita API usmjernika.] |
 | [Npr. Validacija podataka] | [Npr. Provjera ulaznih podataka] | [Npr. Geoprostorni podaci, uključujući koordinate, provjeravaju se prije pohrane.] | [Npr. Sloj za obradu zahtjeva / odgovarajuća usluga.] |
+| Sigurnost | Autorizacija korisnika | Ovlasti se provjeravaju na poslužiteljskoj strani prije donošenja odluke. | Poslužiteljski dio funkcionalnosti za moderiranje prijava. |
+| Validacija podataka | Provjera unosa | Ulazni podaci (format datum, unos doza krvi, format emaila) upisa u bazu | Kontoleri |
 
 <details>
 <summary><strong>Primjer zajedničkih pravila i mehanizama</strong></summary>
@@ -263,7 +269,8 @@ Obrasci poput injektiranja ovisnosti (engl. Dependency Injection) ili repozitori
 | --- | --- | --- |
 | *Npr. Pohrana slika u lokalni file sustav* | *Pri ponovnom pokretanju kontejnera slike će biti izgubljene.* | *Prihvaćeni tehnički dug za demo verziju. U budućnosti planirana migracija na S3 (AWS).* |
 | *Npr. Nepostojanje paginacije na API-ju* | *Moguće usporenje klijenta pri dohvaćanju velike količine podataka iz baze.* | *Ograničen broj testnih unosa. Dodavanje paginacije ostavljeno za sljedeću iteraciju.* |
-|  |  |  |
+| Nedostupnost vanjske kartografske usluge | Prikaz karte može prestati raditi iako su svi podaci u bazi spremljeni i dostpuni | Implementirana je vidljiva poruka o pogrešci, ponuđen je popis lokacija transfuzijskih centara i aktivnih akcija. |
+| Ovisnost o vanjskom pružatelju usluge - OAuth 2.0  | Korisnici se privremeno ne mogu prijaviti u sustav putem Google računa | Prihvaćeno je u okviru ograničenja porjekta; ne postoji automatsko prebacivanje|
 
 **Poslovni ili domenski rizici, ako su značajni**
 
