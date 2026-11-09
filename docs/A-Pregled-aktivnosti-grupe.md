@@ -14,7 +14,8 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 | Datum i sudionici | Glavna tema | Donesena odluka ili zadatak  | Poveznica na zadatak ili  rezultat, ako postoji |
 | --- | --- | --- | --- |
 | 22.10.2026. - EP, DB, LJG, MJ, JSN, DG | Podjela uloga | Podijeljenje uloge (backend = DG, LJG, MJ ; frontend = EP, DB, JSN). EP i DB uređuju početnu dokumentaciju. DB i LJG početni izgled stranice. | Zadatak #1 i #2  |
-| 30.10.2026.- EP, DB, LJG, MJ, JSN, DG | Podjela poslova za početni izgled sustava. | OAuth2.0 autorizacija, frontend i baza podataka. | Zadatak #3 i #4 |
+| 29.10.2026.- EP, DB, LJG, MJ, JSN, DG | Podjela poslova za početni izgled sustava. | OAuth2.0 autorizacija, frontend i baza podataka. | Zadatak #3 i #4 |
+
 
 Za svaki relevantan sastanak ili zapis tjedne koordinacije upišite jedan sažet redak. Dodijeljeni zadatak treba imati odgovornu osobu; za neriješeno pitanje treba navesti tko će ga dalje obraditi. Sam naslov sastanka ne pokazuje što se promijenilo. U ovu evidenciju nemojte kopirati cijeli popis issuea ni prijepis razgovora.
 
@@ -43,7 +44,8 @@ Za svaki relevantan sastanak ili zapis tjedne koordinacije upišite jedan sažet
 | Razdoblje/Tjedan | Glavni planirani rad | Odgovorni članovi | Poveznica na zadatke |
 | --- | --- | --- | --- |
 | 3. Tjedan | Jezgra baze podataka i dokumentacija | EP, DB, LJG | #1 #2 |
-| 4. Tjedan | Baza podataka, OAuth2.0, frontend | EP, DB, LJG, MJ, JSN, DG | #3 #4|
+| 4. Tjedan | Baza podataka, OAuth2.0 | EP, DB, LJG, MJ, JSN, DG | #3 #4|
+| 5. Tjedan | Dokumenatacija, izgled stranice | EP, DB, MJ| #5 #6 #7|
 
 Ako koristite tablicu, plan vodite na korisnoj tjednoj razini i ažurirajte ga kada se prioriteti promijene. Kratice članova tima definirajte  u A.1 i ovdje ih primjenjujte dosljedno; ako dva člana imaju iste inicijale, proširite kraticu. Plan nije dokaz da je planirani rad dovršen (to dokazuje kod i dokumentacija).
 
@@ -92,6 +94,9 @@ Koristite aktivnosti specifične za projekt umjesto obaveznog retka za svako pog
 **Cilj:** Prikazati kada su promjene napravljene u repozitoriju i tko ih je napravio, uz napomenu da sam broj zapisa promjena ne mjeri kvalitetu doprinosa.
 
 **Prikaz aktivnosti repozitorija:** [Ugradite ili povežite GitHubov prikaz `Contributors` i generirani graf za projektni repozitorij; navedite razdoblje koje obuhvaća.]
+
+Pogledajte [GitHub Contributors Graph](https://github.com/Domagoj-Boksic/KrvnaVeza-Ekipa/graphs/contributors?selectedMetric=commits) za pregled aktivnosti.
+
 
 Graf može pokazati kada su zapisi promjena napravljeni i tko ih je napravio, ali ne prikazuje sav rad na oblikovanju, ispitivanju, integraciji, pregledu ili dokumentaciji. Ako postoji uočljiv nesklad s tablicom aktivnosti, kratko ga objasnite; nemojte iz grafa izvoditi broj sati. Generirani prikaz neka bude vezan uz stvarni repozitorij umjesto da se ručno crta drugi graf.
 
