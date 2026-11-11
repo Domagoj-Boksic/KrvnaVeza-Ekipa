@@ -111,7 +111,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Primarni akter** | Darivatelj krvi (A-01) |
 | **Povezani zahtjevi** | F-004, F-005, F-006, F-010 |
 | **Preduvjeti** | Darivatelj je prijavljen u sustav |
-| **Glavni uspješni tok** | 1. Darivatelj pristupa svom profilu. 2. Unosi svoje podatke. |
+| **Glavni uspješni tok** | 1. Darivatelj pristupa svom profilu. <br> 2. Unosi svoje podatke. |
 | **Alternativni tokovi / Iznimke** | **2a - Krivi podaci** - darivatelj je unesao krivo formatirane podatke |
 | **Posljedice (ishod)** | Sustav ažurira osobne podatke darivatelja |
 
@@ -120,10 +120,10 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | :--- | :--- |
 | **Primarni akter** | Darivatelj krvi (A-01) |
 | **Povezani zahtjevi** | F-006 |
-| **Preduvjeti** | Darivatelj je prijavljen u sustav. Termin ima slobodnog mjesta/Akcija je aktualna. Provjera podobnosti |
-| **Glavni uspješni tok** | 1. Darivatelj pristupa rezervaciji. 2. Ispunjava kratki upitnik. 3. Zadovoljen je kriterij podobnosti 4. Termin se dodaje u Google Kalendar te je generiran QR kod |
-| **Alternativni tokovi / Iznimke** | **1a - Darivatelj nije podoban** Ako korisnik nije podoban za darivanje aplikacija ga vraća, daje razlog i govori kad će biti podoban.<br> **2a - Upozorenje na vjerojatnost odbijanja darivanja** Ako sustav prema odgovorima odredi da je vjerojatnost za odbijanje darivanja na pregledu visoka javlja to darivatelju.<br> **3a - Nedostaju dopuštenja** Ako korisnik nije dao sva dopuštenja sustav ne može dodati događaj u kalendar i na to upozorava korisnika |
-| **Posljedice (ishod)** | Rezerviran termin i dodan u kalendar. |
+| **Preduvjeti** | Darivatelj je prijavljen u sustav. Termin ima slobodnog mjesta/Akcija je aktualna. |
+| **Glavni uspješni tok** | 1. Darivatelj pristupa rezervaciji. <br> 2. Ispunjava kratki upitnik o podobnosti (UC-014). <br> 3. Zadovoljen je kriterij podobnosti <br> 4. Termin se dodaje u Google Kalendar te je generiran QR kod |
+| **Alternativni tokovi / Iznimke** |  |
+| **Posljedice (ishod)** | Rezerviran termin i generiran QR kod. Ako je dano dopuštenje termin je dodan u kalendar. |
 
 **UC-007: Upravljanje rasporedom i kapacitetom termina**
 | Element specifikacije | Opis |
@@ -194,6 +194,27 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Glavni uspješni tok** | 1. administrator je prijavljen u sutav <br> 2. provjerava transfuzijske centre  |
 | **Alternativni tokovi / Iznimke** |  |
 | **Posljedice (ishod)** | Lokacije na karti, zalihe, pristup sustavu|
+
+**UC-014: Ispunjavanje upitnika**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Darivatelj krvi (A-01) |
+| **Povezani zahtjevi** | F-006 |
+| **Preduvjeti** | Darivatelj je prijavljen u sustav. Započeo je rezervaciju termina ili prijavu na akciju (UC-006) |
+| **Glavni uspješni tok** | 1. Sustav prikazuje upitnik. <br> 2. Darivatelj odgovara na pitanja. <br> 3. Sustav provjerava na temelju kriterija podobnosti <br> 4. Sustav utvrđuje da je darivatelj podoban |
+| **Alternativni tokovi / Iznimke** | **2a - Nedovršen upitnik** Ako korisnik ne odovori na sva obavezna pitanja sustav ga upozori i ne dopušta prijavu.<br> **4a - Nije podoban** Sustav ga upozorava, ne dopušta rezervaciju te mu javlja kada će opet biti podoban.<br> **4b - Odbijanje na pregledu** Sustav upozorava korisnika o mogućnosti da bude odbijen na pregledu |
+| **Posljedice (ishod)** | Odobrena podobnost i može nastaviti s rezervacijom |
+
+**UC-016: Sinkronizacija s kalendarom**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Darivatelj krvi (A-01) |
+| **Povezani zahtjevi** | F-006 |
+| **Preduvjeti** | Darivatelj je prijavljen u sustav. Rezervirao je termin i dopustio je pristup Google Kalendaru |
+| **Glavni uspješni tok** | 1. Sustav šalje podatke Google Kalendaru <br> 2. Google Kalnedar stvara događaj. <br> 3. Sustav šalje potvrdu kako je termin dodan u kalendar|
+| **Alternativni tokovi / Iznimke** | **2a - Nedostaju dopuštenja** Korisnik nije dao dopuštenje za Google Kalendar. |
+| **Posljedice (ishod)** | Termin je dodan u kalendar |
+
 
 
 

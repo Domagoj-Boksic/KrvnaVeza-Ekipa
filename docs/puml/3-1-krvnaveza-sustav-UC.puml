@@ -1,6 +1,5 @@
-
 @startuml
-title Sustav KrvnaVeza – dijagram obrazaca uporabe
+title Sustav KrvnaVeza – obrasci uporabe
 left to right direction
 
 skinparam shadowing false
@@ -19,114 +18,96 @@ skinparam usecase {
     BorderColor #0D6EFD
 }
 
-' ==============================================================================
-' Primarni akteri
-' ==============================================================================
 
-actor "Korisnik aplikacije" as AppUser
-actor "Posjetitelj" as Visitor
-actor "Darivatelj krvi" as Donor
-actor "Djelatnik centra" as Staff
-actor "Organizator" as Organizer
-actor "Administrator" as Admin
+actor User as "Korisnik aplikacije"
+actor Visitor as "Posjetitelj"
+actor Donor as "Darivatelj krvi"
+actor Staff as "Djelatnik centra"
+actor Organizer as "Organizator"
+actor Admin as "Administrator"
 
-Donor -|> AppUser
-Staff -|> AppUser
-Organizer -|> AppUser
-Admin -|> AppUser
-AppUser -|> Visitor
 
-' Nevidljive veze samo za ljepši vertikalni raspored aktera na dijagramu
-Admin -[hidden]down-> Staff
-Staff -[hidden]down-> Organizer
+Donor -|> User
+Staff -|> User
+Organizer -|> User
+Admin -|> User
+User -|> Visitor
+
+
+Staff -[hidden]down-> Donor
 Organizer -[hidden]down-> Donor
-Donor -[hidden]down-> Visitor
-Visitor -[hidden]down-> AppUser
+Admin -[hidden]down-> Staff
+Donor -[hidden]down-> User
+User -[hidden]down-> Visitor
 
-' ==============================================================================
-' Sekundarni akteri (vanjski sustavi)
-' ==============================================================================
 
 actor "Pružatelj identiteta\n(OAuth 2.0)" as IdP <<external system>>
 actor "Google Calendar API" as Calendar <<external system>>
+actor "Google Maps API" as Maps <<external system>>
 actor "Pružatelj obavijesti\n(SMS/Email)" as Notifications <<external system>>
-
-' ==============================================================================
-' Granica sustava
-' ==============================================================================
 
 rectangle "Sustav KrvnaVeza" as KrvnaVeza {
 
-    ' Autentikacija i profil
     (UC-001\nRegistracija darivatelja) as UC_Register
     (UC-002\nPrijava u sustav) as UC_SignIn
-    (UC-003\nUpravljanje korisničkim ulogama) as UC_ManageRoles
-    (UC-005\nUređivanje profila) as UC_EditProfile
+    (UC-004\nPristup gostima) as UC_Guest
 
-    ' Pregled i karte (dostupno svima)
-    (UC-004\nPristup gostima\npregled karte i zaliha) as UC_GuestAccess
+    (UC-005\nUređivanje profila) as UC_Profile
+    (UC-006\nRezervacija termina\nili prijava na akciju) as UC_Reserve
+    (UC-014\nIspunjavanje upitnika\npodobnosti) as UC_Eligibility
+    (UC-015\nSinkronizacija s kalendarom) as UC_Calendar
 
-    ' Operacije darivanja i rezervacija
-    (UC-006\nRezervacija termina ili\nprijava na akciju) as UC_BookSlot
-    (UC-006a\nIspunjavanje upitnika\npodobnosti) as UC_Questionnaire
-    (UC-006b\nSinkronizacija s kalendarom) as UC_SyncCalendar
-    (UC-007\nUpravljanje terminima i\nskeniranje QR koda) as UC_ScanQR
+    (UC-007\nUpravljanje rasporedom\ni kapacitetom termina) as UC_Schedule
+    (UC-008\nEvidentiranje dolaska\nskeniranjem QR koda) as UC_CheckIn
+    (UC-010\nSlanje hitnog poziva\nza darivanje) as UC_Emergency
+    (UC-011\nUpravljanje dozama krvi) as UC_Stock
+    (UC-012\nIzvoz statističkih podataka) as UC_Stats
 
-    ' Akcije i zalihe
-    (UC-008\nPredlaganje terenske akcije) as UC_ProposeAction
-    (UC-008a\nOdobravanje terenske akcije) as UC_ApproveAction
-    (UC-009\nSlanje hitnog poziva\nza darivanje) as UC_EmergencyAlert
+    (UC-009\nPredlaganje terenske akcije) as UC_Propose
+
+
+    (UC-003\nUpravljanje korisničkim\nulogama) as UC_Roles
+    (UC-013\nUpravljanje transfuzijskim\ncentrima) as UC_Centers
 }
 
-' ==============================================================================
-' Asocijacije aktera i slučajeva uporabe
-' ==============================================================================
 
-' Posjetitelj ima pristup pregledu i registraciji/prijavi
-Visitor -- UC_GuestAccess
 Visitor -- UC_Register
 Visitor -- UC_SignIn
+Visitor -- UC_Guest
 
-' Prijavljeni darivatelj
-Donor -- UC_EditProfile
-Donor -- UC_BookSlot
+Donor -- UC_Profile
+Donor -- UC_Reserve
 
-' Djelatnik transfuzijskog centra
-Staff -- UC_ScanQR
-Staff -- UC_ApproveAction
-Staff -- UC_EmergencyAlert
+Staff -- UC_Schedule
+Staff -- UC_CheckIn
+Staff -- UC_Emergency
+Staff -- UC_Stock
+Staff -- UC_Stats
 
-' Organizator terenskih akcija
-Organizer -- UC_ProposeAction
+Organizer -- UC_Propose
 
-' Administrator sustava
-Admin -- UC_ManageRoles
 
-' ==============================================================================
-' Veze između slučajeva uporabe (include / extend)
-' ==============================================================================
+Admin -- UC_Roles
+Admin -- UC_Centers
 
-' Obvezni korak: pri rezervaciji se uvijek popunjava upitnik podobnosti
-UC_BookSlot ..> UC_Questionnaire : <<include>>
+UC_Reserve ..> UC_Eligibility : <<include>>
 
-' Neobavezno proširenje: dodavanje u kalendar ako darivatelj da privolu
-UC_BookSlot <.. UC_SyncCalendar : <<extend>>\n[dopuštenje dano]
 
-' Proširenje za odobravanje akcije unutar predlaganja
-UC_ProposeAction <.. UC_ApproveAction : <<extend>>\n[pregled od strane djelatnika]
+UC_Reserve <.. UC_Calendar : <<extend>>\n[dopuštenje dano]
 
-' ==============================================================================
-' Interakcije sa sekundarnim akterima
-' ==============================================================================
 
-UC_Register -- IdP
-UC_SignIn -- IdP
+UC_Register -right- IdP
+UC_SignIn -right- IdP
 
-UC_SyncCalendar -right- Calendar
-UC_EmergencyAlert -right- Notifications
+UC_Calendar -right- Calendar
 
-' Raspored vanjskih sustava na desnoj strani
+UC_Guest -right- Maps
+UC_Propose -right- Maps
+UC_Centers -right- Maps
+
+UC_Emergency -right- Notifications
+
 IdP -[hidden]down-> Calendar
-Calendar -[hidden]down-> Notifications
-
+Calendar -[hidden]down-> Maps
+Maps -[hidden]down-> Notifications
 @enduml
