@@ -45,7 +45,8 @@ Za svaki relevantan sastanak ili zapis tjedne koordinacije upišite jedan sažet
 | --- | --- | --- | --- |
 | 3. Tjedan | Jezgra baze podataka i dokumentacija | EP, DB, LJG | #1 #2 |
 | 4. Tjedan | Baza podataka, OAuth2.0 | EP, DB, LJG, MJ, JSN, DG | #3 #4|
-| 5. Tjedan | Dokumenatacija, izgled stranice | EP, DB, MJ| #5 #6 #7|
+| 5. Tjedan | Dokumentacija 3, izgled stranice | EP, DB, MJ| #5 #6 #7|
+| 6. Tjedan | Dokumentacija 4, homepage, prijava u sustav | DB, JSN, DG| #8 #9 #10 |
 
 Ako koristite tablicu, plan vodite na korisnoj tjednoj razini i ažurirajte ga kada se prioriteti promijene. Kratice članova tima definirajte  u A.1 i ovdje ih primjenjujte dosljedno; ako dva člana imaju iste inicijale, proširite kraticu. Plan nije dokaz da je planirani rad dovršen (to dokazuje kod i dokumentacija).
 
@@ -69,10 +70,12 @@ Ako koristite tablicu, plan vodite na korisnoj tjednoj razini i ažurirajte ga k
 
 | Aktivnost ili rezultat | Član | Prijavljeni sati | Reprezentativni rezultat ili poveznica |
 | --- | --- | --- | --- |
-| Pisanje dokumentacije  | EP  | 7  | Zadatak #1 i #2 |
+| Pisanje dokumentacije  | EP  | 7  | Zadatci #1 i #2 |
 | Pisanje dokumentacije | DB | 2 | Zadatci #1, #2 i #3 |
 | Izrada frontenda | DB | 5 | Oblikovana osnovna struktura i objašnjena u readme fileovima, api poveznica s backendom |
 | Izrada frontenda | DB | 2 | Stiliziranje AuthPage-a, uvezena karta te preporuka za hendlanje uloga |
+| Izrada baze podatala | EP | 2 | Zadatak #3 | 
+| Pisanje dokumentacije | EP | 7 | Zadatci #8 i #11: Obrasci uporabe |
 
 Koristite aktivnosti specifične za projekt umjesto obaveznog retka za svako poglavlje dokumentacije ili svaki UML dijagram. Tim treba dosljedno bilježiti sate i izbjegavati dvostruko brojanje zajedničkog rada; reprezentativni rezultat objašnjava što je prijavljeni trud proizveo. Sati su samoprijavljena procjena uloženog rada, a ne mjera kvalitete niti zamjena za pregled koda i artefakata.
 
