@@ -17,11 +17,10 @@ Primjeri koriste temu projekta CrisisMap. Neki namjerno sadrže korisne nedostat
 
 | ID | Opis | Prioritet | Izvor | Kriteriji prihvaćanja |
 | --- | --- | --- | --- | --- |
-| F-XXX | [Funkcijski zahtjev/ponašanje sustava] | [Visok/Srednji/Nizak] | [Odobreni zadatak / zahtjev dionika / povratna informacija] | [Opažljivi rezultat] |
 | F-001 | Sustav omogućuje korisnicima registraciju s važećom adresom e-pošte i prijavu putem OAuth 2.0 protokola koristeći tokene. | Visok | Projektni zadatak | Korisnik se može registrirati putem e-pošte i odvest će ga na odgovarajući profil. |
 | F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, najavljenih akcija darivanja. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik ima pregled karte i lokacija neovisno o registraciji. |
 | F-003 | Sustav omogućuje prikaz zaliha. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik ima pregled zalihama neovisno o registraciji. |
-| F-004 | Sustav omogućuje korisniku darivatelju unos svojih osobnih podataka. Sustav krvnu grupu označuje kao neprovjerenu | Visoka | Projektni zadatak | Korisnik darivatelj može nakon registracije ispuniti svoje podatke i krvna grupa ostaje označena kao neprovjerena sve dok ju djelatnik ne potvrdi. |
+| F-004 | Sustav omogućuje korisniku darivatelju unos svojih osobnih podataka. Sustav krvnu grupu označuje kao neprovjerenu | Visok | Projektni zadatak | Korisnik darivatelj može nakon registracije ispuniti svoje podatke i krvna grupa ostaje označena kao neprovjerena sve dok ju djelatnik ne potvrdi. |
 | F-005 | Sustav za svakog darivatelja izračunava datum od kojeg ponovno smije darivati. | Visok | Projektni zadatak | Darivatelju su ponuđeni datumi darivanja ovisno o izračunu kada može darivati. |
 | F-006 | Sustav omogućuje darivatelju rezervaciju termina u centru ili prijavu na terensku akciju uz ispunjavanje upitnika | Visok | Projektni zadatak | Darivatelj ovisno o podobnosti može rezervirati termin. Upisuje se u GoogleCalendar darivatelja i generira se QR kod. Otkazivanje je moguće do dva sata prije početka. |
 | F-007 | Sustav omogućuje djelatniku definiranje radnog vremena i kapaciteta termina te upravljanje tokom termina. | Visok | Projektni zadatak | Djelatnik tranfuzijskog centra ima pristup i može unositi i definirati radno vrijeme i kapacitet. Upravlja tokom termina kako pregled napreduje |
@@ -77,13 +76,12 @@ Za složenu interakciju kratak scenarij *Given / When / Then* može pojasniti kr
 
 | ID | Opis | Prioritet | Izvor | Način provjere |
 | --- | --- | --- | --- | --- |
-| NF-xx | [Konkretan zahtjev (npr. odziv, sigurnost, pristupačnost)] | Visok / Srednji / Nizak | [Sigurnost / Uputa / SLA] | [Mjerenje / Testni scenarij / Pregled] |
 | NF-01 | Aplikacija treba biti izvedena kao web aplikacija prilagođena (responsive) mobilnom uređaju.| Visok | Projektni zadatak | Testirati aplikaciju i responzivni dizajn na različitim veličinama zaslona. |
 | NF-02 | Podaci o zdravstvenom stanju darivatelja (odgovori iz upitnika, razlozi odbijanja i odgode) osjetljivi su osobni podaci: dostupni su samo djelatnicima transfuzijskog centra, a svaki pristup tim podacima bilježi se u zapisnik. | Visok | Projektni zadatak | Provjeriti pristup s drugih računa tj. neovlaštenim korisnicima te pregledati zapisnik pristupa. |
 | NF-03 | Darivatelj može preuzeti sve svoje podatke i zatražiti brisanje korisničkog računa, pri čemu se evidencija njegovih darivanja anonimizira, ali ne briše, jer je potrebna za sljedivost doza krvi| Visok | Projeknti zadatak | Pokrenuti zahtjev brisanja računa uz provjeru jesu li podaci anonimizirani te ostali u sustavu zaliha krvi. |
 | NF-04 | Stanje zaliha na pregledima mora se ažurirati automatski, bez ručnog osvježanja. | Visok | Projektni zadatak | Izvršiti provjeru zaliha u pozadini i provjeriti pojavljuje li se promjena na korisničkom sučelju. |
 | NF-05| Sustav mora ograničiti pristup funkcionalnostima i podacima prema ulozi korisnika. | Visok | Projektni zadatak | Testiranje dopuštenih i zabranjenih radnji za svaku ulogu. |
-| NF-06 | Sustav mora jasno obraditi nedostupnosti vanjskih usluga i obavijestiti o tome korisnika. | Srednja | Projektna pretpostavka | Simuliranje takvih nedostupnosti i provjera ponašanja sustava. |
+| NF-06 | Sustav mora jasno obraditi nedostupnosti vanjskih usluga i obavijestiti o tome korisnika. | Srednji | Projektna pretpostavka | Simuliranje takvih nedostupnosti i provjera ponašanja sustava. |
 | NF-07 | Sustav mora omogućiti sljedljivost doza krvi kroz statuse i evidentirane promjene. | Visok | Projektni zadatak| Provjeriti statuse i promjene zaliha. |
 | NF-08 | Sustav mora imati odgovarajuću dokumentaciju. |Visok | Pravila dokumentiranja | Pregledati strukturu dokumenta. |
 
@@ -152,9 +150,11 @@ Relevantna svojstva mogu se odnositi na uporabljivost, pristupačnost, sigurnost
 | --- | --- | --- | --- | --- |
 | C-xx | Ograničenje | [Fiksni tehnički ili procesni uvjet] | [Zadatak / Pravila] | [Utjecaj na arhitekturu i oblikovanje] |
 | C-01 | Ograničenje | Projektni zadatak zahtijeva autorizaciju preko OAuth 2.0 protokola koristeći tokene | Projektni zadatak | Odraditi autorizaciju preko zadanog protokola |
-| C-02 | Ograničenje | ... |
+| C-02 | Ograničenje | Obrada i unos osjetljivih zdravstvenih podataka darivatelja. | Zakonski propisi | Pristup podacima strogo kontroliran preko uloga i dozvola. |
 | AS-xx | Pretpostavka | [Očekivani uvjet, npr. o podacima ili okolini] | [Procjena tima] | [Kako i kada će se provjeriti valjanost] |
 | AS-01 | Pretpostavka | Korisnici imaju pristup internetu. | Procjena tima  | Planirati pristup značajkama bez interneta. |
+| AS-02 | Pretpostavka | Korisnici koji dopuste sinkronizaciju s kalendarom imaju važeći Google račun.| Projektni zadatak | U slučaju da korisinik dopusti sinkronizaciju s kalendarom, a nema Google račun rezervacija termina će se uspješno izvršiti, ali će se preskočiti dio unosa u kalendar. |
+
 <details>
 <summary><strong>Ograničenja nasuprot pretpostavkama</strong></summary>
 
@@ -203,7 +203,27 @@ Ograničenje je uvjet koji tim mora poštovati; pretpostavka je uvjet na koji se
 | ID zahtjeva | Obrazac uporabe / modul | Arhitekturna realizacija | Ispitivanje ili provjera |
 | --- | --- | --- | --- |
 | F-001 | [UC-001] | [Komponenta, modul ili drugo mjesto realizacije] | [ST-01, CT-01 ili druga provjera] |
-|  |  |  |  |
+| F-001 | UC-001: Registracija darivatelja krvi, UC-002:Prijava u sustav.| OAuth2.0,modul baze podataka za korisnika. | ST-01 Valjano podnošenje prijave; ST-02 Odbijanje nevaljanog tokena |
+| F-002 | UC-004: Pristup gostima | GoogleMaps | ST-03 Prikaz karte i centara neregistriranim korisnicima |
+| F-003 | UC-004: Pristup gostima | Pregled zaliha| ST-04 Pregled zaliha za određenu krvnu grupu neregistriranim korisnicima |
+| F-004 | UC-005: Uređivanje profila | Web sučelje, modul baze podataka | ST-05 Unos podataka i označavanje podataka kao neprovjerenim |
+| F-005 | UC-006: Rezervacija termina/Prijava na akciju | Izračun podobnosti | ST-06 Provjera točnosti izračuna podobnosti |
+| F-006 |UC-006: Rezervacija termina/Prijava na akciju | Prijava na termine i akcije | ST-07 Rezervacija termina, generiranje QR koda i upis u kalendar|
+| F-007 | UC-007: Upravljanje terminima i skeniranje QR koda | definiranje radnog vremena i kapaciteta | ST-08 Unos i izmjena termina od strane djelatnika |
+| F-008 | UC-007: Upravljanje terminima i skeniranje QR koda | QR kod servis | ST-09 Skeniranje QR koda i obilježen dolazak ili razlog zašto je odbijen |
+| F-009 | Pozadinski proces | Sustav obavijesti | ST-10 Provjera slanja obavijesti |
+| F-010 | UC-006: Rezervacija termina/Prijava na akciju | Popunjavanje podataka za izračun podobnosti | ST-11 Procjena rizika od odbijanja na terminu na temelju upitnika|
+| F-011 | Modul upravljanja dozama | Sustav za praćenje doza krvi | ST-12 Ažuriranje statusa doza  |
+| F-012 | Modul upravljanja zalihama | Baza podataka  | ST-13 Automatski izračun odobrenih doza|
+| F-013 | Korisnički dio | Baza podataka (darivatelj)| ST-14 Pristup prijavljenim korisnicima svojoj povijesti darivanja |
+| F-014 | UC-009: Slanje hitnog poziva za darivanje | Pozadinski nadzor zaliha | ST-15 Automatska detekcija pada zaliha ispod kritične razine i slanje hitnog poziva |
+| F-015 | UC-008: Predlaganje terenske akcije | Sučelje organizatora | ST-16 Organizator predlaže akciju s lokacijom i vremenom |
+| F-016 | UC-008: Predlaganje terenske akcije | Sučelje djelatnika | ST-17 Prihvaćanje ili odbijanje akcije |
+| F-017 | Sustav nagrađivanja | Modul znački | ST-18 Dodavanje jubilarnih znački |
+| F-018 | Generiranje PDF potvrda | Izvoz u PDF | ST-19 Generiranje valjane potvrde o darivanju|
+| F-019 | Izvještajni modul | Statistika, izvoz u CSV| ST-20 Izvoz statističkih podataka u CSV formatu |
+| F-020 | Admin panel | Role-Based Access Control | ST-21 Upravljanje centrima i parametrima sustava |
+| F-021 | UC-003: Upravljanje korisničkim ulogama | Korisničke uloge i audit log| ST-22 Promjena uloga i evidentiranje te iste promjene|
 
 <details>
 <summary><strong>Sljedivost zahtjeva do obrazaca uporabe i ispitivanja</strong></summary>

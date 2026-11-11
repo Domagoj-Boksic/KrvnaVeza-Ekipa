@@ -81,7 +81,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Povezani zahtjevi** | F-001 |
 | **Preduvjeti** | Nema. |
 | **Glavni uspješni tok** | 1. korisnik odabire opciju prijave putem OAuth 2.0 poslužitelja <br> 2. Sustav preusmjerava korisnika na vanjskog poslužitelja <br> 3. Nakon uspješne prijave, sustav dohvaća token i prijavljuje korisnika |
-| **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - neuspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **3a - uloga nema potrebne ovlasti** ne dopušta prijavu i šalje obavijest s razlogom. |
+| **Alternativni tokovi / Iznimke** | **2a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2b - neuspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **2c - uloga nema potrebne ovlasti** ne dopušta prijavu i šalje obavijest s razlogom. |
 | **Posljedice (ishod)** | Uspješna prijava u aplikaciju. Grafičko sučelje ovisno o ulozi. |
 
 **UC-003: Upravljanje korisničkim ulogama.** 
@@ -91,7 +91,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Povezani zahtjevi** | F-020 ,F-021 |
 | **Preduvjeti** | Administrator je prijavljen i ima ovlasti dodjeljivati uloge. |
 | **Glavni uspješni tok** | 1. Otvara upravljanje korisnicima. <br> 2. Odabire ulogu djelatnik centra ili organizator. <br>  3. Sustav provjerava ovlasti <br> 4. Sustav sprema novu ulogu |
-| **Alternativni tokovi / Iznimke** | **1a - promjena nije odobrena** sustav ne sprema novu ulogu |
+| **Alternativni tokovi / Iznimke** | **2a - promjena nije odobrena** sustav ne sprema novu ulogu |
 | **Posljedice (ishod)** | Promjena i dodavanje uloga djelatnicima i organizatorima. |
 
 
@@ -132,7 +132,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Povezani zahtjevi** | F-007, F-008 |
 | **Preduvjeti** | Djelatnik je prijavljen u sustav kao djelatnik i s odgovarajućim ovlastima dodijeljenim njegovoj ulozi. |
 | **Glavni uspješni tok** | 1. djelatnik definira radno vrijeme i kapacitet termina <br> 2. djelatnik skenira QR kod darivatelja <br> 3. sustav evidentira dolazak i ažurira status|
-| **Alternativni tokovi / Iznimke** | **1a - QR kod je nevažeći** sustav javlja grešku, a djelatnik upisuje razlog odbijanja. <br> **2a - darivatelj odbijen** djelatnik na pregledu utvrdi da darivatelj ne može darivati krv te unosi razlog odbijanja. |
+| **Alternativni tokovi / Iznimke** | **2a - QR kod je nevažeći** sustav javlja grešku, a djelatnik upisuje razlog odbijanja. <br> **2b - darivatelj odbijen** djelatnik na pregledu utvrdi da darivatelj ne može darivati krv te unosi razlog odbijanja. |
 | **Posljedice (ishod)** | Darivatelj uspješno evidentiran. |
 
 **UC-008: Predlaganje terenske akcije**
