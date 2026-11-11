@@ -1,33 +1,132 @@
 
 @startuml
+title Sustav KrvnaVeza – dijagram obrazaca uporabe
 left to right direction
 
-actor "Darivatelj krvi\n(A-01)" as Darivatelj
-actor "Djelatnik centra\n(A-02)" as Djelatnik
-actor "Organizator\n(A-03)" as Organizator
-actor "Administrator\n(A-04)" as Admin
-actor "Posjetitelj\n(A-05)" as Gost
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam ArrowColor #212529
 
-rectangle "KrvnaVeza" {
-  usecase "UC-001\nRegistracija darivatelja" as UC1
-  usecase "UC-002\nPrijava u sustav" as UC2
-  usecase "UC-003\nUpravljanje korisničkim ulogama" as UC3
-  usecase "UC-004\nPristup gostima" as UC4
-  usecase "UC-005\nUređivanje profila" as UC5
-  usecase "UC-006\nRezervacija termina /\nprijava na akciju" as UC6
+skinparam actor {
+    BackgroundColor #F8F9FA
+    BorderColor #212529
+    BackgroundColor<<external system>> #FFF3CD
+    BorderColor<<external system>> #856404
 }
 
-Darivatelj -- UC1
-Darivatelj -- UC2
-Darivatelj -- UC5
-Darivatelj -- UC6
+skinparam usecase {
+    BackgroundColor #E7F1FF
+    BorderColor #0D6EFD
+}
 
-Djelatnik -- UC2
-Organizator -- UC2
+' ==============================================================================
+' Primarni akteri
+' ==============================================================================
 
-Admin -- UC2
-Admin -- UC3
+actor "Korisnik aplikacije" as AppUser
+actor "Posjetitelj" as Visitor
+actor "Darivatelj krvi" as Donor
+actor "Djelatnik centra" as Staff
+actor "Organizator" as Organizer
+actor "Administrator" as Admin
 
-Gost -- UC4
+Donor -|> AppUser
+Staff -|> AppUser
+Organizer -|> AppUser
+Admin -|> AppUser
+AppUser -|> Visitor
+
+' Nevidljive veze samo za ljepši vertikalni raspored aktera na dijagramu
+Admin -[hidden]down-> Staff
+Staff -[hidden]down-> Organizer
+Organizer -[hidden]down-> Donor
+Donor -[hidden]down-> Visitor
+Visitor -[hidden]down-> AppUser
+
+' ==============================================================================
+' Sekundarni akteri (vanjski sustavi)
+' ==============================================================================
+
+actor "Pružatelj identiteta\n(OAuth 2.0)" as IdP <<external system>>
+actor "Google Calendar API" as Calendar <<external system>>
+actor "Pružatelj obavijesti\n(SMS/Email)" as Notifications <<external system>>
+
+' ==============================================================================
+' Granica sustava
+' ==============================================================================
+
+rectangle "Sustav KrvnaVeza" as KrvnaVeza {
+
+    ' Autentikacija i profil
+    (UC-001\nRegistracija darivatelja) as UC_Register
+    (UC-002\nPrijava u sustav) as UC_SignIn
+    (UC-003\nUpravljanje korisničkim ulogama) as UC_ManageRoles
+    (UC-005\nUređivanje profila) as UC_EditProfile
+
+    ' Pregled i karte (dostupno svima)
+    (UC-004\nPristup gostima\npregled karte i zaliha) as UC_GuestAccess
+
+    ' Operacije darivanja i rezervacija
+    (UC-006\nRezervacija termina ili\nprijava na akciju) as UC_BookSlot
+    (UC-006a\nIspunjavanje upitnika\npodobnosti) as UC_Questionnaire
+    (UC-006b\nSinkronizacija s kalendarom) as UC_SyncCalendar
+    (UC-007\nUpravljanje terminima i\nskeniranje QR koda) as UC_ScanQR
+
+    ' Akcije i zalihe
+    (UC-008\nPredlaganje terenske akcije) as UC_ProposeAction
+    (UC-008a\nOdobravanje terenske akcije) as UC_ApproveAction
+    (UC-009\nSlanje hitnog poziva\nza darivanje) as UC_EmergencyAlert
+}
+
+' ==============================================================================
+' Asocijacije aktera i slučajeva uporabe
+' ==============================================================================
+
+' Posjetitelj ima pristup pregledu i registraciji/prijavi
+Visitor -- UC_GuestAccess
+Visitor -- UC_Register
+Visitor -- UC_SignIn
+
+' Prijavljeni darivatelj
+Donor -- UC_EditProfile
+Donor -- UC_BookSlot
+
+' Djelatnik transfuzijskog centra
+Staff -- UC_ScanQR
+Staff -- UC_ApproveAction
+Staff -- UC_EmergencyAlert
+
+' Organizator terenskih akcija
+Organizer -- UC_ProposeAction
+
+' Administrator sustava
+Admin -- UC_ManageRoles
+
+' ==============================================================================
+' Veze između slučajeva uporabe (include / extend)
+' ==============================================================================
+
+' Obvezni korak: pri rezervaciji se uvijek popunjava upitnik podobnosti
+UC_BookSlot ..> UC_Questionnaire : <<include>>
+
+' Neobavezno proširenje: dodavanje u kalendar ako darivatelj da privolu
+UC_BookSlot <.. UC_SyncCalendar : <<extend>>\n[dopuštenje dano]
+
+' Proširenje za odobravanje akcije unutar predlaganja
+UC_ProposeAction <.. UC_ApproveAction : <<extend>>\n[pregled od strane djelatnika]
+
+' ==============================================================================
+' Interakcije sa sekundarnim akterima
+' ==============================================================================
+
+UC_Register -- IdP
+UC_SignIn -- IdP
+
+UC_SyncCalendar -right- Calendar
+UC_EmergencyAlert -right- Notifications
+
+' Raspored vanjskih sustava na desnoj strani
+IdP -[hidden]down-> Calendar
+Calendar -[hidden]down-> Notifications
 
 @enduml

@@ -17,7 +17,7 @@ Primjeri koriste temu projekta CrisisMap. Neki namjerno sadrže korisne nedostat
 
 | ID | Opis | Prioritet | Izvor | Kriteriji prihvaćanja |
 | --- | --- | --- | --- | --- |
-| F-001 | Sustav omogućuje korisnicima registraciju s važećom adresom e-pošte i prijavu putem OAuth 2.0 protokola koristeći tokene. | Visok | Projektni zadatak | Korisnik se može registrirati putem e-pošte i odvest će ga na odgovarajući profil. |
+| F-001 | Sustav omogućuje korisnicima registraciju i prijavu putem OAuth 2.0 protokola koristeći tokene. | Visok | Projektni zadatak | Korisnik se može registrirati putem e-pošte i odvest će ga na odgovarajući profil. |
 | F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, najavljenih akcija darivanja. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik ima pregled karte i lokacija neovisno o registraciji. |
 | F-003 | Sustav omogućuje prikaz zaliha. Neregistriranim i registriranim korisnicima | Visok | Projektni zadatak | Korisnik ima pregled zalihama neovisno o registraciji. |
 | F-004 | Sustav omogućuje korisniku darivatelju unos svojih osobnih podataka. Sustav krvnu grupu označuje kao neprovjerenu | Visok | Projektni zadatak | Korisnik darivatelj može nakon registracije ispuniti svoje podatke i krvna grupa ostaje označena kao neprovjerena sve dok ju djelatnik ne potvrdi. |

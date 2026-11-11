@@ -109,10 +109,10 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Darivatelj krvi (A-01) |
-| **Povezani zahtjevi** | F-004 |
+| **Povezani zahtjevi** | F-004, F-005, F-006, F-010 |
 | **Preduvjeti** | Darivatelj je prijavljen u sustav |
 | **Glavni uspješni tok** | 1. Darivatelj pristupa svom profilu. 2. Unosi svoje podatke. |
-| **Alternativni tokovi / Iznimke** | Nema |
+| **Alternativni tokovi / Iznimke** | **2a - Krivi podaci** - darivatelj je unesao krivo formatirane podatke |
 | **Posljedice (ishod)** | Sustav ažurira osobne podatke darivatelja |
 
 **UC-006: Rezervacija termina/Prijava na akciju**
@@ -125,17 +125,27 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Alternativni tokovi / Iznimke** | **1a - Darivatelj nije podoban** Ako korisnik nije podoban za darivanje aplikacija ga vraća, daje razlog i govori kad će biti podoban.<br> **2a - Upozorenje na vjerojatnost odbijanja darivanja** Ako sustav prema odgovorima odredi da je vjerojatnost za odbijanje darivanja na pregledu visoka javlja to darivatelju.<br> **3a - Nedostaju dopuštenja** Ako korisnik nije dao sva dopuštenja sustav ne može dodati događaj u kalendar i na to upozorava korisnika |
 | **Posljedice (ishod)** | Rezerviran termin i dodan u kalendar. |
 
-**UC-007: Upravljanje terminima i skeniranje QR koda**
+**UC-007: Upravljanje rasporedom i kapacitetom termina**
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Djelatnik centra (A-02) |
 | **Povezani zahtjevi** | F-007, F-008 |
 | **Preduvjeti** | Djelatnik je prijavljen u sustav kao djelatnik i s odgovarajućim ovlastima dodijeljenim njegovoj ulozi. |
-| **Glavni uspješni tok** | 1. djelatnik definira radno vrijeme i kapacitet termina <br> 2. djelatnik skenira QR kod darivatelja <br> 3. sustav evidentira dolazak i ažurira status|
-| **Alternativni tokovi / Iznimke** | **2a - QR kod je nevažeći** sustav javlja grešku, a djelatnik upisuje razlog odbijanja. <br> **2b - darivatelj odbijen** djelatnik na pregledu utvrdi da darivatelj ne može darivati krv te unosi razlog odbijanja. |
-| **Posljedice (ishod)** | Darivatelj uspješno evidentiran. |
+| **Glavni uspješni tok** | 1. djelatnik definira radno vrijeme i kapacitet termina <br> 2. termini se prikazuju u sustavu |
+| **Alternativni tokovi / Iznimke** |  |
+| **Posljedice (ishod)** | Termini uspješno dodani. |
 
-**UC-008: Predlaganje terenske akcije**
+**UC-008: Evidentiranje dolaska darivatelja**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-008 |
+| **Preduvjeti** | Djelatnik je prijavljen u sustav kao djelatnik i s odgovarajućim ovlastima dodijeljenim njegovoj ulozi. |
+| **Glavni uspješni tok** | 1. djelatnik skenira QR kod <br> 2. prijavljuje dolazak ili razlog odbijanja |
+| **Alternativni tokovi / Iznimke** | Darivatelj se nije pojavio na terminu pa se automatski upisuje da nije došao.  |
+| **Posljedice (ishod)** | Darivatelju je označen dolazak. |
+
+**UC-009: Predlaganje terenske akcije**
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Organizator (A-03) |
@@ -145,7 +155,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Alternativni tokovi / Iznimke** | **4a - transfuzijski centar odbije** navodi razlog odbijanja. |
 | **Posljedice (ishod)** | Terenska akcija darivanja je uspješno upisana u sustav (ili je uspješno odbijena uz obrazloženje). |
 
-**UC-009: Slanje hitnog poziva za darivanje**
+**UC-010: Slanje hitnog poziva za darivanje**
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Djelatnik centra (A-02) |
@@ -154,6 +164,36 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Glavni uspješni tok** | 1. zalihe određene krvne grupe pale su ispod kritične razine <br> 2. djelatnik centra obaviješten je o kritičnoj zalihi <br> 3. djelatniku je omogućeno da pošalje hitan poziv <br> 4. Djelatnik odobrava slanje hitnog poziva <br> 5. sustav putem SMS-a obaviještava podobne korisnike na tom području |
 | **Alternativni tokovi / Iznimke** | **4a - transfuzijski centar odbije** navodi razlog odbijanja. |
 | **Posljedice (ishod)** | Poslane obavijesti s poveznicom o slobodnim terminima. |
+
+**UC-011: Upravljanje dozama krvi**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-014, F-015, F-019 |
+| **Preduvjeti** | Djelatnik je prijavljen u sustav sa potrebnim dozvolama i ovlastima. |
+| **Glavni uspješni tok** | 1. djelatnik je prijavljen u sutav <br> 2. sustav omogućava prikaz zaliha  |
+| **Alternativni tokovi / Iznimke** | **2a - transfuzijski centar odbije** pad sustava  |
+| **Posljedice (ishod)** | Pristup zalihama |
+
+**UC-012: Izvoz statističkih podataka**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-019 |
+| **Preduvjeti** | Djelatnik je prijavljen u sustav sa potrebnim dozvolama i ovlastima. |
+| **Glavni uspješni tok** | 1. djelatnik je prijavljen u sutav <br> 2. sustav omogućava izvoz statistike u csv  |
+| **Alternativni tokovi / Iznimke** | **2a - transfuzijski centar odbije** pad sustava  |
+| **Posljedice (ishod)** | Izvoz statistike. |
+
+**UC-013: Upravljanje transfuzijskim centrima**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Administrator (A-04) |
+| **Povezani zahtjevi** | F-020 |
+| **Preduvjeti** | Administrator je prijavljen u sustav sa svim dozvolama i ovlastima. |
+| **Glavni uspješni tok** | 1. administrator je prijavljen u sutav <br> 2. provjerava transfuzijske centre  |
+| **Alternativni tokovi / Iznimke** |  |
+| **Posljedice (ishod)** | Lokacije na karti, zalihe, pristup sustavu|
 
 
 
