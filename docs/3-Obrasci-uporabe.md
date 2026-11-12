@@ -13,6 +13,7 @@
 
 <details>
 <summary><strong>Primjer umla </strong></summary>
+
 ![Dijagram obrazaca uporabe sustava CrisisMap](./assets/diagrams/3-1-crisismap-system-UC.svg)
 
 **Slika 3.1. Dijagram obrazaca uporabe sustava CrisisMap**
@@ -69,8 +70,8 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Primarni akter** | Darivatelj krvi (A-01) |
 | **Povezani zahtjevi** | F-001 |
 | **Preduvjeti** | Nema. |
-| **Glavni uspješni tok** | 1. Korisnik unosi adresu e-pošte. 2. OAuth 2.0 način registracije i prijave 3. korisnik potvrđuje |
-| **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - neuspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **3a - postoji račun** Ako račun već postoji pri registraciji onda sustav šalje obavijest s razlogom zašto registracija nije moguća. |
+| **Glavni uspješni tok** | 1. korisnik odabire opciju prijave putem OAuth 2.0 poslužitelja <br> 2. Sustav preusmjerava korisnika na vanjskog poslužitelja <br> 3. Nakon uspješne prijave, sustav dohvaća token i prijavljuje korisnika |
+| **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - neuspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem prijave. <br> **3a - postoji račun** Ako račun već postoji pri registraciji onda sustav šalje obavijest s razlogom zašto registracija nije moguća. |
 | **Posljedice (ishod)** | Račun je uspješno kreiran i darivatelj krvi se može prijaviti u sustav. |
 
 **UC-002: Prijava u sustav.** 
@@ -79,8 +80,8 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Primarni akter** | Darivatelj krvi (A-01), djelatnik centra (A-02), organizator (A-03), administrator (A-04) |
 | **Povezani zahtjevi** | F-001 |
 | **Preduvjeti** | Nema. |
-| **Glavni uspješni tok** | 1. Korisnik unosi adresu e-pošte i lozinku. 2. OAuth 2.0 način prijave 3. korisnik potvrđuje |
-| **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - neuspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **3a - uloga nema potrebne ovlasti** ne dopušta prijavu i šalje obavijest s razlogom. |
+| **Glavni uspješni tok** | 1. korisnik odabire opciju prijave putem OAuth 2.0 poslužitelja <br> 2. Sustav preusmjerava korisnika na vanjskog poslužitelja <br> 3. Nakon uspješne prijave, sustav dohvaća token i prijavljuje korisnika |
+| **Alternativni tokovi / Iznimke** | **2a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2b - neuspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem pijave. <br> **2c - uloga nema potrebne ovlasti** ne dopušta prijavu i šalje obavijest s razlogom. |
 | **Posljedice (ishod)** | Uspješna prijava u aplikaciju. Grafičko sučelje ovisno o ulozi. |
 
 **UC-003: Upravljanje korisničkim ulogama.** 
@@ -89,8 +90,8 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Primarni akter** | Administrator (A-04) |
 | **Povezani zahtjevi** | F-020 ,F-021 |
 | **Preduvjeti** | Administrator je prijavljen i ima ovlasti dodjeljivati uloge. |
-| **Glavni uspješni tok** | 1. Otvara upravljanje korisnicima. 2. Odabire ulogu djelatnik centra ili organizator.  3. Sustav provjerava ovlasti 4. Sustav sprema novu ulogu |
-| **Alternativni tokovi / Iznimke** | **1a - promjena nije odobrena** sustav ne sprema novu ulogu |
+| **Glavni uspješni tok** | 1. Otvara upravljanje korisnicima. <br> 2. Odabire ulogu djelatnik centra ili organizator. <br>  3. Sustav provjerava ovlasti <br> 4. Sustav sprema novu ulogu |
+| **Alternativni tokovi / Iznimke** | **2a - promjena nije odobrena** sustav ne sprema novu ulogu |
 | **Posljedice (ishod)** | Promjena i dodavanje uloga djelatnicima i organizatorima. |
 
 
@@ -100,7 +101,7 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | **Primarni akter** | Posjetitelj (A-05) |
 | **Povezani zahtjevi** | F-002, F-003 |
 | **Preduvjeti** | Nema |
-| **Glavni uspješni tok** | 1. Posjetitelj odabire opciju "Nastavi kao gost" |
+| **Glavni uspješni tok** | Posjetitelj odabire opciju "Nastavi kao gost" |
 | **Alternativni tokovi / Iznimke** | Nema |
 | **Posljedice (ishod)** | Pristup karti centara i akcija te pregled zaliha |
 
@@ -108,10 +109,10 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Darivatelj krvi (A-01) |
-| **Povezani zahtjevi** | F-004 |
+| **Povezani zahtjevi** | F-004, F-005, F-006, F-010 |
 | **Preduvjeti** | Darivatelj je prijavljen u sustav |
-| **Glavni uspješni tok** | 1. Darivatelj pristupa svom profilu. 2. Unosi svoje podatke. |
-| **Alternativni tokovi / Iznimke** | Nema |
+| **Glavni uspješni tok** | 1. Darivatelj pristupa svom profilu. <br> 2. Unosi svoje podatke. |
+| **Alternativni tokovi / Iznimke** | **2a - Krivi podaci** - darivatelj je unesao krivo formatirane podatke |
 | **Posljedice (ishod)** | Sustav ažurira osobne podatke darivatelja |
 
 **UC-006: Rezervacija termina/Prijava na akciju**
@@ -119,10 +120,103 @@ Vanjski sustav može biti sekundarni akter obrasca uporabe kada sudjeluje u ostv
 | :--- | :--- |
 | **Primarni akter** | Darivatelj krvi (A-01) |
 | **Povezani zahtjevi** | F-006 |
-| **Preduvjeti** | Darivatelj je prijavljen u sustav. Termin ima slobodnog mjesta/Akcija je aktualna. Provjera podobnosti |
-| **Glavni uspješni tok** | 1. Darivatelj pristupa rezervaciji. 2. Ispunjava kratki upitnik. 3. Zadovoljen je kriterij podobnosti 4. Termin se dodaje u Google Kalendar te je generiran QR kod |
-| **Alternativni tokovi / Iznimke** | **1a - Darivatelj nije podoban** Ako korisnik nije podoban za darivanje aplikacija ga vraća, daje razlog i govori kad će biti podoban.<br> **2a - Upozorenje na vjerojatnost odbijanja darivanja** Ako sustav prema odgovorima odredi da je vjerojatnost za odbijanje darivanja na pregledu visoka javlja to darivatelju.<br> **3a - Nedostaju dopuštenja** Ako korisnik nije dao sva dopuštenja sustav ne može dodati događaj u kalendar i na to upozorava korisnika |
-| **Posljedice (ishod)** | Rezerviran termin i dodan u kalendar. |
+| **Preduvjeti** | Darivatelj je prijavljen u sustav. Termin ima slobodnog mjesta/Akcija je aktualna. |
+| **Glavni uspješni tok** | 1. Darivatelj pristupa rezervaciji. <br> 2. Ispunjava kratki upitnik o podobnosti (UC-014). <br> 3. Zadovoljen je kriterij podobnosti <br> 4. Termin se dodaje u Google Kalendar te je generiran QR kod |
+| **Alternativni tokovi / Iznimke** |  |
+| **Posljedice (ishod)** | Rezerviran termin i generiran QR kod. Ako je dano dopuštenje termin je dodan u kalendar. |
+
+**UC-007: Upravljanje rasporedom i kapacitetom termina**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-007, F-008 |
+| **Preduvjeti** | Djelatnik je prijavljen u sustav kao djelatnik i s odgovarajućim ovlastima dodijeljenim njegovoj ulozi. |
+| **Glavni uspješni tok** | 1. djelatnik definira radno vrijeme i kapacitet termina <br> 2. termini se prikazuju u sustavu |
+| **Alternativni tokovi / Iznimke** |  |
+| **Posljedice (ishod)** | Termini uspješno dodani. |
+
+**UC-008: Evidentiranje dolaska darivatelja**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-008 |
+| **Preduvjeti** | Djelatnik je prijavljen u sustav kao djelatnik i s odgovarajućim ovlastima dodijeljenim njegovoj ulozi. |
+| **Glavni uspješni tok** | 1. djelatnik skenira QR kod <br> 2. prijavljuje dolazak ili razlog odbijanja |
+| **Alternativni tokovi / Iznimke** | Darivatelj se nije pojavio na terminu pa se automatski upisuje da nije došao.  |
+| **Posljedice (ishod)** | Darivatelju je označen dolazak. |
+
+**UC-009: Predlaganje terenske akcije**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Organizator (A-03) |
+| **Povezani zahtjevi** | F-015, F-016 |
+| **Preduvjeti** | Organizacija je prijavljena u sustav kao organizator, što podrazumijeva neke dodatne ovlasti i dozvole za predlaganje akcija. |
+| **Glavni uspješni tok** | 1. organizator predlaže akciju <br> 2. za svaku akciju navodi lokaciju, datum, vrijeme i očekivani broj dolazaka <br> 3. sustav sprema akciju u status predložene <br> 4. Djelatnik transfuzijskog centra prihvaća akciju i dodjeljuje joj tim. |
+| **Alternativni tokovi / Iznimke** | **4a - transfuzijski centar odbije** navodi razlog odbijanja. |
+| **Posljedice (ishod)** | Terenska akcija darivanja je uspješno upisana u sustav (ili je uspješno odbijena uz obrazloženje). |
+
+**UC-010: Slanje hitnog poziva za darivanje**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-014, F-019 |
+| **Preduvjeti** | Zalihe određene krvne grupe pale su ispod kritične razine. Djelatnik je prijavljen sa odgovarajućim dozvolama. |
+| **Glavni uspješni tok** | 1. zalihe određene krvne grupe pale su ispod kritične razine <br> 2. djelatnik centra obaviješten je o kritičnoj zalihi <br> 3. djelatniku je omogućeno da pošalje hitan poziv <br> 4. Djelatnik odobrava slanje hitnog poziva <br> 5. sustav putem SMS-a obaviještava podobne korisnike na tom području |
+| **Alternativni tokovi / Iznimke** | **4a - transfuzijski centar odbije** navodi razlog odbijanja. |
+| **Posljedice (ishod)** | Poslane obavijesti s poveznicom o slobodnim terminima. |
+
+**UC-011: Upravljanje dozama krvi**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-014, F-015, F-019 |
+| **Preduvjeti** | Djelatnik je prijavljen u sustav sa potrebnim dozvolama i ovlastima. |
+| **Glavni uspješni tok** | 1. djelatnik je prijavljen u sutav <br> 2. sustav omogućava prikaz zaliha  |
+| **Alternativni tokovi / Iznimke** | **2a - transfuzijski centar odbije** pad sustava  |
+| **Posljedice (ishod)** | Pristup zalihama |
+
+**UC-012: Izvoz statističkih podataka**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Djelatnik centra (A-02) |
+| **Povezani zahtjevi** | F-019 |
+| **Preduvjeti** | Djelatnik je prijavljen u sustav sa potrebnim dozvolama i ovlastima. |
+| **Glavni uspješni tok** | 1. djelatnik je prijavljen u sutav <br> 2. sustav omogućava izvoz statistike u csv  |
+| **Alternativni tokovi / Iznimke** | **2a - transfuzijski centar odbije** pad sustava  |
+| **Posljedice (ishod)** | Izvoz statistike. |
+
+**UC-013: Upravljanje transfuzijskim centrima**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Administrator (A-04) |
+| **Povezani zahtjevi** | F-020 |
+| **Preduvjeti** | Administrator je prijavljen u sustav sa svim dozvolama i ovlastima. |
+| **Glavni uspješni tok** | 1. administrator je prijavljen u sutav <br> 2. provjerava transfuzijske centre  |
+| **Alternativni tokovi / Iznimke** |  |
+| **Posljedice (ishod)** | Lokacije na karti, zalihe, pristup sustavu|
+
+**UC-014: Ispunjavanje upitnika**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Darivatelj krvi (A-01) |
+| **Povezani zahtjevi** | F-006 |
+| **Preduvjeti** | Darivatelj je prijavljen u sustav. Započeo je rezervaciju termina ili prijavu na akciju (UC-006) |
+| **Glavni uspješni tok** | 1. Sustav prikazuje upitnik. <br> 2. Darivatelj odgovara na pitanja. <br> 3. Sustav provjerava na temelju kriterija podobnosti <br> 4. Sustav utvrđuje da je darivatelj podoban |
+| **Alternativni tokovi / Iznimke** | **2a - Nedovršen upitnik** Ako korisnik ne odovori na sva obavezna pitanja sustav ga upozori i ne dopušta prijavu.<br> **4a - Nije podoban** Sustav ga upozorava, ne dopušta rezervaciju te mu javlja kada će opet biti podoban.<br> **4b - Odbijanje na pregledu** Sustav upozorava korisnika o mogućnosti da bude odbijen na pregledu |
+| **Posljedice (ishod)** | Odobrena podobnost i može nastaviti s rezervacijom |
+
+**UC-016: Sinkronizacija s kalendarom**
+| Element specifikacije | Opis |
+| :--- | :--- |
+| **Primarni akter** | Darivatelj krvi (A-01) |
+| **Povezani zahtjevi** | F-006 |
+| **Preduvjeti** | Darivatelj je prijavljen u sustav. Rezervirao je termin i dopustio je pristup Google Kalendaru |
+| **Glavni uspješni tok** | 1. Sustav šalje podatke Google Kalendaru <br> 2. Google Kalnedar stvara događaj. <br> 3. Sustav šalje potvrdu kako je termin dodan u kalendar|
+| **Alternativni tokovi / Iznimke** | **2a - Nedostaju dopuštenja** Korisnik nije dao dopuštenje za Google Kalendar. |
+| **Posljedice (ishod)** | Termin je dodan u kalendar |
+
+
+
 
 <details>
 <summary><strong>Primjeri specifikacija: Registracija i prijava kriznog događaja</strong></summary>
