@@ -10,6 +10,7 @@ export function AuthProvider({ children }) {
     useEffect(() => {
         async function loadUser() {
             try {
+                // poziv api, dohvat podatka o sebi
                 const data = await authService.me();
                 setUser(data);
             } catch(err) {
@@ -23,17 +24,22 @@ export function AuthProvider({ children }) {
     }, []);
 
     async function logout() {
+        // poziv api, logout
         await authService.logout();
         setUser(null);
     }
 
     return (
-        <AuthContext.Provider value={{ user, setUser, loading, logout }}>
+        // omotač za komponente kojima trebaju podaci o useru
+        <AuthContext.Provider value={{ user, loading, logout }}>
             {children}
         </AuthContext.Provider>
     );
 }
 
+// način za druge komponente da koriste podatke o useru
 export function useAuth() {
-    return useContext(AuthContext);
+    const ctx = useContext(AuthContext);
+    if (!ctx) throw new Error("useAuth must be used inside <AuthProvider>");
+    return ctx;
 }
