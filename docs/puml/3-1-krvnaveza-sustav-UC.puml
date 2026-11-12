@@ -1,33 +1,113 @@
-
 @startuml
+title Sustav KrvnaVeza – obrasci uporabe
 left to right direction
 
-actor "Darivatelj krvi\n(A-01)" as Darivatelj
-actor "Djelatnik centra\n(A-02)" as Djelatnik
-actor "Organizator\n(A-03)" as Organizator
-actor "Administrator\n(A-04)" as Admin
-actor "Posjetitelj\n(A-05)" as Gost
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam ArrowColor #212529
 
-rectangle "KrvnaVeza" {
-  usecase "UC-001\nRegistracija darivatelja" as UC1
-  usecase "UC-002\nPrijava u sustav" as UC2
-  usecase "UC-003\nUpravljanje korisničkim ulogama" as UC3
-  usecase "UC-004\nPristup gostima" as UC4
-  usecase "UC-005\nUređivanje profila" as UC5
-  usecase "UC-006\nRezervacija termina /\nprijava na akciju" as UC6
+skinparam actor {
+    BackgroundColor #F8F9FA
+    BorderColor #212529
+    BackgroundColor<<external system>> #FFF3CD
+    BorderColor<<external system>> #856404
 }
 
-Darivatelj -- UC1
-Darivatelj -- UC2
-Darivatelj -- UC5
-Darivatelj -- UC6
+skinparam usecase {
+    BackgroundColor #E7F1FF
+    BorderColor #0D6EFD
+}
 
-Djelatnik -- UC2
-Organizator -- UC2
 
-Admin -- UC2
-Admin -- UC3
+actor User as "Korisnik aplikacije"
+actor Visitor as "Posjetitelj"
+actor Donor as "Darivatelj krvi"
+actor Staff as "Djelatnik centra"
+actor Organizer as "Organizator"
+actor Admin as "Administrator"
 
-Gost -- UC4
 
+Donor -|> User
+Staff -|> User
+Organizer -|> User
+Admin -|> User
+User -|> Visitor
+
+
+Staff -[hidden]down-> Donor
+Organizer -[hidden]down-> Donor
+Admin -[hidden]down-> Staff
+Donor -[hidden]down-> User
+User -[hidden]down-> Visitor
+
+
+actor "Pružatelj identiteta\n(OAuth 2.0)" as IdP <<external system>>
+actor "Google Calendar API" as Calendar <<external system>>
+actor "Google Maps API" as Maps <<external system>>
+actor "Pružatelj obavijesti\n(SMS/Email)" as Notifications <<external system>>
+
+rectangle "Sustav KrvnaVeza" as KrvnaVeza {
+
+    (UC-001\nRegistracija darivatelja) as UC_Register
+    (UC-002\nPrijava u sustav) as UC_SignIn
+    (UC-004\nPristup gostima) as UC_Guest
+
+    (UC-005\nUređivanje profila) as UC_Profile
+    (UC-006\nRezervacija termina\nili prijava na akciju) as UC_Reserve
+    (UC-014\nIspunjavanje upitnika\npodobnosti) as UC_Eligibility
+    (UC-015\nSinkronizacija s kalendarom) as UC_Calendar
+
+    (UC-007\nUpravljanje rasporedom\ni kapacitetom termina) as UC_Schedule
+    (UC-008\nEvidentiranje dolaska\nskeniranjem QR koda) as UC_CheckIn
+    (UC-010\nSlanje hitnog poziva\nza darivanje) as UC_Emergency
+    (UC-011\nUpravljanje dozama krvi) as UC_Stock
+    (UC-012\nIzvoz statističkih podataka) as UC_Stats
+
+    (UC-009\nPredlaganje terenske akcije) as UC_Propose
+
+
+    (UC-003\nUpravljanje korisničkim\nulogama) as UC_Roles
+    (UC-013\nUpravljanje transfuzijskim\ncentrima) as UC_Centers
+}
+
+
+Visitor -- UC_Register
+Visitor -- UC_SignIn
+Visitor -- UC_Guest
+
+Donor -- UC_Profile
+Donor -- UC_Reserve
+
+Staff -- UC_Schedule
+Staff -- UC_CheckIn
+Staff -- UC_Emergency
+Staff -- UC_Stock
+Staff -- UC_Stats
+
+Organizer -- UC_Propose
+
+
+Admin -- UC_Roles
+Admin -- UC_Centers
+
+UC_Reserve ..> UC_Eligibility : <<include>>
+
+
+UC_Reserve <.. UC_Calendar : <<extend>>\n[dopuštenje dano]
+
+
+UC_Register -right- IdP
+UC_SignIn -right- IdP
+
+UC_Calendar -right- Calendar
+
+UC_Guest -right- Maps
+UC_Propose -right- Maps
+UC_Centers -right- Maps
+
+UC_Emergency -right- Notifications
+
+IdP -[hidden]down-> Calendar
+Calendar -[hidden]down-> Maps
+Maps -[hidden]down-> Notifications
 @enduml

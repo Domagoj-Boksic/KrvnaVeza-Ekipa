@@ -14,6 +14,8 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 | Datum i sudionici | Glavna tema | Donesena odluka ili zadatak  | Poveznica na zadatak ili  rezultat, ako postoji |
 | --- | --- | --- | --- |
 | 22.10.2026. - EP, DB, LJG, MJ, JSN, DG | Podjela uloga | Podijeljenje uloge (backend = DG, LJG, MJ ; frontend = EP, DB, JSN). EP i DB uređuju početnu dokumentaciju. DB i LJG početni izgled stranice. | Zadatak #1 i #2  |
+| 29.10.2026.- EP, DB, LJG, MJ, JSN, DG | Podjela poslova za početni izgled sustava. | OAuth2.0 autorizacija, frontend i baza podataka. | Zadatak #3 i #4 |
+
 
 Za svaki relevantan sastanak ili zapis tjedne koordinacije upišite jedan sažet redak. Dodijeljeni zadatak treba imati odgovornu osobu; za neriješeno pitanje treba navesti tko će ga dalje obraditi. Sam naslov sastanka ne pokazuje što se promijenilo. U ovu evidenciju nemojte kopirati cijeli popis issuea ni prijepis razgovora.
 
@@ -42,6 +44,9 @@ Za svaki relevantan sastanak ili zapis tjedne koordinacije upišite jedan sažet
 | Razdoblje/Tjedan | Glavni planirani rad | Odgovorni članovi | Poveznica na zadatke |
 | --- | --- | --- | --- |
 | 3. Tjedan | Jezgra baze podataka i dokumentacija | EP, DB, LJG | #1 #2 |
+| 4. Tjedan | Baza podataka, OAuth2.0 | EP, DB, LJG, MJ, JSN, DG | #3 #4|
+| 5. Tjedan | Dokumentacija 3, izgled stranice | EP, DB, MJ| #5 #6 #7|
+| 6. Tjedan | Dokumentacija 4, homepage, prijava u sustav | DB, JSN, DG| #8 #9 #10 |
 
 Ako koristite tablicu, plan vodite na korisnoj tjednoj razini i ažurirajte ga kada se prioriteti promijene. Kratice članova tima definirajte  u A.1 i ovdje ih primjenjujte dosljedno; ako dva člana imaju iste inicijale, proširite kraticu. Plan nije dokaz da je planirani rad dovršen (to dokazuje kod i dokumentacija).
 
@@ -65,7 +70,12 @@ Ako koristite tablicu, plan vodite na korisnoj tjednoj razini i ažurirajte ga k
 
 | Aktivnost ili rezultat | Član | Prijavljeni sati | Reprezentativni rezultat ili poveznica |
 | --- | --- | --- | --- |
-|  |  |  |  |
+| Pisanje dokumentacije  | EP  | 7  | Zadatci #1 i #2 |
+| Pisanje dokumentacije | DB | 2 | Zadatci #1, #2 i #3 |
+| Izrada frontenda | DB | 5 | Oblikovana osnovna struktura i objašnjena u readme fileovima, api poveznica s backendom |
+| Izrada frontenda | DB | 2 | Stiliziranje AuthPage-a, uvezena karta te preporuka za hendlanje uloga |
+| Izrada baze podatala | EP | 2 | Zadatak #3 | 
+| Pisanje dokumentacije | EP | 7 | Zadatci #8 i #11: Obrasci uporabe |
 
 Koristite aktivnosti specifične za projekt umjesto obaveznog retka za svako poglavlje dokumentacije ili svaki UML dijagram. Tim treba dosljedno bilježiti sate i izbjegavati dvostruko brojanje zajedničkog rada; reprezentativni rezultat objašnjava što je prijavljeni trud proizveo. Sati su samoprijavljena procjena uloženog rada, a ne mjera kvalitete niti zamjena za pregled koda i artefakata.
 
@@ -91,6 +101,9 @@ Koristite aktivnosti specifične za projekt umjesto obaveznog retka za svako pog
 
 **Prikaz aktivnosti repozitorija:** [Ugradite ili povežite GitHubov prikaz `Contributors` i generirani graf za projektni repozitorij; navedite razdoblje koje obuhvaća.]
 
+Pogledajte [GitHub Contributors Graph](https://github.com/Domagoj-Boksic/KrvnaVeza-Ekipa/graphs/contributors?selectedMetric=commits) za pregled aktivnosti.
+
+
 Graf može pokazati kada su zapisi promjena napravljeni i tko ih je napravio, ali ne prikazuje sav rad na oblikovanju, ispitivanju, integraciji, pregledu ili dokumentaciji. Ako postoji uočljiv nesklad s tablicom aktivnosti, kratko ga objasnite; nemojte iz grafa izvoditi broj sati. Generirani prikaz neka bude vezan uz stvarni repozitorij umjesto da se ručno crta drugi graf.
 
 ## A.5 Ključni inženjerski izazovi i rješenja
@@ -99,7 +112,7 @@ Graf može pokazati kada su zapisi promjena napravljeni i tko ih je napravio, al
 
 | Izazov | Poduzeta radnja | Ishod ili preostalo ograničenje |
 | --- | --- | --- |
-|  |  |  |
+| Odabir osnovnih ruta i autentikacija | Odabrane rute '/' i '/login'. Kad korisnik odabere "Nastavi kao gost" vodi ga na '/'. Uloge još nisu razrađene | Problem kad se otvori stranica vodi se direktno na HomePage prije prijave. Moguća rješenja novonastalog problema: 1. Svi ulaze kao gost na HomePage gdje imaju opciju prijave. Nakon prijave se sadržaj rendera na jednoj ruti ovisno o ulozi 2. Pri prvom učitavanju rute '/' linkat na '/login' i imat dodatnu rutu koja vodi na HomePage u ovisnosti u ulozi korisnika. 3. Nekakva kombinacija prethodne dvije točke? |
 
 <details>
 <summary><strong>Rješavanje nesklada formata lokacije</strong></summary>
