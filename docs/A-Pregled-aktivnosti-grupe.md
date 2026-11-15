@@ -76,6 +76,7 @@ Ako koristite tablicu, plan vodite na korisnoj tjednoj razini i ažurirajte ga k
 | Izrada frontenda | DB | 2 | Stiliziranje AuthPage-a, uvezena karta te preporuka za hendlanje uloga |
 | Izrada baze podatala | EP | 2 | Zadatak #3 | 
 | Pisanje dokumentacije | EP | 7 | Zadatci #8 i #11: Obrasci uporabe |
+| Izrada frontenda | DB | 6 | Dovršavanje izgleda Header.jsx i HomePage.jsx |
 
 Koristite aktivnosti specifične za projekt umjesto obaveznog retka za svako poglavlje dokumentacije ili svaki UML dijagram. Tim treba dosljedno bilježiti sate i izbjegavati dvostruko brojanje zajedničkog rada; reprezentativni rezultat objašnjava što je prijavljeni trud proizveo. Sati su samoprijavljena procjena uloženog rada, a ne mjera kvalitete niti zamjena za pregled koda i artefakata.
 
