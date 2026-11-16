@@ -12,7 +12,8 @@ async function request(path, {method = "GET", body, headers = {}} = {}) {
     const data = await res.json().catch(() => null);
 
     if (!res.ok) {
-        throw new Error(data.greska);
+        const porukaGreske = data?.greska || res.statusText || 'Došlo je do greške na serveru';
+        throw new Error(porukaGreske);
     }
 
     return data;

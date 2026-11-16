@@ -4,9 +4,9 @@ const userService = require('../services/userService');
 
 passport.use(new GoogleStrategy(
     {
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: process.env.GOOGLE_CALLBACK_URL,
+        clientID: process.env.GOOGLE_CLIENT_ID || "lazni_client_ID",
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET || "lazni_client_secret",
+        callbackURL: process.env.GOOGLE_CALLBACK_URL || "lazni_callback_url",
         state: true,
     },
     async (accessToken, refreshToken, profile, done) => {

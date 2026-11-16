@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
+const centriRoutes = require('./routes/centriRoutes');
 require('./config/passport');
 
 const authRoutes = require('./routes/authRoutes');
@@ -11,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || "tajna_sifra_za_test",
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -35,6 +36,8 @@ app.get('/api/me', requireAuth, (req, res) => {
   const { id, ime, email, uloga } = req.user;
   res.json({ id, ime, email, uloga});
 });
+
+app.use('/api/centri', centriRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, '0.0.0.0', () => {
