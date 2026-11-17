@@ -21,16 +21,16 @@ Darivatelj na njoj vidi kada i gdje može darivati i rezervira termin, centar pr
 ## 1.3 Granice projekta
 
 **Uključeno:**
-- web aplikacija prilagođena mobilnim uređajima (responsive);
-- registracija i prijava korisnika putem Google OAuth 2.0 protokola s tokenima te upravljanje korisničkim ulogama;
-- javni prikaz karte transfuzijskih centara, najavljenih akcija i stanja zaliha;
-- upravljanje profilom darivatelja i automatski izračun datuma od kojeg ponovno smije darivati;
+- web aplikacija prilagođena mobilnim uređajima (responsive)
+- registracija i prijava korisnika putem Google OAuth 2.0 protokola s tokenima te upravljanje korisničkim ulogama
+- javni prikaz karte transfuzijskih centara, najavljenih akcija i stanja zaliha
+- upravljanje profilom darivatelja i automatski izračun datuma od kojeg ponovno smije darivati
 - rezervacija termina i prijava na terenske akcije uz upitnik za samoprocjenu podobnosti, QR kod za potvrdu termina i sinkronizacija s Google Kalendarom
 - evidentiranje dolazaka skeniranjem QR koda, upravljanje terminima, dozama i zalihama krvi;
 - obavijesti darivateljima i hitni pozivi za darivanje pri padu zaliha ispod kritične razine;
-- prijedlog i odobravanje terenskih akcija te pregled statistike;
-- pregled povijesti darivanja, PDF potvrda o darivanju i značke za jubilarna darivanja;
-- statistika zaliha s izvozom u CSV te administracija centara, korisnika i parametara sustava.
+- prijedlog i odobravanje terenskih akcija te pregled statistike
+- pregled povijesti darivanja, PDF potvrda o darivanju i značke za jubilarna darivanja
+- statistika zaliha s izvozom u CSV te administracija centara, korisnika i parametara sustava
 
 **Izvan opsega ili odgođeno:** 
 - mobilne aplikacije (sustav je web aplikacija prilagođena mobilnim uređajima)
