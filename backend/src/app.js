@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 app.use(session({
-  secret: process.env.SESSION_SECRET || "tajna_sifra_za_test",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
