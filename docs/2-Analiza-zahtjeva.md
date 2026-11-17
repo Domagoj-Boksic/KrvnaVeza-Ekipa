@@ -6,9 +6,9 @@ U ovom poglavlju opisani su funkcijski i nefunkcijski zahtjevi sustava KrvnaVeza
 
 | ID | Opis | Prioritet | Izvor | Kriteriji prihvaćanja |
 | --- | --- | --- | --- | --- |
-| F-001 | Sustav omogućuje korisnicima registraciju i prijavu putem Google OAuth 2.0 protokola koristeći tokene. | Visok | Projektni zadatak | Korisnik se može registrirati putem e-pošte i odvest će ga na odgovarajući profil ili prijaviti bez ponovne registracije. |
+| F-001 | Sustav omogućuje korisnicima registraciju i prijavu putem Google OAuth 2.0 protokola koristeći tokene. | Visok | Projektni zadatak | Korisnik se može registrirati putem Google računa, bit će preusmjeren na odgovarajući profil, a kasnije se može prijaviti bez ponovne registracije. |
 | F-002 | Sustav omogućuje prikaz karte i lokacije transfuzijskih centara, najavljenih akcija darivanja za neregistrirane i registrirane korisnike. | Visok | Projektni zadatak | Korisnik ima pregled karte i lokacija neovisno o registraciji. |
-| F-003 | Sustav omogućuje prikaz zaliha za neregistrirane i registrirane korisnike. | Visok | Projektni zadatak | Korisnik ima pregled zalihama neovisno o registraciji. |
+| F-003 | Sustav omogućuje prikaz zaliha za neregistrirane i registrirane korisnike. | Visok | Projektni zadatak | Korisnik ima pregled zaliha neovisno o registraciji. |
 | F-004 | Sustav omogućuje korisniku darivatelju unos svojih osobnih podataka. Sustav krvnu grupu označuje kao neprovjerenu | Visok | Projektni zadatak | Korisnik darivatelj može nakon registracije ispuniti svoje podatke i oznaka neprovjeren se uklanja kada djelatnik potvrdi. |
 | F-005 | Sustav za svakog darivatelja izračunava datum od kojeg ponovno smije darivati. | Visok | Projektni zadatak | Darivatelju su ponuđeni datumi darivanja ovisno o izračunu kada može darivati. |
 | F-006 | Sustav omogućuje darivatelju rezervaciju termina u centru ili prijavu na terensku akciju uz ispunjavanje upitnika | Visok | Projektni zadatak | Darivatelj ovisno o podobnosti može rezervirati termin. Upisuje se u GoogleCalendar darivatelja i generira se QR kod. Otkazivanje je moguće do dva sata prije početka. |
@@ -28,37 +28,6 @@ U ovom poglavlju opisani su funkcijski i nefunkcijski zahtjevi sustava KrvnaVeza
 | F-020 | Sustav omogućuje adminu održavanje platforme | Visok | Projektni zadatak | Admin može upravljati korisnicima i transfuzijskim centrima, podešava parametre pravila podobnosti i pragove zaliha te pregled statistike korištenja sustava te deaktivirati korisnički račun |
 | F-021 | Sustav mora omogućiti administratoru dodjeljivanje i promjenu korisničkih uloga. Te promjene se moraju evidentirati u sustavu. | Visok | Projektni zadatak | Provjeriti dodjeljuju li se i pamte uloge korisnika prijavljenih u sustav. |
 
-
-<details>
-<summary><strong>Izvori zahtjeva i kriteriji prihvaćanja</strong></summary>
-
-Svaki zahtjev treba imati stabilan ID. **Izvor označava odakle zahtjev potječe**, primjerice iz odobrenog projektnog zadatka, zahtjeva dionika ili povratne informacije koja je promijenila zahtjev. Opišite opažljivo ponašanje umjesto naziva zaslona ili programskog okvira. U cijeloj dokumentaciji koristite istu ljestvicu prioriteta. Složenu korisničku interakciju objasnite u odgovarajućem obrascu uporabe umjesto kopiranja cijelog tijeka u ovu tablicu.
-
-**Primjer — funkcijski zahtjevi za aplikaciju CrisisMap:**
-
-Kategorije izvora pokazuju različite načine na koje zahtjev može nastati.
-
-| ID | Opis | Prioritet | Izvor | Kriteriji prihvaćanja |
-| --- | --- | --- | --- | --- |
-| F-001 | Korisnik se može registrirati putem Google računa i bit će preusmjeren na odgovarajući profil, a kasnije se može prijaviti bez ponovne registracije. | Visok | Zahtjev dionika | Korisnik se može registrirati adresom e-pošte, primiti poruku za potvrdu i aktivirati račun slijedeći poveznicu. |
-| F-002 | Sustav omogućuje oporavak lozinke putem e-pošte. | Srednji | Zahtjev dionika | Korisnik može zatražiti ponovno postavljanje lozinke, primiti poveznicu i uspješno postaviti novu lozinku. |
-| F-003 | Sustav prikazuje popis dostupnih resursa povezanih s kriznim događajima. | Visok | Postojeći sustav | Korisnik može pregledati ažurirani popis resursa relevantnih za vrstu kriznog događaja, lokaciju i raspoloživost. |
-| F-004 | Sustav omogućuje korisnicima podnošenje prijave kriznog događaja s lokacijom. | Visok | Dokument sa zahtjevima | Korisnik može podnijeti prijavu s vrstom kriznog događaja, razinom ozbiljnosti i lokacijom te dobiti potvrdu o zaprimanju. Ako odbije pristup geolokaciji preglednika, može lokaciju odabrati ručno.|
-| F-005 | Sustav šalje korisnicima obavijesti o relevantnim promjenama u njihovoj blizini. | Visok | Povratna informacija korisnika | Korisnici dobivaju obavijest unutar jedne minute od relevantne promjene za njihovu lokaciju. |
-| F-006 | Sustav prikazuje dostupne resurse prema lokaciji. | Visok | Analiza dokumentacije | Prikazuje se ažurirani popis resursa prilagođen vrsti kriznog događaja, lokaciji i raspoloživosti. |
-| F-007 | Sustav prikazuje prijave kriznih događaja s lokacijom kao oznake na karti. | Visok | Odobreni zadatak | Prijava s valjanom lokacijom prikazuje se kao oznaka na karti; odabirom oznake korisnik može otvoriti pripadajuću prijavu. |
-| F-008 | Sustav omogućuje moderatoru odobravanje ili odbijanje podnesenih prijava. | Visok | Zahtjev dionika | Moderator može odobriti ili odbiti prijavu koja čeka pregled; korisnik bez moderatorskih ovlasti ne može izvršiti te radnje. |
-
-
-**Kriteriji prihvaćanja i podrijetlo zahtjeva:** Primjer prikazuje registraciju, oporavak lozinke, resurse, prijavu kriznog događaja i obavijesti te nekoliko vrsta izvora i opažljivih kriterija. Istodobno otvara korisna pitanja: opisuju li F-003 i F-006 istu funkcionalnost resursa? Je li obećanje od jedne minute u F-005 dogovoreno i moguće ispitati? Treba li aplikaciji koja koristi isključivo OAuth uopće F-001 i F-002? Retke koristite kao materijal za analizu; u svojem projektu navedite vlastite zahtjeve. U stvarnom projektu stupac Izvor bilježi odakle su doista potekli njegovi zahtjevi.
-
-**Primjer prilagodbe kada odobreni zadatak koristi OAuth i kartu:** Umjesto kopiranja registracije e-poštom i oporavka lozinke formulirajte relevantni zahtjev za prijavu, primjerice: „F-001: Korisnici se prijavljuju putem odobrenog OAuth pružatelja identiteta; uspješna prijava omogućuje radnje rezervirane za prijavljene korisnike, a odustajanje od prijave ostavlja te radnje nedostupnima.” Zaseban zahtjev za kartu može glasiti: „F-007 : Prijave s lokacijom prikazuju se kao oznake na karti; odabirom oznake otvara se pripadajuća prijava.” Izvor treba biti stvarni odobreni zadatak ili dogovoreni zahtjev dionika. Ova je prilagodba zamjena za neodgovarajuće retke, a ne dodatna tablica koju svaki tim mora ispuniti.
-
-Za složenu interakciju kratak scenarij *Given / When / Then* može pojasniti kriterij. Primjerice: *Given* prijava bez lokacije, *when* građanin je podnese, *then* sustav objašnjava da lokacija nedostaje i ne pohranjuje prijavu. Nemojte jednostavan kriterij ponavljati i u prozi i u Gherkinu niti pisati Gherkin za svaki zahtjev.
-
-</details>
-
-
 ## 2.2 Nefunkcijski zahtjevi
 
 **Cilj:** Odrediti važna svojstva kvalitete i uvjete rada odobrene aplikacije na način koji tim može razumno provjeriti.
@@ -73,32 +42,6 @@ Za složenu interakciju kratak scenarij *Given / When / Then* može pojasniti kr
 | NF-06 | Sustav mora jasno obraditi nedostupnosti vanjskih usluga i obavijestiti o tome korisnika. | Srednji | Projektna pretpostavka | Simuliranje takvih nedostupnosti i provjera ponašanja sustava. |
 | NF-07 | Svaka doza krvi ima svoj jedinstveni id i povijest promjena statusa s vremenom | Visok | Projektni zadatak| Provjeriti prikaz i evidenciju statusa doza krvi. |
 
-
-<details>
-<summary><strong>Nefunkcijski zahtjevi za analizu</strong></summary>
-
-Relevantna svojstva mogu se odnositi na uporabljivost, pristupačnost, sigurnost, performanse ili pouzdanost. Odaberite svojstva specifična za projekt i opišite kako ih je moguće provjeriti. Zahtjev navodi što se očekuje; stvarna opažanja i dokazi pripadaju rezultatima ispitivanja, a ne drugom stupcu s rezultatima u ovoj tablici.
-
-**Primjer — nefunkcijski zahtjevi za aplikaciju CrisisMap:**
-
-| ID | Opis | Prioritet | Izvor |
-| --- | --- | --- | --- |
-| NF-1.1 | Sustav mora podržati 1.000 istodobnih korisnika uz vrijeme odziva kraće od 1 s. | Visok | SLA | Opteretiti sustav zadanim brojem istodobnih korisnika i izmjeriti vrijeme odziva. |
-| NF-1.2 | Svi osjetljivi podaci moraju biti šifrirani algoritmom AES-256. | Visok | Sigurnosna politika | Pregledati način pohrane i konfiguraciju šifriranja za podatke na koje se zahtjev odnosi. |
-| NF-1.3 | Korisničko sučelje mora podržavati engleski i španjolski jezik. | Srednji | Povratna informacija dionika | Pregledati reprezentativne korisničke tijekove u oba jezika. |
-| NF-1.4 | Dostupnost sustava mora iznositi najmanje 99,5 % mjesečno. | Visok | SLA | Izračunati mjesečnu dostupnost iz zapisa sustava za nadzor, ako takvi podaci postoje.|
-| NF-3.1.7 | Sustav treba imati odgovarajuću dokumentaciju. | Visok | Pravila dokumentiranja | Pregledati zahtijevane dokumentaciju prema obavezama.|
-| NF-3.1.7.1 | Kod sustava treba biti dokumentiran prema „Code Conventions for the Java Programming Language”. | Visok | Pravila dokumentiranja | Pregledati kod. |
-| NF-3.1.7.2 | Sustav treba biti opisan projektnim dokumentom/SRS-om. | Visok | Pravila dokumentiranja | Pregledati strukturu dokumenta  |
-| NF-3.1.7.3 | Sustav treba imati „Operativni priručnik” koji opisuje pravilnu uporabu. | Visok | Pravila dokumentiranja | Pregledati postoji li priručnik i mogu li se prema njemu izvršiti opisane radnje. |
-| NF-3.1.7.4 | Sustav treba imati „Plan implementacije” za pravilno postavljanje. | Visok | Smjernice za postavljanje | Pregledati odgovara li opisani postupak stvarnom postupku postavljanja.|
-
-**Provjerljivost i opseg:** Primjer uvodi performanse, sigurnost, lokalizaciju, dostupnost i dokumentaciju, uključujući hijerarhijski ID zahtjeva. Navedeni izvori primjeri su podrijetla zahtjeva, a ne dokaz da za studentski projekt stvarno postoji SLA ili sigurnosna politika. Vrijednosti poput 1.000 korisnika, 99,5 % mjesečne dostupnosti i AES-256 moraju imati odobren izvor i izvediv način provjere prije nego što postanu zahtjevi tima. Skup zahtjeva o dokumentaciji ilustrira razlaganje zahtjeva, ali zahtjevi za izradu *ove dokumentacije kolegija* u pravilu pripadaju uputama zadatka, a ne zahtjevima kvalitete web-aplikacije.
-
-**Primjer prilagodbe:** Ako je pristupačnost zahtjevana za  projekt, projektno specifičan zahtjev može glasiti: „NF-01: Sve obavezne radnje u obrascu za podnošenje prijave moguće je izvršiti samo tipkovnicom, uz vidljiv fokus na aktivnoj kontroli.” Provjera: navigirati kroz obrazac bez pokazivačkog uređaja, odabrati ili unijeti lokaciju, poslati prijavu i provjeriti može li se pročitati rezultat. To je provjerljivo svojstvo kvalitete, a ne dodatna funkcionalnost koju svaki projekt mora implementirati.
-
-</details>
-
 ## 2.3 Dionici i akteri
 
 **Cilj:** Utvrditi uloge koje utječu na zahtjeve i razlikovati dionike od aktera koji komuniciraju s aplikacijom.
@@ -111,23 +54,6 @@ Relevantna svojstva mogu se odnositi na uporabljivost, pristupačnost, sigurnost
 | A-04 | Administrator | F-020, F-021: Upravlja korisnicima, centrima, korisničkim ulogama, pravilima podobnosti i granicama zaliha. |
 | A-05 | Posjetitelji | F-002, F-003: Bez prijave pregledava karte, najavljene akcije i zalihe krvi. |
 
-
-<details>
-<summary><strong>Akteri i povezani zahtjevi</strong></summary>
-
-**Primjer — akteri aplikacije CrisisMap:**
-
-| ID aktera | Uloga | Obuhvaćeni funkcijski zahtjevi |
-| --- | --- | --- |
-| A-01 | Koordinator pomoći | F-003: Pregled resursa; F-004: Podnošenje prijave kriznog događaja. |
-| A-02 | Građanin | F-001: Izrada računa; F-005: Primanje obavijesti. |
-| A-03 | Administrator sustava | NF-1.2: Provođenje sigurnosnih pravila; upravljanje korisnicima. |
-| A-04 | Posjetitelj | F-007: Pregled prijava na karti. |
-| A-05 | Moderator | F-008: Odobravanje ili odbijanje prijava. |
-
-**Odgovornosti aktera:** Uloga aktera treba biti povezana s interakcijom, a ne samo s nazivom. Provjerite podnosi li koordinator pomoći u odobrenom zadatku doista prijave kriznih događaja. Poveznica administratora s NF-1.2 navodi sigurnosni aspekt, ali sama po sebi ne opisuje obrazac uporabe; navedite stvarnu radnju administratora ili izostavite ulogu ako je nema. Nastavnici zainteresirani za rezultat mogu biti dionici, a da nisu akteri aplikacije. Tablica je polazište za razmišljanje, a ne potvrđen opis ovlasti u CrisisMapu.
-
-</details>
 
 ---
 
@@ -142,21 +68,6 @@ Relevantna svojstva mogu se odnositi na uporabljivost, pristupačnost, sigurnost
 | AS-01 | Pretpostavka | Korisnici imaju pristup internetu. | Procjena tima  | Planirati pristup značajkama bez interneta. |
 | AS-02 | Pretpostavka | Korisnici koji dopuste sinkronizaciju s kalendarom imaju važeći Google račun.| Procjena tima | U slučaju da korisnik dopusti sinkronizaciju s kalendarom, a nema Google račun rezervacija termina će se uspješno izvršiti, ali će se preskočiti dio unosa u kalendar. |
 
-<details>
-<summary><strong>Ograničenja nasuprot pretpostavkama</strong></summary>
-
-Ograničenje je uvjet koji tim mora poštovati; pretpostavka je uvjet na koji se tim oslanja i koji treba ponovno provjeravati.
-
-**Primjer — projektni kontekst CrisisMapa:**
-
-| ID | Ograničenje ili pretpostavka | Izvor | Posljedica ili način provjere |
-| --- | --- | --- | --- |
-| C-01 | Odobreni zadatak zahtijeva OAuth prijavu u sustav za uređivanje vlastitih prijava korisnika. | Odobreni zadatak  | Zaštićeno uređivanje projektirati oko odabranog pružatelja identiteta; provjeriti autorizirane i neautorizirane zahtjeve. |
-| AS-01 | Prijave koje se prikazuju na karti imaju uporabive koordinate. | Pretpostavka o podacima  | Pregledati ogledne i uvezene prijave; planirati prikaz prijava bez valjanih koordinata. |
-
-**Ograničenje nasuprot pretpostavci:** C-01 navodi obvezujuću odluku i njezin arhitekturni učinak; AS-01 je moguće provjeriti i može se pokazati netočnim. Nemojte kopirati C-01 ako OAuth nije dio stvarnog odobrenog zadatka. Projektni odgovor objasnite u arhitekturi bez prepisivanja ove tablice.
-
-</details>
 
 ---
 
@@ -168,20 +79,6 @@ Ograničenje je uvjet koji tim mora poštovati; pretpostavka je uvjet na koji se
 | --- | --- | --- | --- |
 |  |  |  |  |
 
-<details>
-<summary><strong>Primjer značajne promjene</strong></summary>
-
-**Primjer scenarija — odluka tijekom pregleda CrisisMapa:**
-
-| Datum | ID zahtjeva | Promjena i razlog | Dogovoreno s / dokaz |
-| --- | --- | --- | --- |
-| [Datum pregleda] | F-004, NF-01 | Dodati ručni odabir lokacije kada korisnik odbije geolokaciju preglednika; bez toga građanin ne može podnijeti prijavu kriznog događaja s lokacijom. | [Poveznica na stvarnu bilješku pregleda ili zadatak tima] |
-
-**Razlog promjene:** Zapis navodi zahvaćene stavke i objašnjava razlog iz perspektive korisnika, a zatim upućuje na dokaz odluke.  Nakon stvarne odluke ažurirajte trenutačne zahtjeve; stilska izmjena teksta ne zahtijeva zapis u dnevniku promjena. Trenutačni red zadataka držite u alatu za praćenje zadataka.
-
-</details>
-
----
 
 ## 2.6 Sljedivost zahtjeva
 
@@ -194,36 +91,22 @@ Ograničenje je uvjet koji tim mora poštovati; pretpostavka je uvjet na koji se
 | F-003 | UC-004: Pristup gostima | Modul zaliha, web sučelje | ST-04 Pregled zaliha za određenu krvnu grupu neregistriranim korisnicima |
 | F-004 | UC-005: Uređivanje profila | Web sučelje, modul baze podataka | ST-05 Unos podataka i označavanje podataka kao neprovjerenim |
 | F-005 | UC-006: Rezervacija termina/Prijava na akciju | Izračun podobnosti | ST-06 Provjera izračuna datuma |
-| F-006 |UC-006: Rezervacija termina/Prijava na akciju | Prijava na termine i akcije | ST-07 Rezervacija termina, generiranje QR koda i upis u kalendar|
+| F-006 |UC-006: Rezervacija termina/Prijava na akciju ; UC-015: Sinkronizacija s kalendarom | Prijava na termine i akcije | ST-07 Rezervacija termina, generiranje QR koda i upis u kalendar|
 | F-007 | UC-007: Upravljanje rasporedom i kapacitetom termina | definiranje radnog vremena i kapaciteta | ST-08 Unos i izmjena termina od strane djelatnika |
 | F-008 | UC-008: Evidentiranje dolaska darivatelja | QR kod servis | ST-09 Skeniranje QR koda i obilježen dolazak ili razlog zašto je odbijen |
 | F-009 | Pozadinski proces | Sustav obavijesti | ST-10 Provjera slanja obavijesti |
 | F-010 | UC-014: Ispunjavanje upitnika| Popunjavanje podataka za izračun podobnosti | ST-11 Procjena rizika od odbijanja na terminu na temelju upitnika |
 | F-011 | UC-011: Upravljanje dozama krvi | Modul za upravljanje dozama | ST-12 Ažuriranje statusa doza  |
-| F-012 | UC-011: Upravljanje dozama krvi | Baza podataka  | ST-13 Automatski izračun odobrenih doza|
-| F-013 | Korisnički dio | Baza podataka (darivatelj)| ST-14 Pristup prijavljenim korisnicima svojoj povijesti darivanja |
+| F-012 | UC-011: Upravljanje dozama krvi | Baza podataka  | ST-13 Automatski izračun zaliha na temelju odobrenih doza |
+| F-013 | Na čekanju - UC još nije definiran | Baza podataka (darivatelj)| ST-14 Pristup prijavljenim korisnicima svojoj povijesti darivanja |
 | F-014 | UC-010: Slanje hitnog poziva za darivanje | Pozadinski nadzor zaliha | ST-15 Automatska detekcija pada zaliha ispod kritične razine i slanje hitnog poziva |
 | F-015 | UC-009: Predlaganje terenske akcije | Sučelje organizatora | ST-16 Organizator predlaže akciju s lokacijom i vremenom |
 | F-016 | UC-009: Predlaganje terenske akcije | Sučelje djelatnika | ST-17 Prihvaćanje ili odbijanje akcije |
 | F-017 | Sustav nagrađivanja | Modul znački | ST-18 Dodavanje jubilarnih znački |
-| F-018 | Generiranje PDF potvrda | Izvoz u PDF | ST-19 Generiranje valjane potvrde o darivanju|
+| F-018 | Na čekanju - UC još nije definiran | Izvoz u PDF | ST-19 Generiranje valjane potvrde o darivanju|
 | F-019 | UC-012: Izvoz statističkih podataka | Statistika, izvoz u CSV| ST-20 Izvoz statističkih podataka u CSV formatu |
 | F-020 | UC-013: Upravljanje transfuzijskim centrima | Role-Based Access Control | ST-21 Upravljanje centrima i parametrima sustava |
 | F-021 | UC-003: Upravljanje korisničkim ulogama | Korisničke uloge i audit log| ST-22 Promjena uloga i evidentiranje te iste promjene|
-
-<details>
-<summary><strong>Sljedivost zahtjeva do obrazaca uporabe i ispitivanja</strong></summary>
-
-**Primjer — poveznice zahtjeva CrisisMapa:**
-
-| ID zahtjeva | Obrazac uporabe / ponašanje | Arhitekturna realizacija | Ispitivanje / provjera |
-| --- | --- | --- | --- |
-| F-004 | UC-002 Podnošenje prijave kriznog događaja | Web-klijent; API za prijave; usluga za prijave | ST-01 Valjano podnošenje prijave; ST-02 Nedostaje obavezna lokacija; ST-03 Dopuštenje geolokacije odbijeno |
-| F-005 | Odabir primatelja obavijesti | Proces za obavijesti | CT-06 Primatelji obavijesti; potpuna dostava obavijesti nije pokrivena ovom provjerom |
-
-**Pokrivenost i dokazi:** CT-06 provjerava odabir primatelja za F-005, ali sam po sebi ne dokazuje da je obavijest stvarno dostavljena; ako projekt zahtijeva potpunu dostavu od početka do kraja, za taj dio treba postojati zasebna provjera. Svaki redak pokazuje gdje je zahtjev opisan kao ponašanje, gdje je ostvaren u sustavu i gdje se nalazi dokaz njegove provjere. Zahtjev ne mora imati zaseban obrazac uporabe ako ne opisuje korisničku interakciju; tada navedite relevantno ponašanje, arhitekturni element ili drugi prikladan način realizacije. U svojem projektu koristite stvarne nazive komponenata, modula i provjera iz dokumentacije i implementacije. Nedostajuću poveznicu ostavite praznom ili označite kao *na čekanju* uz kratak razlog. Stvarni rezultati ispitivanja bilježe se uz ispitne slučajeve; ova tablica pokazuje gdje ih pronaći.
-
-</details>
 
 ---
 
