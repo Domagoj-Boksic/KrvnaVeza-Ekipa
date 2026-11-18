@@ -37,7 +37,7 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 | Pisanje dokumentacije | DB | 2 | Zadatci #1, #2 i #3 |
 | Izrada frontenda | DB | 5 | Oblikovana osnovna struktura i objašnjena u readme fileovima, api poveznica s backendom |
 | Izrada frontenda | DB | 2 | Stiliziranje AuthPage-a, uvezena karta te preporuka za hendlanje uloga |
-| Izrada baze podatala | EP | 2 | Zadatak #3 | 
+| Izrada baze podataka | EP | 2 | Zadatak #3 | 
 | Pisanje dokumentacije | EP | 7 | Zadatci #8 i #11: Obrasci uporabe |
 | Proučavanje OAuth 2.0, OpenID Connecta i biblioteke Passport.js | MJ | 5 | Upoznao sam način rada prijave putem Googlea i odlučili smo se za tok u kojem prijavu vodi backend, a prijavljeni korisnik se pamti u sesiji |
 | Postavljanje Google OAuth klijenta | MJ | 1 | Napravio sam projekt i OAuth klijent u Google Cloud Consoleu, dodao povratne adrese i testne korisnike te predložak `backend/.env.example` |
@@ -45,6 +45,7 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 | Povezivanje prijave s frontendom | MJ | 2 | Nakon prijave korisnik se vraća na početnu stranicu aplikacije umjesto na JSON odgovor; zajedno s DB spojeno kroz PR #13 i #14 |
 | Popravak backenda nakon spajanja grana | MJ | 1 | Nakon spajanja PR #15 iz `backend/package.json` nestale su ovisnosti potrebne za pokretanje backenda pa sam ih vratio |
 | Priprema podataka o prijavi za UML dijagrame | MJ | 1 | JSN-u sam poslao opis toka prijave, sudionika i mogućih grešaka te izvor sekvencijskog dijagrama prijave |
+| Izrada baze podataka | LJG | 10 | Zadatak #3 |
 
 <details>
 <summary><strong>Primjer aktivnosti i rezultata rada</strong></summary>
