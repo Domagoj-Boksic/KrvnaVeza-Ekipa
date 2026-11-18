@@ -21,7 +21,9 @@
 | **Alternativni tokovi / Iznimke** | **1a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2a - neuspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem prijave. |
 | **Posljedice (ishod)** | Račun je uspješno kreiran i darivatelj krvi se može prijaviti u sustav. |
 
+
 ---
+
 
 **UC-002: Prijava u sustav.** 
 | Element specifikacije | Opis |
@@ -33,7 +35,9 @@
 | **Alternativni tokovi / Iznimke** | **2a - odustaje od prijave** Korisnik odustaje od prijave. <br>**2b - neuspjeh** Autentifikacija nije uspjela pa sustav šalje obavijest za mogućim ponovnim pokušajem prijave. <br> **2c - uloga nema potrebne ovlasti** ne dopušta prijavu i šalje obavijest s razlogom. |
 | **Posljedice (ishod)** | Uspješna prijava u aplikaciju. Grafičko sučelje ovisno o ulozi. |
 
+
 ---
+
 
 **UC-003: Upravljanje korisničkim ulogama.** 
 | Element specifikacije | Opis |
@@ -45,7 +49,9 @@
 | **Alternativni tokovi / Iznimke** | **2a - promjena nije odobrena** sustav ne sprema novu ulogu |
 | **Posljedice (ishod)** | Promjena i dodavanje uloga djelatnicima i organizatorima. |
 
+
 ---
+
 
 **UC-004: Pristup gostima.**
 | Element specifikacije | Opis |
@@ -57,7 +63,9 @@
 | **Alternativni tokovi / Iznimke** | Nema |
 | **Posljedice (ishod)** | Pristup karti centara i akcija te pregled zaliha |
 
+
 ---
+
 
 **UC-005: Uređivanje profila** 
 | Element specifikacije | Opis |
@@ -69,7 +77,9 @@
 | **Alternativni tokovi / Iznimke** | **2a - Krivi podaci** - darivatelj je unio krivo formatirane podatke |
 | **Posljedice (ishod)** | Sustav ažurira osobne podatke darivatelja |
 
+
 ---
+
 
 **UC-006: Rezervacija termina/Prijava na akciju**
 | Element specifikacije | Opis |
@@ -81,7 +91,9 @@
 | **Alternativni tokovi / Iznimke** | **2a - Otkazivanje termina** Otkazivanje do 2 sata prije početka  |
 | **Posljedice (ishod)** | Rezerviran termin i generiran QR kod. Ako je dano dopuštenje termin je dodan u kalendar. |
 
+
 ---
+
 
 **UC-007: Upravljanje rasporedom i kapacitetom termina**
 | Element specifikacije | Opis |
@@ -93,7 +105,9 @@
 | **Alternativni tokovi / Iznimke** |  |
 | **Posljedice (ishod)** | Termini uspješno dodani. |
 
+
 ---
+
 
 **UC-008: Evidentiranje dolaska darivatelja**
 | Element specifikacije | Opis |
@@ -105,7 +119,9 @@
 | **Alternativni tokovi / Iznimke** | **1a - Darivatelj se nije pojavio** Darivatelj se nije pojavio na terminu pa se automatski upisuje da nije došao.  |
 | **Posljedice (ishod)** | Darivatelju je označen dolazak. |
 
+
 ---
+
 
 **UC-009: Predlaganje terenske akcije**
 | Element specifikacije | Opis |
@@ -117,7 +133,9 @@
 | **Alternativni tokovi / Iznimke** | **4a - Djelatnik odbija** navodi razlog odbijanja. |
 | **Posljedice (ishod)** | Terenska akcija darivanja je uspješno upisana u sustav (ili je uspješno odbijena uz obrazloženje). |
 
+
 ---
+
 
 **UC-010: Slanje hitnog poziva za darivanje**
 | Element specifikacije | Opis |
@@ -129,7 +147,9 @@
 | **Alternativni tokovi / Iznimke** | **4a - Djelatnik odbija** navodi razlog odbijanja. |
 | **Posljedice (ishod)** | Poslane obavijesti s poveznicom o slobodnim terminima. |
 
+
 ---
+
 
 **UC-011: Upravljanje dozama krvi**
 | Element specifikacije | Opis |
@@ -141,7 +161,9 @@
 | **Alternativni tokovi / Iznimke** | **4a - Spremanje nije uspjelo** sustav javlja grešku, a stanje ostaje nepromijenjeno  |
 | **Posljedice (ishod)** | Status doze je ažuriran i evidentiran, zalihe su preračunate |
 
+
 ---
+
 
 **UC-012: Izvoz statističkih podataka**
 | Element specifikacije | Opis |
@@ -153,7 +175,9 @@
 | **Alternativni tokovi / Iznimke** | **2a - nema podataka** sustav ne nudi izvoz |
 | **Posljedice (ishod)** | Djelatnik je preuzeo CSV datoteku sa statistikom zaliha|
 
+
 ---
+
 
 **UC-013: Upravljanje transfuzijskim centrima**
 | Element specifikacije | Opis |
@@ -165,7 +189,9 @@
 | **Alternativni tokovi / Iznimke** | **4a - nevaljani podaci** sustav prikazuje poruku o grešci i ne sprema podatke |
 | **Posljedice (ishod)** | Popis centara i njihov prikaz na karti su ažurirani. |
 
+
 ---
+
 
 **UC-014: Ispunjavanje upitnika**
 | Element specifikacije | Opis |
@@ -177,7 +203,9 @@
 | **Alternativni tokovi / Iznimke** | **2a - Nedovršen upitnik** Ako korisnik ne odgovori na sva obavezna pitanja sustav ga upozori i ne dopušta nastavak rezervacije.<br> **4a - Nije podoban** Sustav ga upozorava, ne dopušta rezervaciju te mu javlja kada će opet biti podoban.<br> **4b - Odbijanje na pregledu** Sustav upozorava korisnika o mogućnosti da bude odbijen na pregledu |
 | **Posljedice (ishod)** | Odobrena podobnost i može nastaviti s rezervacijom |
 
+
 ---
+
 
 **UC-015: Sinkronizacija s kalendarom**
 | Element specifikacije | Opis |
@@ -203,4 +231,3 @@
 
 ---
 
-**Završna provjera:** Dijagram, specifikacije obrazaca uporabe i matrica sljedivosti međusobno su usklađeni. Svaki važan obrazac uporabe povezan je s postojećim zahtjevom, akteri odgovaraju stvarnim ulogama u aplikaciji, a opisani glavni i alternativni tijekovi odgovaraju ponašanju koje sustav stvarno podržava.

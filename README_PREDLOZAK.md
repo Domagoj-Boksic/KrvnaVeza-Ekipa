@@ -18,9 +18,8 @@ KrvnaVeza povezuje darivatelje krvi, transfuzijske centre i organizatore terensk
 
 **Ključne funkcionalnosti**
 
-- [Reprezentativna funkcionalnost koju korisnici mogu isprobati]
-- [Druga reprezentativna funkcionalnost]
-- [Po želji dodatna funkcionalnost; nemojte kopirati cijeli popis zahtjeva]
+- Pregled transfuzijskih centara i terenskih akcija darivanja krvi na interaktivnoj karti
+- Rezervacija željenog termina za darivanje krvi putem aplikacije
 
 Za potpuni opseg, zahtjeve, oblikovanje i dokaze ispitivanja pogledajte [docs](docs/Home.md).
 

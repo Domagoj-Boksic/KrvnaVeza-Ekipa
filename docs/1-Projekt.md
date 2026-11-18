@@ -50,5 +50,3 @@ Navedeno je izostavljeno jer nije dio odobrenog zadatka i nadilazi vremenski okv
 Krv trenutno građani mogu donirati u transfuzijski centrima i organiziranim akcijama, no sve te informacije su raštrkane po internetu, plakatima i panoima. U Hrvatskoj samo 4-5 % osoba daruje krv ("https://hztm.hr/2025/01/22/vodic-za-darivanje-krvi/"). Ovaj projekt bi mogao povećati te brojke spajajući sve informacije na jedno mjesto i aktivnim obavještavanjem darivatelja o akcijama i potrebama popunjavanja zaliha.
 
 ---
-
->**Završna provjera:** Opis problema, cilj projekta, korisnici i dionici, granice opsega te postojeći pristupi međusobno su usklađeni. Navedene koristi ne predstavljaju neprovjerene tvrdnje, a uključene i izostavljene funkcionalnosti odgovaraju odobrenom projektnom zadatku.

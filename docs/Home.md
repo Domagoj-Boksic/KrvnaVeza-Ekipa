@@ -43,17 +43,11 @@ Dokumentacija se kontinuirano ažurira kako se aplikacija razvija.
 
 ## Organizacija projekta i razvojni proces
 
-**Način rada:** [Stvarni način rada i trajanje iteracije, ako je relevantno.]  
-**Praćenje trenutačnih zadataka i nedostataka:** [Poveznica na GitHub Issues ili stvarno korištenu ploču zadataka.]
+**Način rada:** Komunikaciju vodimo primarno preko WhatsApp-a za razrješavanje trenutnih problema ili dodatno pojašnjenje raspodjele posla. Sastanak vodimo na dvotjednoj bazi gdje detaljno razrađujemo sljedeće korake i nakon toga voditelj piše Issues koji su sukladni sa stavkama dogovorenim na sastanku.  
 
-<details>
-<summary><strong>Opis načina rada tima</strong></summary>
 
-**Primjer — CrisisMap:**
+**Praćenje trenutačnih zadataka i nedostataka:** [Poveznica na GitHub Issues.](https://github.com/Domagoj-Boksic/KrvnaVeza-Ekipa/issues)
 
-Navedite pristup koji tim stvarno koristi. Tim koji razvija CrisisMap može organizirati prijave, rad na karti i provjere kao GitHub Issues, jednom tjedno raspraviti prioritete i iznad postaviti poveznicu na svoju aktivnu ploču zadataka. Takav je konkretan opis procesa informativniji od tvrdnje da tim koristi „Scrum” ako zapravo ne primjenjuje njegove prakse. Stvarni tim treba navesti vlastiti ritam rada i odgovornosti; dokumentacija ne treba duplicirati ploču zadataka. Primjer opisuje mogući tijek rada (engl. workflow), a ne tvrdi da je objavljeni tim CrisisMapa radio upravo tako.
-
-</details>
 
 ## Pravila dokumentacije
 
