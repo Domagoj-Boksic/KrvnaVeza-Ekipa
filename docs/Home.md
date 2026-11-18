@@ -1,23 +1,16 @@
 # KrvnaVeza — Projektna dokumentacija
 
 **Kolegij:** [Programsko inženjerstvo](https://www.fer.unizg.hr/predmet/proinz), Fakultet elektrotehnike i računarstva Sveučilišta u Zagrebu  
-**Akademska godina:** [2026./2027.]  
+**Akademska godina:** 2026./2027. 
 **Tim:** Ekipa 
 **Nastavnik:** Vlado Sruk  
-**Asistent / demonstrator:** [Ime i uloga u ovom izvođenju kolegija]
+**Asistent / demonstrator:** Saša Kendjel (asistent), Mirko Bušić (demonstrator)
 
 ## Pregled projekta
 
 **Cilj:** Omogućiti čitatelju koji prvi put vidi projekt da u dvije ili tri rečenice prepozna aplikaciju, njezine ciljane korisnike i glavnu svrhu.
 
-Aplikacija KrvnaVeza povezuje darivatelje krvi s transfuzijskim centrima te obližnjim akcijama darivanja krvi. Njihovim prikazom na karti i mogućnost rezervacija termina putem aplikacije puno olakšava proces darivanja korisniku. Sustav aktivno obavještava darivatelje o aktualnim akcijama darivanja i njihovoj podobnosti darivanja te centre o stanju zaliha i potiče ih na slanje obavijesti da je darivanje potrebno korisnicima.
-
-<details>
-<summary><strong>Sažet pregled projekta</strong></summary>
-
-Za projekt na temu CrisisMap sažet pregled može navesti građane kojima trebaju informacije o kriznim događajima povezane s njihovom lokacijom te cilj aplikacije da prijave kriznih događaja prikaže na karti. Funkcionalnost spomenite samo ako pripada odobrenom zadatku tima; bez dokaza nemojte tvrditi da aplikacija poboljšava odgovor hitnih službi. Ovo je primjer informativnog pregleda, a ne tekst za prepisivanje niti dokaz da je funkcionalnost ostvarena.
-
-</details>
+Aplikacija KrvnaVeza povezuje darivatelje krvi s transfuzijskim centrima i obližnjim akcijama darivanja. Lokacije i akcije prikazuju se na karti, a termin se može rezervirati putem aplikacije. Sustav obavještava darivatelje o akcijama i o tome kada ponovno smiju darivati, a djelatnicima centara omogućuje praćenje zaliha i slanje hitnih poziva kad su zalihe kritične.
 
 **Aplikacija i osnovno postavljanje:** [README repozitorija](../README_PREDLOZAK.md#quick-start)  
 **Javno dostupna aplikacija:** pogledajte [README – Postavljanje](../README_PREDLOZAK.md#deployment)
@@ -50,17 +43,11 @@ Dokumentacija se kontinuirano ažurira kako se aplikacija razvija.
 
 ## Organizacija projekta i razvojni proces
 
-**Način rada:** [Stvarni način rada i trajanje iteracije, ako je relevantno.]  
-**Praćenje trenutačnih zadataka i nedostataka:** [Poveznica na GitHub Issues ili stvarno korištenu ploču zadataka.]
+**Način rada:** Komunikaciju vodimo primarno preko WhatsApp-a za razrješavanje trenutnih problema ili dodatno pojašnjenje raspodjele posla. Sastanak vodimo na dvotjednoj bazi gdje detaljno razrađujemo sljedeće korake i nakon toga voditelj piše Issues koji su sukladni sa stavkama dogovorenim na sastanku.  
 
-<details>
-<summary><strong>Opis načina rada tima</strong></summary>
 
-**Primjer — CrisisMap:**
+**Praćenje trenutačnih zadataka i nedostataka:** [Poveznica na GitHub Issues.](https://github.com/Domagoj-Boksic/KrvnaVeza-Ekipa/issues)
 
-Navedite pristup koji tim stvarno koristi. Tim koji razvija CrisisMap može organizirati prijave, rad na karti i provjere kao GitHub Issues, jednom tjedno raspraviti prioritete i iznad postaviti poveznicu na svoju aktivnu ploču zadataka. Takav je konkretan opis procesa informativniji od tvrdnje da tim koristi „Scrum” ako zapravo ne primjenjuje njegove prakse. Stvarni tim treba navesti vlastiti ritam rada i odgovornosti; dokumentacija ne treba duplicirati ploču zadataka. Primjer opisuje mogući tijek rada (engl. workflow), a ne tvrdi da je objavljeni tim CrisisMapa radio upravo tako.
-
-</details>
 
 ## Pravila dokumentacije
 

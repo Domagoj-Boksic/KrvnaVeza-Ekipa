@@ -1,9 +1,10 @@
-const Pool = reqire("pg").Pool;
+//console.log("Ključ učitan:", !!process.env.SUPABASE_SERVICE_ROLE_KEY);
+const { createClient } = require("@supabase/supabase-js");
+require("dotenv").config();
 
-const pool = new Pool({
-    user: "postgres",
-    password: "bazepodataka",
-    host: "localhost",
-    port: 5432,
-    database: "krvaVeza"
-})
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
+
+module.exports = supabase;

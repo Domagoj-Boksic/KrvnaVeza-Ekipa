@@ -5,6 +5,8 @@ import { useAuth } from "../../hooks/AuthContext";
 import Button from "../../components/button/Button";
 import Logo from "../../components/logo/Logo"
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+
 const AuthPage = () => {
   const { user, loading } = useAuth();
   if (loading) return null;

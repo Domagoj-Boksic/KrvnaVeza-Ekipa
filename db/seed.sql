@@ -35,11 +35,12 @@ INSERT INTO ulica (ulica_id, naziv, pbr) VALUES
 (4,'Korzo',51000),
 (5,'Europska avenija',31000);
 
-INSERT INTO transfuzijski_centar (transfuzijski_centar_id, naziv, broj_adrese, radno_vrijeme, ulica_id) VALUES
+INSERT INTO transfuzijski_centar (transfuzijski_centar_id, naziv, broj_adrese, radno_vrijeme, ulica_id, lat, lng) VALUES
 (1,'Transfuzijski centar Zagreb',12,
-   '{"pon-pet":"07:00-15:00","sub":"08:00-12:00"}', 2),
+   '{"pon-pet":"07:00-15:00","sub":"08:00-12:00"}', 2, 45.80030000, 15.97500000),
 (2,'Transfuzijski centar Split',5,
-   '{"pon-pet":"07:30-14:30"}', 3);
+   '{"pon-pet":"07:30-14:30"}', 3, 43.50810000, 16.44020000);
+   
 
 -- =========================================================================
 -- USERS, ROLES, PERMISSIONS
