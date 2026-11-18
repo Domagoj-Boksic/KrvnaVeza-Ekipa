@@ -217,7 +217,9 @@
 | **Alternativni tokovi / Iznimke** | **2a - Nedostaju dopuštenja** Korisnik nije dao dopuštenje za Google Kalendar. |
 | **Posljedice (ishod)** | Termin je dodan u kalendar, a ako unos nije moguć, rezervacija termina ostaje valjana |
 
+
 ---
+
 
 ## 3.3 Provjera dosljednosti obrazaca uporabe
 
