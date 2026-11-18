@@ -1,4 +1,6 @@
 // api za backend, pravimo _service.js za posebne slučajeve
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+
 async function request(path, {method = "GET", body, headers = {}} = {}) {
     const res = await fetch(path, {
         method,

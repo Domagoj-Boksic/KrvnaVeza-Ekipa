@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const session = require('express-session');
 const passport = require('passport');
 const centriRoutes = require('./routes/centriRoutes');
@@ -9,6 +10,19 @@ const authRoutes = require('./routes/authRoutes');
 const requireAuth = require('./middleware/requireAuth');
 
 const app = express();
+const isProduction = process.env.NODE_ENV === 'production';
+
+
+if (isProduction) {
+  app.set('trust proxy', 1);
+}
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  credentials: true
+}));
+
+
 app.use(express.json());
 
 app.use(session({
@@ -17,7 +31,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    sameSite: 'lax',
+    sameSite: isProduction ? 'none' : 'lax',
     secure: false,
     maxAge: 24 * 60 * 60 * 1000
   },
