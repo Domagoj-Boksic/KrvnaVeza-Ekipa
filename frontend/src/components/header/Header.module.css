@@ -1,0 +1,148 @@
+.header {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 72px;
+  z-index: 1100;
+  border-top: 2px solid var(--black);
+}
+
+/* dropdown styles */
+.profileIconContainer {
+  position: relative;
+  display: flex;
+  flex: 1;
+}
+
+.profileIconContainer .icon {
+  width: 40px;
+  height: auto;
+}
+
+.drop {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  min-width: 120px;
+  background: var(--white);
+  border: 1px solid var(--gray-500);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  z-index: 1100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dropItem {
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  color: var(--black);
+  border-bottom: 1px solid var(--gray-500);
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+.dropItem:last-child {
+  border: none;
+}
+
+.right {
+  display: flex;
+  width: 100%;
+}
+
+.navItem {
+  background: none;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  text-decoration: none;
+  flex: 1;
+  min-width: 0;
+}
+.navIcon {
+  width: 32px;
+  height: auto;
+}
+
+.dropItem:hover,
+.navItem:hover {
+  background-color: var(--gray-100);
+  color: var(--primary-red);
+}
+
+.active {
+  color: var(--primary-red);
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    border-bottom: 2px solid var(--black);
+    border-top: none;
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+  }
+
+  .profileIconContainer {
+    position: relative;
+    display: flex;
+    flex: initial;
+  }
+
+  .drop {
+    bottom: auto;
+    top: 100%;
+    height: min-content;
+  }
+
+  .right {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    gap: calc(30% / 5);
+  }
+
+  .navItem {
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    text-decoration: none;
+    flex:none;
+  }
+
+  .navIcon {
+    display: none;
+  }
+  .profileIcon {
+    display: flex;
+  }
+  .profileLabel {
+    display: none;
+  }
+
+  .active {
+    color: var(--primary-red);
+    outline: none;
+  }
+}

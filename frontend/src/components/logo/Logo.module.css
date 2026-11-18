@@ -1,0 +1,35 @@
+.authLogo .icon {
+  max-width: 140px;
+  height: auto;
+}
+.headerLogo {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .authLogo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-left: 5rem;
+  }
+  .authLogo .icon {
+    width: 60%;
+    max-width: 30rem;
+    height: auto;
+  }
+
+  .headerLogo {
+    max-width: 240px;
+    display: flex;
+    align-items: center;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .headerLogo .icon {
+    width: 52px;
+    height: auto;
+  }
+}

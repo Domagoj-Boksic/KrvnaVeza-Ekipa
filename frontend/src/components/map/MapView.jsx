@@ -26,12 +26,12 @@ const MapView = () => {
 
   return (
     <MapContainer
-      className={styles.map}
-      center={ZAGREB}
-      zoom={15}
-      maxZoom={18}
-      minZoom={12}
-      scrollWheelZoom={false}>
+     className={styles.map}
+     center={ZAGREB} 
+     zoom={15}
+     maxZoom={18}
+     minZoom={12}
+     scrollWheelZoom={true}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap contributors"
