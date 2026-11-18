@@ -1,4 +1,12 @@
 require('dotenv').config();
+
+console.log('ENV CHECK', {
+  frontend: process.env.FRONTEND_URL,
+  callback: process.env.GOOGLE_CALLBACK_URL,
+  clientIdStart: (process.env.GOOGLE_CLIENT_ID || '').slice(0, 12),
+  nodeEnv: process.env.NODE_ENV,
+});
+
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
