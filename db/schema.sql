@@ -77,6 +77,8 @@ CREATE TABLE transfuzijski_centar
   broj_adrese INT NOT NULL,
   radno_vrijeme JSONB NOT NULL,
   ulica_id INT NOT NULL,
+  lat DECIMAL(10, 8), --geografsska širina
+  lng DECIMAL(11, 8), -- geografska dužina
   PRIMARY KEY (transfuzijski_centar_id),
   FOREIGN KEY (ulica_id) REFERENCES ulica(ulica_id)
 );
