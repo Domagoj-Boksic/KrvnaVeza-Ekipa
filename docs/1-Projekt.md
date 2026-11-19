@@ -33,7 +33,6 @@ Darivatelj na njoj vidi kada i gdje može darivati i rezervira termin, centar pr
 - statistika zaliha s izvozom u CSV te administracija centara, korisnika i parametara sustava
 
 **Izvan opsega ili odgođeno:** 
-- mobilne aplikacije (sustav je web aplikacija prilagođena mobilnim uređajima)
 - integracija s bolničkim informacijskim sustavima
 - stvarno medicinsko testiranje i potvrda zdravstvenog stanja darivatelja (sustav samo evidentira statuse)
 

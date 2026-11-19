@@ -32,17 +32,21 @@ U ovom poglavlju opisani su funkcijski i nefunkcijski zahtjevi sustava KrvnaVeza
 
 | ID | Opis | Prioritet | Izvor | Način provjere |
 | --- | --- | --- | --- | --- |
-| NF-01 | Aplikacija treba biti izvedena kao web aplikacija prilagođena (responsive) mobilnom uređaju.| Visok | Projektni zadatak | Testirati aplikaciju pri širini od 360px u različitim web-preglednicima. |
-| NF-02 | Podaci o zdravstvenom stanju darivatelja dostupni su samo djelatnicima transfuzijskog centra, a svaki pristup tim podacima bilježi se u zapisnik. | Visok | Projektni zadatak | Provjeriti pristup s drugih računa tj. neovlaštenim korisnicima te pregledati zapisnik pristupa. |
-| NF-03 | Darivatelj može zatražiti brisanje korisničkog računa, pri čemu se evidencija njegovih darivanja anonimizira, ali ne briše, jer je potrebna za sljedivost doza krvi| Visok | Projektni zadatak | Pokrenuti zahtjev brisanja računa uz provjeru jesu li podaci anonimizirani te ostali u sustavu zaliha krvi. |
-| NF-04 | Stanje zaliha na prikazima mora se ažurirati automatski, bez ručnog osvježavanja. | Visok | Projektni zadatak | Promjena vidljiva svim korisnicima unutar 5 sekundi bez osvježavanja. |
-| NF-05| Sustav mora ograničiti pristup funkcionalnostima i podacima prema ulozi korisnika. | Visok | Projektni zadatak | Testiranje dopuštenih i zabranjenih radnji za svaku ulogu. |
-| NF-06 | Sustav mora jasno obraditi nedostupnosti vanjskih usluga i obavijestiti o tome korisnika. | Srednji | Projektna pretpostavka | Simuliranje takvih nedostupnosti i provjera ponašanja sustava. |
-| NF-07 | Svaka doza krvi ima svoj jedinstveni id i povijest promjena statusa s vremenom | Visok | Projektni zadatak| Provjeriti prikaz i evidenciju statusa doza krvi. |
+| NF-01 | Kompatibilnost s mobitelima | Visok | Projektni zadatak | Testirati aplikaciju pri širini od 360px u različitim web-preglednicima. |
+| NF-02 | Sigurnost korisničkih podataka  | Visok | Projektni zadatak | Provjeriti pristup s drugih računa tj. neovlaštenim korisnicima te pregledati zapisnik pristupa. |
+| NF-03 | Zakonska usklađenost (GDPR) - podaci obrisanih korisnika moraju biti trajno anonimizirani | Visok | Projektni zadatak | Pokrenuti zahtjev brisanja računa te uz izravan pristup bazi provjeriti jesu li podaci (npr. ime, prezime) anonimizirani |
+| NF-04 | Performanse ( vrijeme odziva ) - bez ručnog osvježavanja zaliha | Visok | Projektni zadatak | Promjena vidljiva svim korisnicima unutar 5 sekundi bez osvježavanja. |
+| NF-05| Sigurnost ( Autorizacija ) - uloge | Visok | Projektni zadatak | Testiranje slanjem direktnih API zahtjeva i npr. testiranje može li uloga korisnik uređivati zaliha ili će izbaciti grešku |
+| NF-06 | Pouzdanost i otpornost na greške - obavijestiti korisnika o nedostupnosti vanjske usluge ili prekidu veze | Srednji | Projektna pretpostavka | Simuliranje takvih nedostupnosti vanjskih usluga i provjera ponašanja sustava. |
+| NF-07 | Integritet i sljedivost podataka doza krvi - imaju svoj id i status | Visok | Projektni zadatak| Analizirati zapise u bazi podataka, provjeriti kronološki slijed svih doza i njihovih statusa. |
+| NF-08 | Sigurnost ( Autentifikacija ) - Aplikacija mora koristiti sigurnosni protokol OAuth 2.0 za zaštitu korisničkih podataka. (A-01 do A-04) | Visok | Projektni zadatak | Provjera mogućnosti prijave i redirect na Google sučelje za prijavu. |
+| NF-09 | Dostupnost - kritične funkcije (hitni pozivi, zalihe i podaci darivatelja) dostupni tijekom demonstracije i testnog razdoblja | Visok | Projektna pretpostavka | Pratiti dopstupnost kritičnih funkcija tijekom testnog razdoblja putem dostupnih alata na webu |
+| NF-10 | Upotrebljivost - jezik sučelja hrvatski | Srednji | Projektna pretpostavka | Pregled korisničkog sučelja |
+| NF-11 | Intuitivnost - jednostavno korištenje web-aplikacije (jasni nazivi, opis dostupnih funkcionalnosti, upute za korištenje web-aplikacije s navedenim koracima korištenja) | Srednji | Projektna pretpostavla | Testiranje s pet osoba koje ne poznaju sustav: svaka mora samostalno bez pomoći prijaviti se u sustav i izvršiti rezervaciju na jedan od ponuđenih termina |
+
 
 ## 2.3 Dionici i akteri
 
-**Cilj:** Utvrditi uloge koje utječu na zahtjeve i razlikovati dionike od aktera koji komuniciraju s aplikacijom.
 
 | ID uloge ili aktera | Odnos prema sustavu | Relevantni zahtjevi |
 | --- | --- | --- |

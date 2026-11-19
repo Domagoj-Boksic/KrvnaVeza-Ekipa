@@ -85,7 +85,7 @@
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Darivatelj krvi (A-01) |
-| **Povezani zahtjevi** | F-005, F-006 |
+| **Povezani zahtjevi** | F-005, F-006, F-010 |
 | **Preduvjeti** | Darivatelj je prijavljen u sustav. Termin ima slobodnog mjesta/Akcija je aktualna. |
 | **Glavni uspješni tok** | 1. Darivatelj pristupa rezervaciji. <br> 2. Ispunjava kratki upitnik o podobnosti (UC-014). <br> 3. Zadovoljen je kriterij podobnosti <br> 4. Termin se dodaje u Google Kalendar te je generiran QR kod |
 | **Alternativni tokovi / Iznimke** | **2a - Otkazivanje termina** Otkazivanje do 2 sata prije početka  |
@@ -127,7 +127,7 @@
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Organizator (A-03) |
-| **Povezani zahtjevi** | F-015, F-016 |
+| **Povezani zahtjevi** | F-002, F-006, F-015, F-016, F-021 |
 | **Preduvjeti** | Organizator je prijavljen u sustav kao organizator, što podrazumijeva neke dodatne ovlasti i dozvole za predlaganje akcija. |
 | **Glavni uspješni tok** | 1. organizator predlaže akciju <br> 2. za svaku akciju navodi lokaciju, datum, vrijeme i očekivani broj dolazaka <br> 3. sustav sprema akciju u status predložene <br> 4. Djelatnik transfuzijskog centra prihvaća akciju i dodjeljuje joj tim. |
 | **Alternativni tokovi / Iznimke** | **4a - Djelatnik odbija** navodi razlog odbijanja. |
@@ -141,7 +141,7 @@
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Djelatnik centra (A-02) |
-| **Povezani zahtjevi** | F-014 |
+| **Povezani zahtjevi** | F-005, F-012, F-014, F-020 |
 | **Preduvjeti** | Zalihe određene krvne grupe pale su ispod kritične razine. Djelatnik je prijavljen sa odgovarajućim dozvolama. |
 | **Glavni uspješni tok** | 1. zalihe određene krvne grupe pale su ispod kritične razine <br> 2. djelatnik centra obaviješten je o kritičnoj zalihi <br> 3. djelatniku je omogućeno da pošalje hitan poziv <br> 4. Djelatnik odobrava slanje hitnog poziva <br> 5. sustav putem SMS-a obaviještava podobne korisnike na tom području |
 | **Alternativni tokovi / Iznimke** | **4a - Djelatnik odbija** navodi razlog odbijanja. |
@@ -169,7 +169,7 @@
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Djelatnik centra (A-02) |
-| **Povezani zahtjevi** | F-019 |
+| **Povezani zahtjevi** | F-012, F-019 |
 | **Preduvjeti** | Djelatnik je prijavljen u sustav sa potrebnim dozvolama i ovlastima. |
 | **Glavni uspješni tok** | 1. djelatnik otvara stranicu "Statistika" <br> 2. Sustav prikazuje kretanje zaliha po krvnim grupama <br> 3. Djelatnik odabire izvoz u CSV <br> 4. Sustav generira datoteku i omogućuje preuzimanje   |
 | **Alternativni tokovi / Iznimke** | **2a - nema podataka** sustav ne nudi izvoz |
@@ -183,7 +183,7 @@
 | Element specifikacije | Opis |
 | :--- | :--- |
 | **Primarni akter** | Administrator (A-04) |
-| **Povezani zahtjevi** | F-020 |
+| **Povezani zahtjevi** | F-002, F-020 |
 | **Preduvjeti** | Administrator je prijavljen u sustav sa svim dozvolama i ovlastima. |
 | **Glavni uspješni tok** | 1. Administrator otvara popis transfuzijskih centara <br> 2. Odabire dodavanje novog ili uređivanje postojećih <br> 3. Unosi podatke <br> 4. Sustav provjerava podatke pa ih sprema  |
 | **Alternativni tokovi / Iznimke** | **4a - nevaljani podaci** sustav prikazuje poruku o grešci i ne sprema podatke |
