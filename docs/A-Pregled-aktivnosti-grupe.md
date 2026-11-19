@@ -46,6 +46,8 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 | Popravak backenda nakon spajanja grana | MJ | 1 | Nakon spajanja PR #15 iz `backend/package.json` nestale su ovisnosti potrebne za pokretanje backenda pa sam ih vratio |
 | Priprema podataka o prijavi za UML dijagrame | MJ | 1 | JSN-u sam poslao opis toka prijave, sudionika i mogućih grešaka te izvor sekvencijskog dijagrama prijave |
 | Izrada baze podataka | LJG | 10 | Zadatak #3 |
+| Baze podataka | DG | 6 |  Zadatak #3 i prebacivanje baze na cloud (Supabase) |
+| Integracija baze s frontendom | DG | 4 | Implementacija backend API endpointa /api/centri |
 | Dokumentacija | EP | 10 | Pregled dokumentacije, nadopuna readme predloška, uređivanje zahtjeva i obrazaca uporabe |
 
 
