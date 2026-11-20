@@ -49,6 +49,7 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 | Baze podataka | DG | 6 |  Zadatak #3 i prebacivanje baze na cloud (Supabase) |
 | Integracija baze s frontendom | DG | 4 | Implementacija backend API endpointa /api/centri |
 | Dokumentacija | EP | 10 | Pregled dokumentacije, nadopuna readme predloška, uređivanje zahtjeva i obrazaca uporabe |
+| Vođenje projekta | EP | 6 | Pisanje issuea, raspodjela poslova, pisanje dokumentacije vezano uz sastanke i uloge |
 
 
 ## A.4 Pregled promjena u repozitoriju
