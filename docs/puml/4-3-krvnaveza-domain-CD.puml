@@ -1,0 +1,156 @@
+@startuml
+title Sustav KrvnaVeza – domenski model rezervacije termina i podobnosti
+
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam packageStyle rectangle
+skinparam ArrowColor #212529
+
+skinparam class {
+    BackgroundColor #E7F1FF
+    BorderColor #0D6EFD
+}
+
+skinparam note {
+    BackgroundColor #F8F9FA
+    BorderColor #212529
+    FontColor #212529
+}
+
+' ==============================================================================
+' Aplikacijski sloj: orkestrira obrasce uporabe (UC-006, UC-008, UC-014, UC-015)
+' i provjerava ovlasti prije delegiranja domenskom sloju.
+' ==============================================================================
+package "Aplikacijski sloj" {
+
+  class RezervacijaServis <<ApplicationService>> {
+    +rezervirajTermin(darivateljId: int, terminId: int, odgovori: UpitnikPodobnosti): RezervacijaTermina
+    +otkaziRezervaciju(darivateljId: int, terminId: int): void
+    +evidentirajDolazak(terminId: int, darivateljId: int, djelatnikId: int): void
+    +evidentirajOdbijanje(terminId: int, darivateljId: int, djelatnikId: int, razlog: String, krajOdgode: Date, trajno: Boolean): void
+  }
+
+  interface KalendarSinkronizacija <<Interface>> {
+    +dodajTerminUKalendar(korisnikId: int, termin: Termin): Boolean
+  }
+
+}
+
+' ==============================================================================
+' Domenski sloj: sadrži poslovno stanje i sučelja repozitorija.
+' ==============================================================================
+package "Domenski sloj" {
+
+  class RezervacijaTermina <<Entity>> <<AggregateRoot>> {
+    -terminId: int
+    -darivateljId: int
+    -status: StatusRezervacije
+    +generirajQrSadrzaj(): String
+    +potvrdiDolazak(): void
+    +zapocniPregled(): void
+    +zapocniDarivanje(): void
+    +dovrsiDarivanje(): void
+    +odbijNaPregledu(): void
+    +otkazi(trenutnoVrijeme: DateTime, pocetakTermina: DateTime): void
+    +oznaciNedolazak(): void
+  }
+
+  class UpitnikPodobnosti <<ValueObject>> {
+    -tetovaza: Boolean {readOnly}
+    -putovanje: Boolean {readOnly}
+    -lijekovi: List<String> {readOnly}
+    +imaRizikOdbijanja(): Boolean
+  }
+
+  class Termin <<Entity>> {
+    -terminId: int
+    -transfuzijskiCentarId: int
+    -kapacitet: int
+    -trajanje: int
+    -datumVrijemeZakazano: DateTime
+    +imaSlobodnogMjesta(brojAktivnih: int): Boolean
+  }
+
+  class OdgodaDarivatelja <<Entity>> {
+    -odbijeniDarivateljId: int
+    -darivateljId: int
+    -terminId: int [0..1]
+    -djelatnikId: int [0..1]
+    -razlog: String
+    -datumKrajaOdgode: Date [0..1]
+    -trajnaNepodobnost: Boolean
+    +jeAktivnaNaDatum(datum: Date): Boolean
+  }
+
+  enum StatusRezervacije {
+    REZERVIRAN
+    PRISTUPIO
+    NA_PREGLEDU
+    DARIVANJE_U_TIJEKU
+    USPJESNO_DAROVANO
+    ODBIJEN_NA_PREGLEDU
+    OTKAZAN
+    NIJE_PRISTUPIO
+  }
+
+  interface RezervacijaRepozitorij <<Repository>> {
+    +pronadi(terminId: int, darivateljId: int): RezervacijaTermina
+    +brojAktivnihZaTermin(terminId: int): int
+    +spremi(rezervacija: RezervacijaTermina): void
+  }
+
+  interface TerminRepozitorij <<Repository>> {
+    +pronadiPoId(terminId: int): Termin
+  }
+
+  interface OdgodaRepozitorij <<Repository>> {
+    +pronadiAktivnuZaDarivatelja(darivateljId: int, datum: Date): OdgodaDarivatelja
+    +spremi(odgoda: OdgodaDarivatelja): void
+  }
+
+}
+
+' ==============================================================================
+' Veze i višestrukosti
+' ==============================================================================
+RezervacijaTermina "1" *-- "1" UpitnikPodobnosti : sadrži ►
+RezervacijaTermina "0..*" --> "1" Termin : odnosi se na ►
+RezervacijaTermina ..> StatusRezervacije : ima stanje ►
+
+RezervacijaServis ..> RezervacijaTermina : stvara / mijenja ►
+RezervacijaServis ..> OdgodaDarivatelja : evidentira ►
+RezervacijaServis ..> RezervacijaRepozitorij : učitava / sprema ►
+RezervacijaServis ..> TerminRepozitorij : dohvaća ►
+RezervacijaServis ..> OdgodaRepozitorij : provjerava / sprema ►
+RezervacijaServis ..> KalendarSinkronizacija : sinkronizira ►
+
+' ==============================================================================
+' Poslovna pravila i ograničenja (F-005, F-006, F-008, F-010, AS-02)
+' ==============================================================================
+note right of RezervacijaTermina
+  Nova rezervacija nastaje u stanju REZERVIRAN
+  nakon provjere podobnosti (F-005, F-010) i
+  slobodnog kapaciteta termina (F-006).
+
+  Dopušteni prijelazi stanja:
+  - otkazi(): REZERVIRAN -> OTKAZAN
+    (dopušteno najkasnije 2h prije pocetakTermina)
+  - potvrdiDolazak(): REZERVIRAN -> PRISTUPIO
+  - zapocniPregled(): PRISTUPIO -> NA_PREGLEDU
+  - zapocniDarivanje(): NA_PREGLEDU -> DARIVANJE_U_TIJEKU
+  - dovrsiDarivanje(): DARIVANJE_U_TIJEKU -> USPJESNO_DAROVANO
+  - odbijNaPregledu(): NA_PREGLEDU -> ODBIJEN_NA_PREGLEDU
+  - oznaciNedolazak(): REZERVIRAN -> NIJE_PRISTUPIO
+
+  USPJESNO_DAROVANO, ODBIJEN_NA_PREGLEDU,
+  OTKAZAN i NIJE_PRISTUPIO su završna stanja.
+end note
+
+note bottom of RezervacijaServis
+  Sinkronizacija s Google Kalendarom (UC-015) je
+  opcionalna: ako korisnik nije dao dopuštenje ili
+  poziv ne uspije, rezervacija ostaje valjana (AS-02).
+  Pri odbijanju na pregledu stvara se OdgodaDarivatelja.
+end note
+
+@enduml
