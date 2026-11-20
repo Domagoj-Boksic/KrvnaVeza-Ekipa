@@ -37,7 +37,7 @@ package "Aplikacijski sloj" {
 }
 
 ' ==============================================================================
-' Domenski sloj: sadrži poslovno stanje, invarijante i sučelja repozitorija.
+' Domenski sloj: sadrži poslovno stanje i sučelja repozitorija.
 ' ==============================================================================
 package "Domenski sloj" {
 
