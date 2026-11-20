@@ -44,12 +44,15 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 | Popravak backenda nakon spajanja grana | MJ | 1 | Nakon spajanja PR #15 iz `backend/package.json` nestale su ovisnosti potrebne za pokretanje backenda pa sam ih vratio |
 | Priprema podataka o prijavi za UML dijagrame | MJ | 1 | JSN-u sam poslao opis toka prijave, sudionika i mogućih grešaka te izvor sekvencijskog dijagrama prijave |
 | Izrada baze podataka | LJG | 10 | Zadatak #3 |
+| Izrada frontenda dio | JSN | 5 | Implementacija servisa (`centriService.js`) i interaktivne karte s markerima i popupovima (`MapView.jsx`) |
 | Baze podataka | DG | 6 |  Zadatak #3 i prebacivanje baze na cloud (Supabase) |
 | Integracija baze s frontendom | DG | 4 | Implementacija backend API endpointa /api/centri |
 | Dokumentacija | EP | 10 | Pregled dokumentacije, nadopuna readme predloška, uređivanje zahtjeva i obrazaca uporabe |
 |Dokumentacija | DG | 3 | Zadatak #8 PlantUML ER dijagram |
 | Vođenje projekta | EP | 8 | Pisanje issuea, raspodjela poslova, pisanje dokumentacije vezano uz sastanke i uloge te završna predaja |
 | Deployment i dokumentacija | DB | 2 | Deploy aplikacije pomoću Rendera, ispunjene upute instalacije i korištenja u README_PREDLOZAK |
+| 4. zadatak | JSN | 4 | Zadatak 4 |
+| Integracija i spajanje grana za predaju | JSN | 1 | Spajanje grane `development` s najnovijim kodom i dokumentacije u `main` granu prije 1. predaje |
 
 ## A.4 Pregled promjena u repozitoriju
 
