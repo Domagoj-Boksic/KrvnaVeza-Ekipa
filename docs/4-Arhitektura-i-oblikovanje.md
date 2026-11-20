@@ -89,6 +89,7 @@ Započnite crtanjem granice oko predloženog sustava. Unutar nje prepoznajte dij
 
 **ER dijagram:**
 <details><summary>KrvnaVeza ER dijagram</summary>
+
 ![ER dijagram sustava KrvnaVeza](/docs/assets/diagrams/4-2-krvnaveza-data-ERD.svg)  
 **Izvor dijagrama:** [docs/puml/4-2-krvnaveza-data-ERD.puml](../docs/puml/4-2-krvnaveza-data-ERD.puml)  
 **Implementacija:** Relacijska shema baze podataka definirana je u SQL skripti [db/schema.sql](../db/schema.sql) (izvedena na PostgreSQL / Supabase poslužitelju)
