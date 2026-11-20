@@ -87,9 +87,13 @@ Započnite crtanjem granice oko predloženog sustava. Unutar nje prepoznajte dij
 
 **Cilj:** Prikazati važne pohranjene entitete, njihove identifikatore i veze te dovoljno atributa za razumijevanje podataka aplikacije. ER dijagram odvojen je od reprezentativnog UML dijagrama razreda u nastavku.
 
-**ER dijagram:** [Ugradite čitljiv dijagram projekta.]  
-**Izvor dijagrama:** [Poveznica na njegov izvor.]  
-**Implementacija:** [Navedite gdje je odgovarajući model podataka definiran u projektu.]
+**ER dijagram:**
+<details><summary>KrvnaVeza ER dijagram</summary>
+
+![ER dijagram sustava KrvnaVeza](/docs/assets/diagrams/4-2-krvnaveza-data-ERD.svg)  
+**Izvor dijagrama:** [docs/puml/4-2-krvnaveza-data-ERD.puml](../docs/puml/4-2-krvnaveza-data-ERD.puml)  
+**Implementacija:** Relacijska shema baze podataka definirana je u SQL skripti [db/schema.sql](../db/schema.sql) (izvedena na PostgreSQL / Supabase poslužitelju)
+</details>
 
 <details>
 <summary><strong>Jedna prijava poplave i povezani podaci</strong></summary>

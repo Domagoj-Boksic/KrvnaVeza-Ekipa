@@ -8,26 +8,18 @@ napomenu. Nemojte kopirati nastavni primjer kao rezultat svojeg projekta.
 
 # KrvnaVeza
 
-<details>
-<summary>Zašto je ovaj odjeljak važan</summary>
-
-Započnite README nazivom svojeg projekta i sažetim opisom njegove svrhe. Naziv projekta ne mora sam po sebi objašnjavati čemu projekt služi, ali opis uz naziv treba novom čitatelju omogućiti da brzo razumije što aplikacija radi.
-
-</details>
-
-[U jednoj rečenici navedite što aplikacija omogućuje svojim korisnicima.]
+Web aplikacija koja darivateljima krvi omogućuje pregled transfuzijskih centara i akcija darivanja na karti, rezervaciju termina te primanje obavijesti kada ponovno smiju darivati.
 
 **Projekt na kolegiju:** Ovu je aplikaciju razvio studentski tim u sklopu kolegija [Programsko inženjerstvo](https://www.fer.unizg.hr/predmet/proinz) na Fakultetu elektrotehnike i računarstva Sveučilišta u Zagrebu (FER).
 
 ## Opis aplikacije
 
-[U dvije ili tri rečenice objasnite problem, ciljane korisnike i glavnu korist svoje aplikacije. Trenutačne funkcionalnosti navedite odvojeno od planiranih; opišite stvarni opseg umjesto obećanih mogućnosti.]
+KrvnaVeza povezuje darivatelje krvi, transfuzijske centre i organizatore terenskih akcija. Darivatelj vidi gdje i kada može darivati i rezervira termin, centar prati zalihe i po potrebi šalje hitne pozive, a organizator predlaže terenske akcije i prati njihovu statistiku. Navedene su samo funkcionalnosti koje su u opsegu projekta; planirane funkcionalnosti označene su u dokumentaciji.
 
 **Ključne funkcionalnosti**
 
-- [Reprezentativna funkcionalnost koju korisnici mogu isprobati]
-- [Druga reprezentativna funkcionalnost]
-- [Po želji dodatna funkcionalnost; nemojte kopirati cijeli popis zahtjeva]
+- Pregled transfuzijskih centara i terenskih akcija darivanja krvi na interaktivnoj karti
+- Rezervacija željenog termina za darivanje krvi putem aplikacije
 
 Za potpuni opseg, zahtjeve, oblikovanje i dokaze ispitivanja pogledajte [docs](docs/Home.md).
 
@@ -69,11 +61,14 @@ cd [repository directory]
 
 ## Tehnologije
 
-Navedite nekoliko tehnologija i vanjskih usluga koje bitno određuju kako vaša aplikacija radi. Za svaku navedite njezinu konkretnu ulogu i jedan razlog ili ograničenje važno za projekt. Alat za razvoj ili ispitivanje uključite samo ako je njegova uloga važna za razumijevanje načina na koji je projekt izrađen ili provjeren. Nemojte prepisivati popis ovisnosti (engl. dependencies), statistiku programskih jezika ni popis razvojnih okruženja i komunikacijskih alata. Tablicu provjerite prema stvarnom repozitoriju i pokrenutoj aplikaciji; potrebne verzije i konfiguraciju dokumentirajte u vodiču za instalaciju.
-
 | Tehnologija ili alat | Uloga u ovom projektu | Razlog uporabe ili važno ograničenje |
 | --- | --- | --- |
-| [Naziv] | [Što radi u ovoj aplikaciji] | [Razlog ili ograničenje specifično za projekt] |
+| React (JavaScript) | Korisničko sučelje: karta, rezervacije, profil i sučelja za djelatnike, organizatore i administratore | Stanje zaliha i termina može se osvježavati bez ponovnog učitavanja stranice (NF-04) |
+| Node.js | Poslužiteljski dio: API, prijava, izračun podobnosti, upravljanje dozama i zalihama | isti jezik na klijentu i poslužitelju |
+|  PostgreSQL | Pohrana korisnika, termina, doza i povijesti darivanja | Doze moraju ostati sljedive i nakon anonimizacije računa (NF-03, NF-07) |
+| Google OAuth 2.0 | Prijava korisnika putem tokena | Zahtjev projektnog zadatka (C-01); bez Google računa nema prijave |
+| Google Maps API | Prikaz karte centara i akcija | Ovisi o vanjskoj usluzi; aplikacija mora javiti korisniku ako karta nije dostupna (NF-06) |
+| Google Calendar API | Unos rezerviranog termina u kalendar | Opcionalno; rezervacija vrijedi i bez unosa u kalendar (AS-02) |
 
 <details>
 <summary><strong>Primjer: objašnjenje ključnih tehnoloških odluka</strong></summary>
@@ -95,14 +90,17 @@ Navedite nekoliko tehnologija i vanjskih usluga koje bitno određuju kako vaša 
 
 | Član | Glavna uloga ili doprinos |
 | --- | --- |
-| [Ime] | [Uloga ili doprinos] |
-| [Ime] | [Uloga ili doprinos] |
-
-Uloge se tijekom projekta mogu mijenjati. Repozitorij i dogovoreni alat za praćenje zadataka (engl. task tracker) služe kao dodatni dokazi timskog rada.
+| Ema Pavić | Dokumentacija 1,2,3 aktivnosti i readme predložak, baza podataka |
+| Domagoj Bokšić | Frontend; postavljanje homepagea i prijave za prijenosna računala i mobitele te strukture dokumenata i izrade web-aplikacije |
+| Mihael Jakšić | Backend; uspostava prijave preko Google OAuth2.0 tokena |
+| Ljubo Grubišić | Baza podatka i deploy baze na cloud |
+| Daniel Grubeša | Deploy baze i frontend (prikaz lokacija na karti), dokumantacija 4 |
+| Jakov Szavits Nossan | Frontend i dokumentacija 4|
 
 ## Doprinos projektu
 
-[Ako je primjenjivo, ukratko opišite kako se evidentiraju zadaci i nedostaci te kako se pregledavaju promjene koda i gdje se nalazi aktualna evidencija zadataka. Ako tim održava `CONTRIBUTING.md`, ovdje postavite poveznicu umjesto ponavljanja pravila. Nemojte stvarati tu datoteku samo zato da biste popunili ovaj odjeljak.]
+Zadaci i nedostaci vode se u [GitHub Issues](https://github.com/Domagoj-Boksic/KrvnaVeza-Ekipa/issues) 
+Promjene se pregledavaju preko pull requestova.
 
 <a id="license"></a>
 
