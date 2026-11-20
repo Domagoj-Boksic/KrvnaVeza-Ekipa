@@ -99,24 +99,16 @@ Započnite crtanjem granice oko predloženog sustava. Unutar nje prepoznajte dij
 
 **Cilj:** Prije implementacije reprezentativnog dijela sustava modelirati i prikazati razrede ili sučelja potrebna za dodjelu odgovornosti, operacija i veza. Oblikovanje ažurirajte kada se te odluke promijene.
 
-**Dijagram razreda:** [Ugradite čitljiv UML dijagram razreda za reprezentativni dio oblikovanja.]  
-**PlantUML izvor:** [Poveznica na odgovarajuću `.puml` datoteku.]  
-**Referenca na kod pri završnom pregledu:** [Poveznica na odgovarajuću implementaciju.]
+**Dijagram razreda:** ![Dijagram razreda sustava KrvnaVeza](./assets/diagrams/4-3-krvnaveza-domain-CD.svg)  
+**PlantUML izvor:** [docs/puml/4-3-krvnaveza-domain-CD.puml](./puml/4-3-krvnaveza-domain-CD.puml)  
+**Referenca na kod pri završnom pregledu:** Početno oblikovanje prije implementacije poslovne logike rezervacija; implementacija servisa i pristupa bazi putem Supabase klijenta ([backend/src/models/database.js](../backend/src/models/database.js)) planirana je u [backend/src/services/](../backend/src/services/) (po uzoru na postojeći [userService.js](../backend/src/services/userService.js)).
 
-<details>
-<summary><strong>Oblikovanje odgovornosti prijave i dopuštenih promjena</strong></summary>
+Za reprezentativni dio oblikovanja odabran je proces **rezervacije termina, provjere podobnosti darivatelja i obrade dolaska** (`UC-006`, `UC-008`, `UC-014`, `UC-015`), jer povezuje poslovna pravila (razmak između darivanja, ograničenje otkazivanja, procjenu rizika iz upitnika i privremenu/trajnu odgodu) s vanjskom integracijom (Google Calendar API):
 
-**Primjer — CrisisMap:** Prijava sadrži pravila za promjenu vlastitog statusa. Razred tijeka rada koordinira podnošenje i pregled, dok sučelje repozitorija opisuje potrebne operacije trajne pohrane. Dijagram predlaže te odgovornosti prije implementacije.
-
-![Dijagram razreda za obradu prijava kriznih događaja](./assets/diagrams/4-3-crisismap-domain-CD.svg)
-
-**Slika 4.3. Dijagram razreda za obradu prijava kriznih događaja**
-
-**PlantUML izvor:** [izvor](./puml/4-3-crisismap-domain-CD.puml)
-
-**Analiza primjera:** `DisasterReport` sadrži dopuštena pravila promjene stanja pa tijek rada ne može prešutno odobriti već odbijenu prijavu. `ReportWorkflow` koordinira operaciju bez preuzimanja pravila prijelaza stanja same prijave; `ReportRepository` definira potrebne operacije pohrane. Kompozicija `Location` i odabrani tipovi prikazuju veze korisne za oblikovanje. Dijagram namjerno izostavlja stupce baze podataka i nepovezane razrede: ER model objašnjava pohranjene podatke, dok ovaj dijagram dodjeljuje programske odgovornosti i operacije. Ti su razredi odluka oblikovanja, a ne obavezni slojevi za svaki tim. Završnu implementaciju usporedite s početnim oblikovanjem i ažurirajte dijagram tamo gdje su se odluke promijenile; generiranje dijagrama iz koda tek na kraju ne može zamijeniti ovo početno modeliranje.
-
-</details>
+* **`RezervacijaTermina` (`<<AggregateRoot>>`):** Upravlja životnim ciklusom rezervacije (`StatusRezervacije`) i štiti poslovne invarijante. Status se ne mijenja izravno, već isključivo metodama poput `otkazi()` (koja odbija otkazivanje ako je do početka termina ostalo manje od 2 sata, sukladno `F-006`), `potvrdiDolazak()`, `dovrsiDarivanje()` i `odbijNaPregledu()`.
+* **`UpitnikPodobnosti` (`<<ValueObject>>`):** Nepromjenjivi objekt vezan kompozicijom uz rezervaciju koji obuhvaća odgovore darivatelja (`tetovaza`, `putovanje`, `lijekovi`) i procjenjuje rizik od odbijanja na pregledu (`F-010`).
+* **`Termin` i `OdgodaDarivatelja` (`<<Entity>>`):** `Termin` provjerava raspoloživi kapacitet, dok `OdgodaDarivatelja` bilježi razlog i trajanje odgode (`datumKrajaOdgode`, `trajnaNepodobnost`) kada djelatnik odbije darivatelja na pregledu (`F-008`).
+* **`RezervacijaServis` (`<<ApplicationService>>`):** Koordinira izvođenje slučajeva uporabe — provjerava postoji li aktivna odgoda (`OdgodaRepozitorij`), ima li slobodnih mjesta (`TerminRepozitorij`), pohranjuje promjene putem sučelja `RezervacijaRepozitorij` te poziva `KalendarSinkronizacija` za opcionalni upis termina u Google Kalendar (`AS-02`).
 
 ## 4.4 Ponašanje tijekom izvođenja
 
