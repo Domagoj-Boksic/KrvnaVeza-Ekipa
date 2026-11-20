@@ -29,13 +29,17 @@ Za potpuni opseg, zahtjeve, oblikovanje i dokaze ispitivanja pogledajte [docs](d
 <!-- UPUTA: Ovaj odjeljak opisuje već postavljenu aplikaciju koju se  može otvoriti i isprobati bez lokalnog pokretanja izvornog koda.
 Za Iteraciju 1 i Završni pregled navedite konkretne podatke. Provjerite vodi li URL na javno dostupnu pokrenutu aplikaciju i radi li navedeni tijek uporabe. Nikada ne objavljujte lozinke ni pristupne tokene. -->
 
-**Javno dostupna aplikacija:** [Javni URL]
+**Javno dostupna aplikacija:** https://krvnaveza-10-4.onrender.com
 
-**Isprobajte:** [Jedna ili dvije kratke radnje koje pokazuju funkcionalan korisnički tijek.]
+**Isprobajte:** <br>
+Prijava:<br>
+Klik na profil -> Sign in -> Nastavi s Googleom<br>
+Pregled podataka o transfuzijskom centru:<br>
+Pronađite marker na karti -> kliknite ga<br>
 
-**Demonstracija:** [Objasnite kako dobiti potreban ograničeni pristup ako je prijava obavezna; u suprotnom napišite „Korisnički račun nije potreban.” Ovdje ne objavljujte lozinke ni pristupne tokene.]
+**Demonstracija:** Korisnički račun nije potreban.
 
-**Ograničenja:** [Kratko navedite ograničenja postavljene inačice ili postavite poveznicu na jedinstveno mjerodavno mjesto u dokumentaciji s poznatim problemima.]
+**Ograničenja:** Još nisu rješene uloge te se ne prikazuju podaci o zalihama
 
 [Vodič za postavljanje i pokretanje](docs/6-Postavljanje-instalacija-i-konfiguracija.md) opisuje smještaj aplikacije (engl. hosting) koji tim stvarno koristi. Tim može koristiti Render ili drugu platformu koju ste dogovorili s asistentom/demonstratorom.
 
@@ -44,20 +48,50 @@ Za Iteraciju 1 i Završni pregled navedite konkretne podatke. Provjerite vodi li
 
 <!-- Obavezno od Demo 1 nadalje. Zamijenite mjesta za unos naredbama koje je drugi član tima uspješno provjerio nakon čistog kloniranja repozitorija. Detaljne upute za administraciju držite u projektnoj dokumentaciji u direktoriju docs/. -->
 
-**Preduvjeti:** [Navedite potrebno izvršno okruženje (engl. runtime) i verzija, upravitelj paketa (engl. package manager), baza podataka ili vanjska usluga ako je nužna.]
+**Preduvjeti:** 
+Node.js 20+, npm, Supabase baza podataka, Google OAuth klijent<br>
 
 ```bash
-git clone [repository URL]
-cd [repository directory]
-[install dependencies]
-[run the application]
+git clone https://github.com/Domagoj-Boksic/KrvnaVeza-Ekipa
+cd KrvnaVeza-Ekipa
+```
+**Konfiguracija:** u mapi `backend` kopiraj `.env.example` u `.env` i upiši vlastite vrijednosti<br>
+
+```bash
+cd backend
+cp .env.example .env
 ```
 
-**Adresa:** [Stvarna adresa koju aplikacija ispiše nakon pokretanja.]
+| Varijabla | Gdje se dobiva |
+|---|---|
+| `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` | Google Cloud Console → APIs & Services → Credentials |
+| `GOOGLE_CALLBACK_URL` | `http://localhost:3000/auth/google/callback` (mora biti dodan i u Authorized redirect URIs u Google konzoli) |
+| `FRONTEND_URL` | `http://localhost:5173` |
+| `PORT` | `3000` |
+| `SESSION_SECRET` | proizvoljan dugi nasumični niz |
+| `SUPABASE_URL` | Supabase → Project Settings → API |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API Keys |
 
-**Konfiguracija:** [Navedite potrebne varijable okruženja (engl. environment variables) ili uputite na sigurnu datoteku `.env.example`; objasnite gdje se dobivaju vrijednosti. Nikada ne stavljajte stvarne pristupne podatke u ovu datoteku, primjer konfiguracije, snimke zaslona, zapise ni zapise promjena (engl. commits).]
+**Pokretanje** (dva terminala):
+- u oba krenite iz korijena repozitorija
 
-[Dodajte kratak korak provjere, primjerice koja se stranica treba otvoriti ili koja naredba pokreće osnovnu provjeru.] Za detaljno postavljanje pogledajte [projektnu dokumentaciju](docs/Home.md).
+```bash
+# Terminal 1
+cd backend
+npm install
+npm start
+```
+
+```bash
+# Terminal 2
+cd frontend
+npm install
+npm run dev
+```
+
+**Adresa:** http://localhost:5173/
+
+**Provjera:** otvori http://localhost:5173/. Trebala bi se prikazati karta s lokacijama transfuzijskih centara prikazanih markerima. Klikom na marker trebali bi se prikazati podaci o samom transfuzijskom centru.
 
 ## Tehnologije
 

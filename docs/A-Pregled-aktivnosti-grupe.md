@@ -49,6 +49,7 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 | Dokumentacija | EP | 10 | Pregled dokumentacije, nadopuna readme predloška, uređivanje zahtjeva i obrazaca uporabe |
 |Dokumentacija | DG | 3 | Zadatak #8 PlantUML ER dijagram |
 | Vođenje projekta | EP | 8 | Pisanje issuea, raspodjela poslova, pisanje dokumentacije vezano uz sastanke i uloge te završna predaja |
+| Deployment i dokumentacija | DB | 2 | Deploy aplikacije pomoću Rendera, ispunjene upute instalacije i korištenja u README_PREDLOZAK |
 
 ## A.4 Pregled promjena u repozitoriju
 
