@@ -223,7 +223,7 @@
 
 ## 3.3 Provjera dosljednosti obrazaca uporabe
 
-**Cilj:** Provjeriti međusobnu usklađenost obrazaca uporabe, aktera, zahtjeva i ispitnih slučajeva. Cjelovito mapiranje održava se isključivo u **[matrici sljedivosti zahtjeva](2-Analiza-zahtjeva.md#26-sljedivost-zahtjeva)**.
+**[matrici sljedivosti zahtjeva](2-Analiza-zahtjeva.md#26-sljedivost-zahtjeva)**.
 
 | Provjera | Pitanje za tim |
 | --- | --- |

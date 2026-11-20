@@ -8,7 +8,6 @@
 
 ## Pregled projekta
 
-**Cilj:** Omogućiti čitatelju koji prvi put vidi projekt da u dvije ili tri rečenice prepozna aplikaciju, njezine ciljane korisnike i glavnu svrhu.
 
 Aplikacija KrvnaVeza povezuje darivatelje krvi s transfuzijskim centrima i obližnjim akcijama darivanja. Lokacije i akcije prikazuju se na karti, a termin se može rezervirati putem aplikacije. Sustav obavještava darivatelje o akcijama i o tome kada ponovno smiju darivati, a djelatnicima centara omogućuje praćenje zaliha i slanje hitnih poziva kad su zalihe kritične.
 
@@ -76,7 +75,7 @@ Kratak sažetak: [README – Uporaba umjetne inteligencije](../README_PREDLOZAK.
 
 | Alat | Inačica ili model | Koristio/la | Glavna svrha |
 | --- | --- | --- | --- |
-| [Naziv alata] | [Inačica ili model, ako je poznat] | [Član/članovi tima] | [npr. izrada nacrta dokumentacije, generiranje izvora dijagrama] |
+| Gemini | Gemini(web) | Ema Pavić | Provjera pravopisne točnosti dokumentacije |
 
 ### Opseg doprinosa umjetne inteligencije
 

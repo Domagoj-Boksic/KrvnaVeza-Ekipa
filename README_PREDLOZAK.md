@@ -90,12 +90,12 @@ cd [repository directory]
 
 | Član | Glavna uloga ili doprinos |
 | --- | --- |
-| Ema Pavić | Dokumentacija, baza podataka |
-| Domagoj Bokšić | Frontend; postavljanje homepage i strukture dokumenata i izrade web-aplikacije |
+| Ema Pavić | Dokumentacija 1,2,3 aktivnosti i readme predložak, baza podataka |
+| Domagoj Bokšić | Frontend; postavljanje homepagea i prijave za prijenosna računala i mobitele te strukture dokumenata i izrade web-aplikacije |
 | Mihael Jakšić | Backend; uspostava prijave preko Google OAuth2.0 tokena |
 | Ljubo Grubišić | Baza podatka i deploy baze na cloud |
-| Daniel Grubeša | Deploy baze i frontend (prikaz lokacija na karti i login) |
-| Jakov Szavits Nossan | Frontend i dokumentacija|
+| Daniel Grubeša | Deploy baze i frontend (prikaz lokacija na karti), dokumantacija 4 |
+| Jakov Szavits Nossan | Frontend i dokumentacija 4|
 
 ## Doprinos projektu
 
