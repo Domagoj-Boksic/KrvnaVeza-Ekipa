@@ -1,4 +1,10 @@
 .map {
-    height: 100vh;
-    width: 100vw;
+    height: calc(100dvh - 72px);
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+.map :global(.leaflet-tile-pane) {
+    filter: grayscale(0.7) contrast(0.95)
 }

@@ -10,20 +10,20 @@
     cursor: pointer;
     box-sizing: border-box;
 }
-.btnBase:hover, .btnBase:focus-visible {
-    box-shadow: 0 0 0 4px rgba(209, 54, 54, 0.4);
-    outline: 2px solid rgb(209, 54, 54);
+.btn-base:hover, .btn-base:focus-visible {
+    box-shadow: 0 0 0 4px var(--secondary-red);
+    outline: 2px solid var(--primary-red);
     outline-offset: 2px;
 }
 
 .primary-btn {
-    color: white;
-    background-color: rgb(209, 54, 54);
+    color: var(--white);
+    background-color: var(--primary-red);
     border: none;    
 }
 
 .secondary-btn {
-    background-color: white;
-    color: rgb(209, 54, 54); 
-    border: 2px solid rgb(209, 54, 54);
+    background-color: var(--white);
+    color: var(--primary-red); 
+    border: 2px solid var(--primary-red);
 }
