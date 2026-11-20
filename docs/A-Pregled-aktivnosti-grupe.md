@@ -1,9 +1,8 @@
 # A. Pregled aktivnosti grupe
 
 ## A.1 Evidencija sastanaka
-EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavits Nossan; DG = Daniel Grubeša; LJG = Ljubo Grubeša.
-
-				
+EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavits Nossan; DG = Daniel Grubeša; LJG = Ljubo Grubišić.
+		
 
 | Datum i sudionici | Glavna tema | Donesena odluka ili zadatak  | Poveznica na zadatak ili  rezultat, ako postoji |
 | --- | --- | --- | --- |
@@ -29,8 +28,6 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 
 ## A.3 Aktivnosti i doprinosi članova
 
-**Cilj:** Prikazati koji su članovi radili na važnim projektnim aktivnostima i približan trud koji prijavljuju. Uz implementaciju uključite oblikovanje, dokumentaciju, integraciju, ispitivanje i postavljanje.
-
 | Aktivnost ili rezultat | Član | Prijavljeni sati | Reprezentativni rezultat ili poveznica |
 | --- | --- | --- | --- |
 | Pisanje dokumentacije  | EP  | 7  | Zadatci #1 i #2 |
@@ -49,7 +46,7 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 | Baze podataka | DG | 6 |  Zadatak #3 i prebacivanje baze na cloud (Supabase) |
 | Integracija baze s frontendom | DG | 4 | Implementacija backend API endpointa /api/centri |
 | Dokumentacija | EP | 10 | Pregled dokumentacije, nadopuna readme predloška, uređivanje zahtjeva i obrazaca uporabe |
-| Vođenje projekta | EP | 6 | Pisanje issuea, raspodjela poslova, pisanje dokumentacije vezano uz sastanke i uloge |
+| Vođenje projekta | EP | 8 | Pisanje issuea, raspodjela poslova, pisanje dokumentacije vezano uz sastanke i uloge te završna predaja |
 
 
 ## A.4 Pregled promjena u repozitoriju
@@ -57,8 +54,6 @@ EP = Ema Pavić; DB = Domagoj Bokšić; MJ = Mihael Jakšić; JSN = Jakov Szavit
 Pogledajte [GitHub Contributors Graph](https://github.com/Domagoj-Boksic/KrvnaVeza-Ekipa/graphs/contributors?selectedMetric=commits) za pregled aktivnosti.
 
 ## A.5 Ključni inženjerski izazovi i rješenja
-
-**Cilj:** Dokumentirati stvarne tehničke i organizacijske prepreke s kojima se tim suočio, poduzete korektivne inženjerske korake te konačni ishod. Odaberite konkretne izazove umjesto općenite pohvale timskog rada.
 
 | Izazov | Poduzeta radnja | Ishod ili preostalo ograničenje |
 | --- | --- | --- |
@@ -68,4 +63,3 @@ Pogledajte [GitHub Contributors Graph](https://github.com/Domagoj-Boksic/KrvnaVe
 
 ---
 
->**Završna provjera:** Sastanci navode smislene ishode i odgovorne osobe; plan odražava namjeravani rad; tablica uloženog rada i generirani prikaz repozitorija odnose na ovaj vidljivi projekt; konkretni izazovi povezani su s radnjama i njihovim rezultatima. 
