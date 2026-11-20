@@ -1,0 +1,266 @@
+@startuml
+title Sustav KrvnaVeza – logički podatkovni model
+left to right direction
+
+'skinparam linetype ortho
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam ArrowColor #212529
+
+skinparam entity {
+    BackgroundColor #E7F1FF
+    BorderColor #0D6EFD
+    FontColor #212529
+}
+
+' ==============================================================================
+' Korisnici, uloge i dozvole
+' ==============================================================================
+
+entity "Korisnik" as Korisnik {
+    * korisnik_id : ID <<PK>>
+    --
+    email : text <<UNIQUE>>
+    google_id : text <<UNIQUE>>
+}
+
+entity "Uloga" as Uloga {
+    * uloga_id : ID <<PK>>
+    --
+    naziv : text
+    opis : text
+}
+
+' Asocijativni entitet između korisnika i uloge (veza N:M)
+' Međutablica ( jedan korisnik može biti darivatelj i admin,
+'               a ulogu darivatelj imaju 100 korisnika)
+entity "Korisnik – uloga" as KorisnikUloga {
+    * korisnik_id : ID <<PK, FK>>
+    * uloga_id : ID <<PK, FK>>
+}
+
+entity "Dozvola" as Dozvola {
+    * dozvola_id : ID <<PK>>
+    --
+    naziv : text
+    opis : text
+}
+
+' Asocijativni entitet između uloge i dozvole (veza N:M)
+entity "Uloga – dozvola" as UlogaDozvola {
+    * uloga_id : ID <<PK, FK>>
+    * dozvola_id : ID <<PK, FK>>
+}
+
+entity "Zapis revizije (Audit log)" as AuditLog {
+    * audit_log_id : ID <<PK>>
+    --
+    * korisnik_id : ID <<FK>>
+    akcija : text
+    detalji : text
+    datum_vrijeme : datetime
+}
+
+' ==============================================================================
+' Lokacije
+' ==============================================================================
+
+entity "Županija" as Zupanija {
+    * zupanija_id : ID <<PK>>
+    --
+    naziv : text
+}
+
+entity "Mjesto" as Mjesto {
+    * pbr : integer <<PK>>
+    --
+    * zupanija_id : ID <<FK>>
+    naziv : text
+}
+
+entity "Ulica" as Ulica {
+    * ulica_id : ID <<PK>>
+    --
+    * pbr : integer <<FK>>
+    naziv : text
+}
+
+' ==============================================================================
+' Darivatelj i šifarnici
+' ==============================================================================
+
+entity "Krvna grupa" as KrvnaGrupa {
+    * krvna_grupa_id : ID <<PK>>
+    --
+    naziv : text
+}
+
+entity "Metoda obavijesti" as MetodaObavijesti {
+    * metoda_obavijesti_id : ID <<PK>>
+    --
+    naziv : text
+}
+
+entity "Darivatelj" as Darivatelj {
+    * darivatelj_id : ID <<PK>>
+    --
+    * korisnik_id : ID <<FK, UNIQUE>>
+    * krvna_grupa_id : ID <<FK>>
+    * metoda_obavijesti_id : ID <<FK>>
+    * ulica_id : ID <<FK>>
+    ime : text
+    prezime : text
+    datum_rod : date
+    spol : text
+    broj_telefona : text
+    max_udaljenost : integer
+    broj_adrese_stanovanja : integer
+    krvna_grupa_potvrda : boolean
+}
+
+' ==============================================================================
+' Transfuzijski centri, termini i rezervacije
+' ==============================================================================
+
+entity "Transfuzijski centar" as TransfuzijskiCentar {
+    * transfuzijski_centar_id : ID <<PK>>
+    --
+    * ulica_id : ID <<FK>>
+    naziv : text
+    broj_adrese : integer
+    radno_vrijeme : json
+    lat : decimal
+    lng : decimal
+}
+
+entity "Termin" as Termin {
+    * termin_id : ID <<PK>>
+    --
+    * transfuzijski_centar_id : ID <<FK>>
+    kapacitet : integer
+    trajanje : integer
+    datum_vrijeme_zakazano : datetime
+}
+
+entity "Stanje rezervacije termina" as RezervacijaTerminaStanje {
+    * rezervacija_termina_stanje_id : ID <<PK>>
+    --
+    naziv : text
+}
+
+' Asocijativni entitet između darivatelja i termina s podacima o upitniku
+entity "Rezervacija termina" as RezervacijaTermina {
+    * termin_id : ID <<PK, FK>>
+    * darivatelj_id : ID <<PK, FK>>
+    --
+    * rezervacija_termina_stanje_id : ID <<FK>>
+    upitnik_odgovori : text
+}
+
+' ==============================================================================
+' Doze krvi i terenske akcije
+' ==============================================================================
+
+entity "Stanje doze" as DozaStanje {
+    * doza_stanje_id : ID <<PK>>
+    --
+    naziv : text
+}
+
+entity "Doza" as Doza {
+    * doza_id : ID <<PK>>
+    --
+    * termin_id : ID <<FK>>
+    * darivatelj_id : ID <<FK>>
+    * doza_stanje_id : ID <<FK>>
+    kolicina : decimal
+    rok_trajanja : date
+}
+
+entity "Stanje terenske akcije" as TerenskaAkcijaStanje {
+    * terenska_akcija_stanje_id : ID <<PK>>
+    --
+    naziv : text
+}
+
+entity "Terenska akcija" as TerenskaAkcija {
+    * terenska_akcija_id : ID <<PK>>
+    --
+    * organizator_id : ID <<FK>>
+    * termin_id : ID <<FK>>
+    * terenska_akcija_stanje_id : ID <<FK>>
+    * ulica_id : ID <<FK>>
+    broj_adrese : integer
+}
+
+' ==============================================================================
+' Odbijeni darivatelji i hitni pozivi
+' ==============================================================================
+
+entity "Odbijeni darivatelj" as OdbijeniDarivatelj {
+    * odbijeni_darivatelj_id : ID <<PK>>
+    --
+    * darivatelj_id : ID <<FK>>
+    * termin_id : ID <<FK>>
+    * djelatnik_id : ID <<FK>>
+    razlog : text
+    datum_kraja_odgode : date
+    trajna_nepodobnost : boolean
+}
+
+entity "Hitni poziv" as HitniPoziv {
+    * hitni_poziv_id : ID <<PK>>
+    --
+    * djelatnik_id : ID <<FK>>
+    datum_vrijeme : datetime
+}
+
+' Asocijativni entitet između hitnog poziva i pozvanih darivatelja
+entity "Pozvani darivatelj" as DarivateljPozvan {
+  * hitni_poziv_id : ID <<PK, FK>>
+  * darivatelj_id : ID <<PK, FK>>
+}
+
+' ==============================================================================
+' Veze između entiteta
+' ==============================================================================
+
+Korisnik ||--o{ KorisnikUloga : ima ►
+Uloga ||--o{ KorisnikUloga : dodjeljuje se ►
+Uloga ||--o{ UlogaDozvola : sadrži ►
+Dozvola ||--o{ UlogaDozvola : pripada ►
+Korisnik ||--o{ AuditLog : generira ►
+
+Zupanija ||--o{ Mjesto : obuhvaća ►
+Mjesto ||--o{ Ulica : sadrži ►
+
+Korisnik ||--o| Darivatelj : ima profil ►
+KrvnaGrupa ||--o{ Darivatelj : određuje ►
+MetodaObavijesti ||--o{ Darivatelj : definira kanal ►
+Ulica ||--o{ Darivatelj : adresa stanovanja ►
+
+Ulica ||--o{ TransfuzijskiCentar : lokacija ►
+TransfuzijskiCentar ||--o{ Termin : organizira ►
+
+Termin ||--o{ RezervacijaTermina : uključuje ►
+Darivatelj ||--o{ RezervacijaTermina : podnosi ►
+RezervacijaTerminaStanje ||--o{ RezervacijaTermina : opisuje status ►
+
+Termin ||--o{ Doza : rezultira ►
+Darivatelj ||--o{ Doza : donira ►
+DozaStanje ||--o{ Doza : određuje status ►
+
+Korisnik ||--o{ TerenskaAkcija : organizira ►
+Termin ||--o{ TerenskaAkcija : veže se uz ►
+TerenskaAkcijaStanje ||--o{ TerenskaAkcija : opisuje status ►
+Ulica ||--o{ TerenskaAkcija : mjesto održavanja ►
+
+Darivatelj ||--o{ OdbijeniDarivatelj : evidentiran kao ►
+Termin |o--o{ OdbijeniDarivatelj : na terminu ►
+Korisnik |o--o{ OdbijeniDarivatelj : evidentira ►
+
+Korisnik ||--o{ HitniPoziv : pokreće ►
+HitniPoziv ||--o{ DarivateljPozvan : obuhvaća ►
+Darivatelj ||--o{ DarivateljPozvan : prima poziv ►
+
+@enduml
