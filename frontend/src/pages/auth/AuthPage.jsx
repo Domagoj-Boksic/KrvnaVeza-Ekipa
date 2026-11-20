@@ -1,9 +1,11 @@
-import styles from "./AuthPage.module.css";
-import logo from "../../assets/medical.png";
-import { useAuth } from "../../context/AuthContext";
-import Button from "../../components/button/Button";
-
 import { Navigate } from 'react-router'
+
+import styles from "./AuthPage.module.css";
+import { useAuth } from "../../hooks/AuthContext";
+import Button from "../../components/button/Button";
+import Logo from "../../components/logo/Logo"
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
 
 const AuthPage = () => {
   const { user, loading } = useAuth();
@@ -12,9 +14,7 @@ const AuthPage = () => {
   if (user) return <Navigate to="/" replace />;
   return (
     <div className={styles.container}>
-      <div className={styles.logo}>
-        <img src={logo} alt="logo picture" />
-      </div>
+      <Logo variant="auth" />
       <div className={styles.info}>
         <h1>Spasi život!</h1>
         <p>
