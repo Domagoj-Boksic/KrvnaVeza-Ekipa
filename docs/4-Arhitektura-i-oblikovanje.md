@@ -25,6 +25,7 @@ Za svaki UML dijagram čuvajte čitljivu sliku i PlantUML izvor, kako je opisano
 | Klijent u pregledniku i jedan poslužiteljski API | Više zasebno postavljenih poslužiteljskih usluga | Klijentski dio aplikacije prikazuje rezervacije termina, kartu, zalihe i razne unose podataka. Poslužiteljski sustav provjerava i pohranjuje promjene u bazu podataka. Jedan poslužiteljski sustav upravljiv je za ovaj opseg; kvar može privremeno zaustaviti rad sustava. |
 | Relacijska pohrana podataka | Dokumentno orijentirana pohrana | Svi podaci imaju jasno definirane veze između sebe i sama relacijska shema čini te veze eksplicitnima, ali zahtjeva migracije kada se shema promjeni.  |
 | Autentifikacija preko OAuth 2.0 | Samostalno implementiran sustav za praćenje korisnika i lozinki | Smanjuje se vjerojatnost greške te samim time i sigurnosni rizik. U bazi se povezuje jedinstveni identifikator korisnika. |
+| Pohrana na Supabase | Vlastiti PostgreSQL na vlastitom poslužitelju | Jednostavnije i realističnije s obzirom na opseg projekta |
 
 
 Objasnite glavne arhitekturne odluke bez ponavljanja popisa tehnologija. Ako važna odluka ima ADR, dovoljno je u tablici navesti njegov ID.
@@ -88,27 +89,11 @@ Započnite crtanjem granice oko predloženog sustava. Unutar nje prepoznajte dij
 **Cilj:** Prikazati važne pohranjene entitete, njihove identifikatore i veze te dovoljno atributa za razumijevanje podataka aplikacije. ER dijagram odvojen je od reprezentativnog UML dijagrama razreda u nastavku.
 
 **ER dijagram:**
-<details><summary>KrvnaVeza ER dijagram</summary>
+<summary>KrvnaVeza ER dijagram</summary>
 
 ![ER dijagram sustava KrvnaVeza](/docs/assets/diagrams/4-2-krvnaveza-data-ERD.svg)  
 **Izvor dijagrama:** [docs/puml/4-2-krvnaveza-data-ERD.puml](../docs/puml/4-2-krvnaveza-data-ERD.puml)  
 **Implementacija:** Relacijska shema baze podataka definirana je u SQL skripti [db/schema.sql](../db/schema.sql) (izvedena na PostgreSQL / Supabase poslužitelju)
-</details>
-
-<details>
-<summary><strong>Jedna prijava poplave i povezani podaci</strong></summary>
-
-**Primjer — CrisisMap:** Ana putem svojeg korisničkog računa podnosi prijavu poplave `R-104`. Odabire lokaciju na karti i označava razinu ozbiljnosti kao visoku. Građanin može podnijeti više prijava; svaka prijava pripada jednoj kategoriji kriznog događaja, primjerice *Poplava*. Aplikacija pohranjuje prijavu i njezine koordinate. Kartografske pločice dolaze od vanjskog pružatelja i nisu entiteti u modelu podataka aplikacije.
-
-![ER dijagram podataka sustava CrisisMap](./assets/diagrams/4-2-crisismap-data-ERD.svg)
-
-**Slika 4.2. ER dijagram podataka sustava CrisisMap**
-
-**PlantUML izvor:** [izvor](./puml/4-2-crisismap-data-ERD.puml)
-
-**Analiza primjera:** `R-104` ima jednog autora i jednu kategoriju; Ana i kategorija *Poplava* mogu biti povezane s više prijava. Dijagram prikazuje veze bez prepisivanja svih stupaca baze podataka ili pisanja drugog tabličnog opisa za svaki entitet. Ako aplikacija prihvaća i **anonimne** prijave, tu mogućnost prikažite u vezi s entitetom `Citizen`. Ako su kategorije fiksne vrijednosti, a ne pohranjeni zapisi, nemojte izmišljati tablicu kategorija. Završni ER dijagram usporedite s modelom trajne pohrane i objasnite samo razlike važne za razumijevanje projekta.
-
-</details>
 
 ### 4.3.2 Reprezentativni UML dijagram razreda
 
